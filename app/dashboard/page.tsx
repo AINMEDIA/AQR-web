@@ -5,9 +5,14 @@ import { useAuthContext } from '@/components/auth-provider'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { User, Briefcase, FileText, Settings, Users, Building, Plus } from 'lucide-react'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
+import { User, Briefcase, FileText, Settings, Users, Building, Plus, Upload } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { getJobs, getEmployerJobs, getApplications } from '@/lib/supabaseClient'
+import { JobForm } from '@/components/jobs/job-form'
+import { ProfileForm } from '@/components/profile/profile-form'
+import { ResumeUpload } from '@/components/resume/resume-upload'
+import Link from 'next/link'
 
 export default function DashboardPage() {
   const { user } = useAuthContext()
@@ -15,6 +20,9 @@ export default function DashboardPage() {
   const [jobs, setJobs] = useState<any[]>([])
   const [applications, setApplications] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
+  const [showJobForm, setShowJobForm] = useState(false)
+  const [showProfileForm, setShowProfileForm] = useState(false)
+  const [showResumeUpload, setShowResumeUpload] = useState(false)
 
   useEffect(() => {
     if (user) {
@@ -47,6 +55,11 @@ export default function DashboardPage() {
     } finally {
       setLoading(false)
     }
+  }
+
+  const handleJobCreated = () => {
+    setShowJobForm(false)
+    loadUserData() // Reload data to show new job
   }
 
   const renderAdminSection = () => (
@@ -97,21 +110,29 @@ export default function DashboardPage() {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Button variant="outline" className="w-full justify-start">
-              <Users className="mr-2 h-4 w-4" />
-              Manage Users
+            <Button variant="outline" className="w-full justify-start" asChild>
+              <Link href="/admin/users">
+                <Users className="mr-2 h-4 w-4" />
+                Manage Users
+              </Link>
             </Button>
-            <Button variant="outline" className="w-full justify-start">
-              <Briefcase className="mr-2 h-4 w-4" />
-              Manage Jobs
+            <Button variant="outline" className="w-full justify-start" asChild>
+              <Link href="/admin/jobs">
+                <Briefcase className="mr-2 h-4 w-4" />
+                Manage Jobs
+              </Link>
             </Button>
-            <Button variant="outline" className="w-full justify-start">
-              <Settings className="mr-2 h-4 w-4" />
-              Site Settings
+            <Button variant="outline" className="w-full justify-start" asChild>
+              <Link href="/admin/settings">
+                <Settings className="mr-2 h-4 w-4" />
+                Site Settings
+              </Link>
             </Button>
-            <Button variant="outline" className="w-full justify-start">
-              <FileText className="mr-2 h-4 w-4" />
-              View Reports
+            <Button variant="outline" className="w-full justify-start" asChild>
+              <Link href="/admin/reports">
+                <FileText className="mr-2 h-4 w-4" />
+                View Reports
+              </Link>
             </Button>
           </div>
         </CardContent>
@@ -123,10 +144,20 @@ export default function DashboardPage() {
     <TabsContent value="employer" className="space-y-6">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold">My Job Postings</h2>
-        <Button>
-          <Plus className="mr-2 h-4 w-4" />
-          Post New Job
-        </Button>
+        <Dialog open={showJobForm} onOpenChange={setShowJobForm}>
+          <DialogTrigger asChild>
+            <Button>
+              <Plus className="mr-2 h-4 w-4" />
+              Post New Job
+            </Button>
+          </DialogTrigger>
+          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+            <DialogHeader>
+              <DialogTitle>Post New Job</DialogTitle>
+            </DialogHeader>
+            <JobForm onSuccess={handleJobCreated} onCancel={() => setShowJobForm(false)} />
+          </DialogContent>
+        </Dialog>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -273,8 +304,10 @@ export default function DashboardPage() {
                   <Settings className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
-                  <Button variant="outline" size="sm" className="w-full">
-                    Manage Account
+                  <Button variant="outline" size="sm" className="w-full" asChild>
+                    <Link href="/settings">
+                      Manage Account
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -312,18 +345,40 @@ export default function DashboardPage() {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2">
-                    <Button variant="outline" className="w-full justify-start">
-                      <Briefcase className="mr-2 h-4 w-4" />
-                      Browse Jobs
+                    <Button variant="outline" className="w-full justify-start" asChild>
+                      <Link href="/jobs">
+                        <Briefcase className="mr-2 h-4 w-4" />
+                        Browse Jobs
+                      </Link>
                     </Button>
-                    <Button variant="outline" className="w-full justify-start">
-                      <FileText className="mr-2 h-4 w-4" />
-                      Upload Resume
-                    </Button>
-                    <Button variant="outline" className="w-full justify-start">
-                      <User className="mr-2 h-4 w-4" />
-                      Edit Profile
-                    </Button>
+                    <Dialog open={showResumeUpload} onOpenChange={setShowResumeUpload}>
+                      <DialogTrigger asChild>
+                        <Button variant="outline" className="w-full justify-start">
+                          <Upload className="mr-2 h-4 w-4" />
+                          Upload Resume
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent>
+                        <DialogHeader>
+                          <DialogTitle>Upload Resume</DialogTitle>
+                        </DialogHeader>
+                        <ResumeUpload />
+                      </DialogContent>
+                    </Dialog>
+                    <Dialog open={showProfileForm} onOpenChange={setShowProfileForm}>
+                      <DialogTrigger asChild>
+                        <Button variant="outline" className="w-full justify-start">
+                          <User className="mr-2 h-4 w-4" />
+                          Edit Profile
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+                        <DialogHeader>
+                          <DialogTitle>Edit Profile</DialogTitle>
+                        </DialogHeader>
+                        <ProfileForm />
+                      </DialogContent>
+                    </Dialog>
                   </div>
                 </CardContent>
               </Card>
@@ -335,17 +390,7 @@ export default function DashboardPage() {
           {userRole === 'worker' && renderWorkerSection()}
 
           <TabsContent value="profile" className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle>Profile Management</CardTitle>
-                <CardDescription>
-                  Update your profile information
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-500">Profile form coming soon...</p>
-              </CardContent>
-            </Card>
+            <ProfileForm />
           </TabsContent>
         </Tabs>
       </div>
