@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu, Briefcase, Users, MapPin, Phone, AlertTriangle, User, LogIn } from "lucide-react"
 import { motion } from "framer-motion"
+import { useAuthContext } from "@/components/auth-provider"
 
 const navItems = [
   { href: "/", label: "Home", icon: null },
@@ -20,7 +21,7 @@ const navItems = [
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const { user, signOut, isAuthenticated } = useAuthContext()
   const pathname = usePathname()
 
   useEffect(() => {
@@ -28,20 +29,13 @@ export function Navbar() {
       setIsScrolled(window.scrollY > 10)
     }
     window.addEventListener("scroll", handleScroll)
-    // Check login state on mount
-    setIsLoggedIn(!!localStorage.getItem("user"))
-    // Listen for login/logout changes
-    const onStorage = () => setIsLoggedIn(!!localStorage.getItem("user"))
-    window.addEventListener("storage", onStorage)
     return () => {
       window.removeEventListener("scroll", handleScroll)
-      window.removeEventListener("storage", onStorage)
     }
   }, [])
 
-  function handleLogout() {
-    localStorage.removeItem("user")
-    setIsLoggedIn(false)
+  async function handleLogout() {
+    await signOut()
     window.location.href = "/"
   }
 
@@ -82,7 +76,7 @@ export function Navbar() {
 
           {/* Desktop Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            {isLoggedIn ? (
+            {isAuthenticated ? (
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Button size="sm" className="bg-red-600 text-white hover:bg-red-700" onClick={handleLogout}>
                   Logout
@@ -140,7 +134,7 @@ export function Navbar() {
                 ))}
                 <div className="pt-4 border-t">
                   <div className="flex flex-col space-y-2">
-                    {isLoggedIn ? (
+                    {isAuthenticated ? (
                       <Button variant="ghost" asChild onClick={handleLogout}>
                         <Link href="/">Logout</Link>
                       </Button>
