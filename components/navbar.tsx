@@ -5,7 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu, Briefcase, Users, MapPin, Phone, AlertTriangle, User, LogIn } from "lucide-react"
+import { Menu, Briefcase, Users, MapPin, Phone, AlertTriangle, User, LogIn, LayoutDashboard } from "lucide-react"
 import { motion } from "framer-motion"
 import { useAuthContext } from "@/components/auth-provider"
 
@@ -72,16 +72,44 @@ export function Navbar() {
                 </Link>
               </motion.div>
             ))}
+            {isAuthenticated && (
+              <motion.div whileHover={{ y: -2 }} whileTap={{ y: 0 }}>
+                <Link
+                  href="/dashboard"
+                  className={`flex items-center space-x-1 text-sm font-medium transition-colors hover:text-primary text-white/90 ${
+                    pathname === "/dashboard" ? "text-primary" : ""
+                  }`}
+                >
+                  <LayoutDashboard className="w-4 h-4" />
+                  <span>Dashboard</span>
+                </Link>
+              </motion.div>
+            )}
           </nav>
 
           {/* Desktop Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             {isAuthenticated ? (
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button size="sm" className="bg-red-600 text-white hover:bg-red-700" onClick={handleLogout}>
-                  Logout
-                </Button>
-              </motion.div>
+              <>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="text-white hover:text-gray-900 hover:bg-white/90"
+                    asChild
+                  >
+                    <Link href="/dashboard">
+                      <LayoutDashboard className="w-4 h-4 mr-2" />
+                      Dashboard
+                    </Link>
+                  </Button>
+                </motion.div>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Button size="sm" className="bg-red-600 text-white hover:bg-red-700" onClick={handleLogout}>
+                    Logout
+                  </Button>
+                </motion.div>
+              </>
             ) : (
               <>
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -132,6 +160,20 @@ export function Navbar() {
                     </Link>
                   </motion.div>
                 ))}
+                {isAuthenticated && (
+                  <motion.div whileHover={{ x: 10 }} whileTap={{ scale: 0.95 }}>
+                    <Link
+                      href="/dashboard"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`flex items-center space-x-3 text-lg font-medium transition-colors hover:text-primary ${
+                        pathname === "/dashboard" ? "text-primary" : "text-muted-foreground"
+                      }`}
+                    >
+                      <LayoutDashboard className="w-5 h-5" />
+                      <span>Dashboard</span>
+                    </Link>
+                  </motion.div>
+                )}
                 <div className="pt-4 border-t">
                   <div className="flex flex-col space-y-2">
                     {isAuthenticated ? (
