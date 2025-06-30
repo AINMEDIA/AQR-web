@@ -23,6 +23,7 @@ export default function DashboardPage() {
   const [showJobForm, setShowJobForm] = useState(false)
   const [showProfileForm, setShowProfileForm] = useState(false)
   const [showResumeUpload, setShowResumeUpload] = useState(false)
+  const [showAdminJobForm, setShowAdminJobForm] = useState(false)
 
   useEffect(() => {
     if (user) {
@@ -64,79 +65,59 @@ export default function DashboardPage() {
 
   const renderAdminSection = () => (
     <TabsContent value="admin" className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Users</CardTitle>
-            <Users className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">0</div>
-            <p className="text-xs text-muted-foreground">
-              Registered users
-            </p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Jobs</CardTitle>
-            <Briefcase className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">{jobs.length}</div>
-            <p className="text-xs text-muted-foreground">
-              Active job postings
-            </p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Pending Approvals</CardTitle>
-            <FileText className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">0</div>
-            <p className="text-xs text-muted-foreground">
-              Awaiting review
-            </p>
-          </CardContent>
-        </Card>
-      </div>
-      
-      <Card>
-        <CardHeader>
-          <CardTitle>Quick Actions</CardTitle>
-          <CardDescription>Admin tools and shortcuts</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Button variant="outline" className="w-full justify-start" asChild>
-              <Link href="/admin/users">
-                <Users className="mr-2 h-4 w-4" />
-                Manage Users
-              </Link>
-            </Button>
-            <Button variant="outline" className="w-full justify-start" asChild>
-              <Link href="/admin/jobs">
-                <Briefcase className="mr-2 h-4 w-4" />
-                Manage Jobs
-              </Link>
-            </Button>
-            <Button variant="outline" className="w-full justify-start" asChild>
-              <Link href="/admin/settings">
-                <Settings className="mr-2 h-4 w-4" />
-                Site Settings
-              </Link>
-            </Button>
-            <Button variant="outline" className="w-full justify-start" asChild>
-              <Link href="/admin/reports">
-                <FileText className="mr-2 h-4 w-4" />
-                View Reports
-              </Link>
-            </Button>
+      {userRole !== 'admin' ? (
+        <div className="text-red-600 font-bold text-center py-8">You are not authorized to access admin features.</div>
+      ) : (
+        <>
+          <div className="flex justify-between items-center">
+            <h2 className="text-2xl font-bold">Admin: Manage Jobs</h2>
+            <Dialog open={showAdminJobForm} onOpenChange={setShowAdminJobForm}>
+              <DialogTrigger asChild>
+                <Button>
+                  <Plus className="mr-2 h-4 w-4" />
+                  Create New Job
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+                <DialogHeader>
+                  <DialogTitle>Create New Job</DialogTitle>
+                </DialogHeader>
+                <JobForm onSuccess={handleJobCreated} onCancel={() => setShowAdminJobForm(false)} />
+              </DialogContent>
+            </Dialog>
           </div>
-        </CardContent>
-      </Card>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {jobs.map((job) => (
+              <Card key={job.id}>
+                <CardHeader>
+                  <CardTitle className="text-lg">{job.title}</CardTitle>
+                  <CardDescription>{job.location}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2">
+                    <div className="flex justify-between text-sm">
+                      <span>Status:</span>
+                      <span className={`px-2 py-1 rounded text-xs ${
+                        job.status === 'open' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
+                      }`}>
+                        {job.status}
+                      </span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span>Applications:</span>
+                      <span>{job.applications?.length || 0}</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span>Posted:</span>
+                      <span>{new Date(job.created_at).toLocaleDateString()}</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </>
+      )}
     </TabsContent>
   )
 

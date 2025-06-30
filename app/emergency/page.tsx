@@ -10,7 +10,6 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { PageTransition } from "@/components/page-transition"
 import { AlertTriangle, Phone, MapPin, Clock, Shield, CheckCircle, User, Mail } from "lucide-react"
@@ -71,7 +70,6 @@ export default function EmergencyPage() {
     return (
       <PageTransition>
         <div className="min-h-screen">
-          <Navbar />
           <div className="pt-24 pb-12">
             <div className="container mx-auto px-4">
               <motion.div
@@ -156,7 +154,7 @@ export default function EmergencyPage() {
       </section>
 
       <div className="min-h-screen">
-        <Navbar />
+        {/* <Navbar /> Removed to prevent duplication */}
 
         {/* Header Section */}
         <section className="pb-12 bg-gradient-to-r from-red-600 to-orange-600 text-white">

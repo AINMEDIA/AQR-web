@@ -9,7 +9,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { PageTransition } from "@/components/page-transition"
 import { Mail, Phone, MapPin, Clock, Send, MessageSquare, User, Building, CheckCircle } from "lucide-react"
@@ -103,7 +102,6 @@ export default function ContactPage() {
     return (
       <PageTransition>
         <div className="min-h-screen">
-          <Navbar />
           <div className="pt-24 pb-12">
             <div className="container mx-auto px-4">
               <motion.div
@@ -190,8 +188,6 @@ export default function ContactPage() {
       </section>
 
       <div className="min-h-screen">
-        <Navbar />
-
         {/* Header Section */}
         <section className="pb-12 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
           <div className="container mx-auto px-4">
