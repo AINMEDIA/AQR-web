@@ -58,7 +58,7 @@ export default function SUVsCarHirePage() {
               onChange={handleChange}
               required
               className="w-full border rounded p-2"
-              placeholder="Enter your full name"
+              placeholder="Enter your full name*"
             />
           </div>
           <div>
@@ -70,7 +70,7 @@ export default function SUVsCarHirePage() {
               onChange={handleChange}
               required
               className="w-full border rounded p-2"
-              placeholder="Enter your email or phone"
+              placeholder="Enter your email or phone*"
             />
           </div>
           <div className="grid grid-cols-2 gap-4">

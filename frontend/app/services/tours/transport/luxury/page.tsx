@@ -40,11 +40,11 @@ export default function LuxuryCarHirePage() {
         <form onSubmit={handleSubmit} className="space-y-6 bg-white rounded-xl shadow-lg p-8">
           <div>
             <label className="block text-sm font-medium mb-1">Full Name</label>
-            <input type="text" name="name" value={form.name} onChange={handleChange} required className="w-full border rounded p-2" placeholder="Enter your full name" />
+            <input type="text" name="name" value={form.name} onChange={handleChange} required className="w-full border rounded p-2" placeholder="Enter your full name*" />
           </div>
           <div>
             <label className="block text-sm font-medium mb-1">Contact (Email or Phone)</label>
-            <input type="text" name="contact" value={form.contact} onChange={handleChange} required className="w-full border rounded p-2" placeholder="Enter your email or phone number" />
+            <input type="text" name="contact" value={form.contact} onChange={handleChange} required className="w-full border rounded p-2" placeholder="Enter your email or phone number*" />
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>

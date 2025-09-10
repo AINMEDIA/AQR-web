@@ -64,7 +64,7 @@ export default function WorkerRequestPage() {
           </div>
           <div>
             <label className="block text-sm font-medium mb-1">Contact Person</label>
-            <input type="text" name="contactPerson" value={form.contactPerson} onChange={handleChange} required className="w-full border rounded p-2" placeholder="Enter contact person's name" />
+            <input type="text" name="contactPerson" value={form.contactPerson} onChange={handleChange} required className="w-full border rounded p-2" placeholder="Enter contact person's name*" />
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
@@ -73,7 +73,7 @@ export default function WorkerRequestPage() {
             </div>
             <div>
               <label className="block text-sm font-medium mb-1">Phone</label>
-              <input type="tel" name="phone" value={form.phone} onChange={handleChange} required className="w-full border rounded p-2" placeholder="Enter phone number" />
+              <input type="tel" name="phone" value={form.phone} onChange={handleChange} required className="w-full border rounded p-2" placeholder="Enter phone number*" />
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4">

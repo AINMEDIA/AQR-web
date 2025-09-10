@@ -201,7 +201,7 @@ export default function FloatingActions() {
               type="text" 
               name="name" 
               required 
-              placeholder="Your Name" 
+              placeholder="Your Name*" 
               className="w-full mb-3 px-4 py-2 border rounded" 
               value={emailForm.name} 
               onChange={handleEmailFormChange}
@@ -220,11 +220,12 @@ export default function FloatingActions() {
             <input 
               type="text" 
               name="contact" 
-              placeholder="Phone or WhatsApp (optional)" 
+              required
+              placeholder="Phone or WhatsApp*" 
               className="w-full mb-3 px-4 py-2 border rounded" 
               value={emailForm.contact} 
               onChange={handleEmailFormChange}
-              aria-label="Phone or WhatsApp (optional)"
+              aria-label="Phone or WhatsApp"
             />
             <input 
               type="text" 

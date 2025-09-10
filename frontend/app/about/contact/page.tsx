@@ -31,23 +31,25 @@ export default function ContactPage() {
             <h2 className="text-2xl font-bold text-blue-700 mb-6 text-center transition-all duration-700 group-hover:text-blue-800 group-hover:scale-105">Send Us a Message</h2>
             <form className="grid gap-6">
               <div className="grid grid-cols-2 gap-6">
-                <input type="text" name="name" placeholder="Your Name" className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 hover:border-blue-400" required />
+                <input type="text" name="name" placeholder="Your Name*" className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 hover:border-blue-400" required />
                 <input type="email" name="email" placeholder="Your Email" className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 hover:border-blue-400" required />
               </div>
-              {/* Purpose Dropdown */}
-              <select name="purpose" className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 hover:border-blue-400" required>
-                <option value="">Select Purpose</option>
-                <option value="General Inquiry">General Inquiry</option>
-                <option value="Booking">Booking</option>
-                <option value="Support">Support</option>
-                <option value="Feedback">Feedback</option>
-                <option value="Jobs">Jobs</option>
-                <option value="Tours & Travel">Tours & Travel</option>
-                <option value="Visa">Visa</option>
-                <option value="Hotel">Hotel</option>
-                <option value="Car Hire">Car Hire</option>
-                <option value="Other">Other</option>
-              </select>
+              <div className="grid grid-cols-2 gap-6">
+                <input type="tel" name="contact" placeholder="Phone Number* (e.g. +256700000000)" className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 hover:border-blue-400" required />
+                <select name="purpose" className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 hover:border-blue-400" required>
+                  <option value="">Select Service</option>
+                  <option value="General Inquiry">General Inquiry</option>
+                  <option value="Booking">Booking</option>
+                  <option value="Support">Support</option>
+                  <option value="Feedback">Feedback</option>
+                  <option value="Jobs">Jobs</option>
+                  <option value="Tours & Travel">Tours & Travel</option>
+                  <option value="Visa">Visa</option>
+                  <option value="Hotel">Hotel</option>
+                  <option value="Car Hire">Car Hire</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
               {/* Subject and dynamic fields (for demo, always show) */}
               <input type="text" name="subject" placeholder="Subject (e.g. Booking Reference, Job Title, etc.)" className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 hover:border-blue-400" required />
               <textarea name="message" placeholder="Your Message (please include details relevant to your purpose)" rows={5} className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-300 hover:border-blue-400" required />

@@ -4,9 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from "@/components/ui/sheet"
 import { Menu, Briefcase, Users, MapPin, Phone, User, Globe, Camera, Building2, Info, ChevronDown, ArrowRight, Home, FileText, X } from "lucide-react"
-import { SheetClose } from "@/components/ui/sheet"
 
 const navItems = [
   {
@@ -247,75 +245,89 @@ export function Navbar() {
 
         {/* Mobile Menu Button */}
         <div className="lg:hidden pointer-events-auto">
-          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-            <SheetTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                className={`transition-all duration-300 ${
-                  isScrolled ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-blue-200'
-                }`}
-              >
-                <Menu className="h-6 w-6" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent 
-              side="right" 
-              className="bg-white/98 backdrop-blur-md border-l border-blue-100"
-              style={{ width: '200px', maxWidth: '50vw' }}
+          <Button
+            variant="ghost"
+            size="icon"
+            className={`transition-all duration-300 ${
+              isScrolled ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-blue-200'
+            }`}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            <Menu className="h-6 w-6" />
+          </Button>
+        </div>
+
+        {/* Custom Mobile Menu */}
+        {isMobileMenuOpen && (
+          <>
+            {/* Click area to close menu (outside menu area) */}
+            <div 
+              className="fixed inset-0 z-[44] pointer-events-auto lg:hidden"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+            
+            {/* Custom overlay only behind menu */}
+            <div 
+              className="fixed top-0 right-0 bg-black/10 backdrop-blur-sm z-[45] pointer-events-none"
+              style={{ width: 'min(220px, 55vw)', height: '50vh' }}
+            />
+            
+            {/* Menu content */}
+            <div 
+              className="fixed top-0 right-0 bg-white border-l border-gray-300 shadow-2xl z-[60] pointer-events-auto"
+              style={{ width: '220px', maxWidth: '55vw', height: '50vh' }}
             >
-              <SheetHeader className="sr-only">
-                <SheetTitle>Navigation Menu</SheetTitle>
-              </SheetHeader>
-              <div className="flex flex-col h-full">
-                <div className="flex items-center justify-between mb-8">
+              <div className="flex flex-col h-full overflow-hidden">
+                <div className="flex items-center justify-between mb-6 flex-shrink-0 p-4">
                   <img 
                     src="/android-chrome-512x512.png" 
                     alt="AQR-Web Logo" 
-                    className="h-16 w-auto"
+                    className="h-10 w-auto"
                   />
-                  <SheetClose asChild>
-                    <Button variant="ghost" size="icon">
-                      <X className="h-6 w-6" />
-                    </Button>
-                  </SheetClose>
+                  <Button 
+                    variant="ghost" 
+                    size="icon"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <X className="h-5 w-5" />
+                  </Button>
                 </div>
                 
-                <nav className="flex-1">
+                <nav className="flex-1 overflow-y-auto px-4">
                   <ul className="space-y-2">
                     {navItems.map((item, index) => (
                       <li key={item.href} className="group">
                         <Link
                           href={item.href}
-                          className={`block px-4 py-3 rounded-xl transition-all duration-300 ${
+                          className={`block px-4 py-3 rounded-lg transition-all duration-300 text-base ${
                             pathname === item.href 
-                              ? "bg-blue-100 text-blue-700" 
-                              : "text-gray-700 hover:bg-blue-50 hover:text-blue-700"
+                              ? "bg-blue-600 text-white" 
+                              : "text-gray-900 hover:bg-blue-500 hover:text-white"
                           }`}
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
                           <div className="flex items-center gap-3">
-                            <item.icon className="w-5 h-5" />
+                            <item.icon className="w-5 h-5 flex-shrink-0" />
                             <span className="font-semibold">{item.label}</span>
                           </div>
                         </Link>
                         
                         {item.children && item.children.length > 0 && (
-                          <div className="ml-8 mt-2 space-y-1">
+                          <div className="ml-6 mt-2 space-y-1">
                             {item.children.map((child) => (
                               <Link
                                 key={child.href}
                                 href={child.href}
-                                className={`block px-4 py-2 rounded-lg transition-all duration-300 text-sm ${
+                                className={`block px-3 py-2 rounded transition-all duration-300 text-sm ${
                                   pathname === child.href 
-                                    ? "bg-blue-50 text-blue-700" 
-                                    : "text-gray-600 hover:bg-blue-50 hover:text-blue-700"
+                                    ? "bg-blue-500 text-white" 
+                                    : "text-gray-800 hover:bg-blue-400 hover:text-white"
                                 }`}
                                 onClick={() => setIsMobileMenuOpen(false)}
                               >
                                 <div className="flex items-center gap-2">
-                                  <child.icon className="w-4 h-4" />
-                                  <span>{child.label}</span>
+                                  <child.icon className="w-4 h-4 flex-shrink-0" />
+                                  <span className="font-medium">{child.label}</span>
                                 </div>
                               </Link>
                             ))}
@@ -326,24 +338,18 @@ export function Navbar() {
                   </ul>
                 </nav>
                 
-                <div className="border-t border-gray-200 pt-4">
-                  <div className="text-center text-sm text-gray-500">
+                <div className="border-t border-gray-300 pt-3 flex-shrink-0 px-4 pb-4">
+                  <div className="text-center text-sm text-gray-700 font-semibold">
                     AQR Web Services
                   </div>
                 </div>
               </div>
-            </SheetContent>
-          </Sheet>
-        </div>
+            </div>
+          </>
+        )}
       </nav>
 
-      {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <div 
-          className="fixed inset-0 bg-black/10 backdrop-blur-sm z-40 lg:hidden"
-          onClick={() => setIsMobileMenuOpen(false)}
-        />
-      )}
+
     </>
   );
 }

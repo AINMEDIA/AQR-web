@@ -63,15 +63,7 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
 export function Footer() {
   return (
     <footer className="text-white mt-16 w-full" style={{ background: '#757575' }}>
-      {/* Skyline Illustration - full width, flush top, image */}
-      <div className="w-full">
-        <img src="/images/skyline-footer.jpg" alt="Skyline" className="w-full object-cover object-top" style={{ background: '#f1f5f9' }} />
-      </div>
-       {/* Footer Logo */}
-       <div className="w-full flex justify-center items-center py-6">
-         <img src="/images/footer-logo.png" alt="AQR Footer Logo" className="h-24 w-auto transition-all duration-700 hover:scale-105 hover:shadow-2xl" />
-       </div>
-       {/* Social Links */}
+       {/* Social Links - moved to top */}
        <div className="py-4 w-full" style={{ background: '#757575' }}>
          <div className="max-w-7xl mx-auto px-8">
            <div className="flex flex-col items-center gap-4">
@@ -139,11 +131,25 @@ export function Footer() {
                  <TikTokIcon />
                </a>
              </div>
-             
-             {/* Copyright */}
-             <div className="text-white text-xs text-center">
-               AQR Atlantis Quest & Reality U Ltd © {new Date().getFullYear()}. All rights reserved.
-             </div>
+           </div>
+         </div>
+       </div>
+       
+       {/* Skyline Illustration - moved after social links */}
+       <div className="w-full">
+         <img src="/images/skyline-footer.jpg" alt="Skyline" className="w-full object-cover object-top" style={{ background: '#f1f5f9' }} />
+       </div>
+       
+       {/* Footer Logo - moved after skyline */}
+       <div className="w-full flex justify-center items-center py-6" style={{ background: '#757575' }}>
+         <img src="/images/footer-logo.png" alt="AQR Footer Logo" className="h-24 w-auto transition-all duration-700 hover:scale-105 hover:shadow-2xl" />
+       </div>
+       
+       {/* Copyright - moved to very bottom */}
+       <div className="py-4 w-full" style={{ background: '#757575' }}>
+         <div className="max-w-7xl mx-auto px-8">
+           <div className="text-white text-xs text-center">
+             AQR Atlantis Quest & Reality U Ltd © {new Date().getFullYear()}. All rights reserved.
            </div>
          </div>
        </div>

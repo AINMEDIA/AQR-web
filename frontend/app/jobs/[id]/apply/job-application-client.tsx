@@ -81,7 +81,7 @@ export default function JobApplicationClient({ job }: JobApplicationClientProps)
         <form onSubmit={handleSubmit} className="space-y-6 bg-white rounded-xl shadow-lg p-8">
           <div>
             <label className="block text-sm font-medium mb-1">Full Name</label>
-            <input type="text" name="name" value={form.name} onChange={handleChange} required className="w-full border rounded p-2" placeholder="Enter your full name" />
+            <input type="text" name="name" value={form.name} onChange={handleChange} required className="w-full border rounded p-2" placeholder="Enter your full name*" />
           </div>
           <div>
             <label className="block text-sm font-medium mb-1">Email</label>
@@ -89,7 +89,7 @@ export default function JobApplicationClient({ job }: JobApplicationClientProps)
           </div>
           <div>
             <label className="block text-sm font-medium mb-1">Phone</label>
-            <input type="tel" name="phone" value={form.phone} onChange={handleChange} required className="w-full border rounded p-2" placeholder="Enter your phone number" />
+            <input type="tel" name="phone" value={form.phone} onChange={handleChange} required className="w-full border rounded p-2" placeholder="Enter your phone number*" />
           </div>
           <div>
             <label className="block text-sm font-medium mb-1">CV Upload</label>

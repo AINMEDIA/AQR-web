@@ -165,7 +165,7 @@ ${data.message}
               </label>
               <Input
                 type="text"
-                placeholder="Enter your full name"
+                placeholder="Enter your full name*"
                 value={formData.name}
                 onChange={(e) => handleInputChange('name', e.target.value)}
                 className="border-blue-200 focus:border-blue-500"
@@ -180,7 +180,7 @@ ${data.message}
               </label>
               <Input
                 type="tel"
-                placeholder="+256 700 341 229"
+                placeholder="+256 700 341 229*"
                 value={formData.phone}
                 onChange={(e) => handleInputChange('phone', e.target.value)}
                 className="border-blue-200 focus:border-blue-500"
