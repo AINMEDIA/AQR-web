@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "title": "Skilled Construction Workers",
+    "category": "Construction",
+    "description": "Experienced construction workers needed for large-scale projects in the Middle East. Must have at least 3 years of experience in concrete work, steel fixing, or general construction.",
+    "skills_required": "Concrete work, Steel fixing, General construction",
+    "location": "Dubai, UAE",
+    "duration": "2 years",
+    "workers_available": 50,
+    "hourly_rate": 15,
+    "currency": "USD",
+    "status": "active"
+  },
+  {
+    "id": 2,
+    "title": "Domestic Workers",
+    "category": "Domestic",
+    "description": "Reliable domestic workers for household duties including cleaning, cooking, and childcare. Previous experience preferred but not required.",
+    "skills_required": "Cleaning, Cooking, Childcare",
+    "location": "Riyadh, Saudi Arabia",
+    "duration": "1 year",
+    "workers_available": 30,
+    "hourly_rate": 8,
+    "currency": "USD",
+    "status": "active"
+  },
+  {
+    "id": 3,
+    "title": "Agricultural Workers",
+    "category": "Agriculture",
+    "description": "Hardworking agricultural workers for farm operations including planting, harvesting, and general farm maintenance.",
+    "skills_required": "Farming, Harvesting, Equipment operation",
+    "location": "Doha, Qatar",
+    "duration": "6 months",
+    "workers_available": 25,
+    "hourly_rate": 10,
+    "currency": "USD",
+    "status": "active"
+  },
+  {
+    "id": 4,
+    "title": "Hospitality Staff",
+    "category": "Hospitality",
+    "description": "Professional hospitality staff for hotels and restaurants. Positions available for waiters, housekeepers, and kitchen staff.",
+    "skills_required": "Customer service, Food service, Housekeeping",
+    "location": "Abu Dhabi, UAE",
+    "duration": "1 year",
+    "workers_available": 40,
+    "hourly_rate": 12,
+    "currency": "USD",
+    "status": "active"
+  },
+  {
+    "id": 5,
+    "title": "Manufacturing Workers",
+    "category": "Manufacturing",
+    "description": "Skilled manufacturing workers for factory operations. Experience with machinery operation and quality control preferred.",
+    "skills_required": "Machine operation, Quality control, Assembly",
+    "location": "Jeddah, Saudi Arabia",
+    "duration": "2 years",
+    "workers_available": 35,
+    "hourly_rate": 14,
+    "currency": "USD",
+    "status": "active"
+  }
+] 

@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "Amazing Safari Experience",
+    "author": "John Smith",
+    "description": "Our family had an incredible safari experience with Atlantic Quest & Reality. The guides were knowledgeable and we saw the Big Five! The accommodations were luxurious and the food was outstanding. Highly recommend!",
+    "image_path": "images/Tours Gallary/Tours Gallery1.jpeg"
+  },
+  {
+    "id": 2,
+    "title": "Perfect Wedding Destination",
+    "author": "Sarah Johnson",
+    "description": "We chose Atlantic Quest & Reality for our destination wedding and it was absolutely perfect. The team handled everything flawlessly from the ceremony to the reception. Our guests are still talking about how beautiful everything was.",
+    "image_path": "images/Tours Gallary/Tours Gallery2.jpeg"
+  },
+  {
+    "id": 3,
+    "title": "Adventure of a Lifetime",
+    "author": "Mike Davis",
+    "description": "The adventure tour exceeded all expectations. From hiking to white water rafting, every activity was perfectly organized. The guides were professional and safety was always a priority. Can't wait to book our next adventure!",
+    "image_path": "images/Tours Gallary/Tours Gallery3.jpeg"
+  },
+  {
+    "id": 4,
+    "title": "Luxury Hotel Experience",
+    "author": "Emma Wilson",
+    "description": "Staying at the luxury hotels arranged by Atlantic Quest & Reality was like living in a dream. The service was impeccable, the rooms were stunning, and the views were breathtaking. Worth every penny!",
+    "image_path": "images/Tours Gallary/Tours Gallery4.jpeg"
+  },
+  {
+    "id": 5,
+    "title": "Cultural Immersion",
+    "author": "David Brown",
+    "description": "The cultural tour gave us deep insights into local traditions and customs. We visited authentic villages, learned traditional crafts, and enjoyed local cuisine. It was educational and entertaining at the same time.",
+    "image_path": "images/Tours Gallary/Tours Gallery5.jpeg"
+  },
+  {
+    "id": 6,
+    "title": "Honeymoon Paradise",
+    "author": "Lisa and Tom",
+    "description": "Our honeymoon was absolutely magical thanks to Atlantic Quest & Reality. From romantic dinners to private tours, everything was perfect. The team went above and beyond to make our special time unforgettable.",
+    "image_path": "images/Tours Gallary/Tours Gallery6.jpeg"
+  }
+] 

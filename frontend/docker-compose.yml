@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  aqr-web:
+    image: aqr-web:latest
+    container_name: aqr-web
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:80/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - aqr-network
+
+networks:
+  aqr-network:
+    driver: bridge 

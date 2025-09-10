@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "title": "Tour Guide",
+    "company": "Atlantic Quest & Reality",
+    "location": "Kampala, Uganda",
+    "type": "Full-time",
+    "salary": "$800 - $1200/month",
+    "description": "We are looking for experienced tour guides to lead our safari and cultural tours. Must have excellent communication skills and knowledge of local wildlife and culture.",
+    "requirements": [
+      "Minimum 2 years experience in tourism",
+      "Fluent in English and local languages",
+      "First aid certification",
+      "Valid driver's license",
+      "Knowledge of local wildlife and culture"
+    ],
+    "benefits": [
+      "Competitive salary",
+      "Health insurance",
+      "Paid time off",
+      "Training opportunities",
+      "Travel allowances"
+    ],
+    "category": "Tourism"
+  },
+  {
+    "id": 2,
+    "title": "Hotel Manager",
+    "company": "Atlantic Quest & Reality",
+    "location": "Entebbe, Uganda",
+    "type": "Full-time",
+    "salary": "$1500 - $2500/month",
+    "description": "Manage our luxury hotel operations, ensuring exceptional guest experiences and efficient day-to-day operations.",
+    "requirements": [
+      "Bachelor's degree in Hospitality Management",
+      "Minimum 5 years hotel management experience",
+      "Strong leadership skills",
+      "Excellent customer service",
+      "Financial management skills"
+    ],
+    "benefits": [
+      "Competitive salary",
+      "Health insurance",
+      "Housing allowance",
+      "Performance bonuses",
+      "Professional development"
+    ],
+    "category": "Hospitality"
+  },
+  {
+    "id": 3,
+    "title": "Transport Coordinator",
+    "company": "Atlantic Quest & Reality",
+    "location": "Kampala, Uganda",
+    "type": "Full-time",
+    "salary": "$600 - $1000/month",
+    "description": "Coordinate transportation logistics for our tours, ensuring smooth travel arrangements for all clients.",
+    "requirements": [
+      "Logistics or transportation experience",
+      "Strong organizational skills",
+      "Problem-solving abilities",
+      "Good communication skills",
+      "Knowledge of local routes"
+    ],
+    "benefits": [
+      "Competitive salary",
+      "Transport allowance",
+      "Health insurance",
+      "Paid time off",
+      "Career growth opportunities"
+    ],
+    "category": "Logistics"
+  },
+  {
+    "id": 4,
+    "title": "Marketing Specialist",
+    "company": "Atlantic Quest & Reality",
+    "location": "Remote",
+    "type": "Full-time",
+    "salary": "$800 - $1500/month",
+    "description": "Develop and execute marketing strategies to promote our tourism services and attract international clients.",
+    "requirements": [
+      "Bachelor's degree in Marketing or related field",
+      "Minimum 3 years digital marketing experience",
+      "Social media expertise",
+      "Content creation skills",
+      "Analytics knowledge"
+    ],
+    "benefits": [
+      "Competitive salary",
+      "Remote work options",
+      "Health insurance",
+      "Performance bonuses",
+      "Professional development"
+    ],
+    "category": "Marketing"
+  },
+  {
+    "id": 5,
+    "title": "Chef",
+    "company": "Atlantic Quest & Reality",
+    "location": "Jinja, Uganda",
+    "type": "Full-time",
+    "salary": "$700 - $1200/month",
+    "description": "Create exceptional dining experiences for our guests with a focus on local and international cuisine.",
+    "requirements": [
+      "Culinary degree or equivalent experience",
+      "Minimum 3 years cooking experience",
+      "Knowledge of local and international cuisine",
+      "Food safety certification",
+      "Team management skills"
+    ],
+    "benefits": [
+      "Competitive salary",
+      "Health insurance",
+      "Meals provided",
+      "Paid time off",
+      "Training opportunities"
+    ],
+    "category": "Hospitality"
+  }
+] 

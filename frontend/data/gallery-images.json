@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "Safari Vehicle with Lions",
+    "description": "Safari vehicle with tourists observing lions in their natural habitat",
+    "image_path": "images/Tours Gallary/Tours Gallery1.jpeg"
+  },
+  {
+    "id": 2,
+    "title": "Elephant in the Wild",
+    "description": "Majestic elephant with spread ears against dramatic cloudy sky",
+    "image_path": "images/Tours Gallary/Tours Gallery2.jpeg"
+  },
+  {
+    "id": 3,
+    "title": "Sunset Safari Experience",
+    "description": "Safari vehicle under tree during golden hour with lions nearby",
+    "image_path": "images/Tours Gallary/Tours Gallery3.jpeg"
+  },
+  {
+    "id": 4,
+    "title": "Safari Group Photo",
+    "description": "Group of women posing with safari vehicle in open grassland",
+    "image_path": "images/Tours Gallary/Tours Gallery4.jpeg"
+  },
+  {
+    "id": 5,
+    "title": "Elephant Near Safari Vehicle",
+    "description": "Elephant standing close to dark safari vehicle in savanna",
+    "image_path": "images/Tours Gallary/Tours Gallery5.jpeg"
+  },
+  {
+    "id": 6,
+    "title": "Lioness Portrait",
+    "description": "Close-up portrait of lioness with soft focus on grass",
+    "image_path": "images/Tours Gallary/Tours Gallery6.jpeg"
+  },
+  {
+    "id": 7,
+    "title": "Luxury Transportation",
+    "description": "Travel in comfort and style with our premium vehicles",
+    "image_path": "images/Tours Gallary/Tours Gallery7.jpeg"
+  },
+  {
+    "id": 8,
+    "title": "Gourmet Dining",
+    "description": "Savor exquisite local and international cuisine",
+    "image_path": "images/Tours Gallary/Tours Gallery8.jpeg"
+  },
+  {
+    "id": 9,
+    "title": "Sunset Views",
+    "description": "Witness spectacular sunsets in the most beautiful locations",
+    "image_path": "images/Tours Gallary/Tours Gallery9.jpeg"
+  },
+  {
+    "id": 10,
+    "title": "Beach Paradise",
+    "description": "Relax on pristine beaches with crystal clear waters",
+    "image_path": "images/Tours Gallary/Tours Gallery10.jpeg"
+  },
+  {
+    "id": 11,
+    "title": "Mountain Adventures",
+    "description": "Explore majestic mountains and hiking trails",
+    "image_path": "images/Tours Gallary/Tours Gallery11.jpeg"
+  },
+  {
+    "id": 12,
+    "title": "City Tours",
+    "description": "Discover the vibrant culture and history of urban centers",
+    "image_path": "images/Tours Gallary/Tours Gallery12.jpeg"
+  }
+] 
