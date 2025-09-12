@@ -15,25 +15,35 @@ COPY . .
 # Build the application
 RUN npm run build
 
-# Production stage with Nginx only
-FROM nginx:alpine
+# Production stage with Node.js
+FROM node:18-alpine AS runner
+
+WORKDIR /app
+
+# Create non-root user
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
 
 # Copy built application from builder stage
-COPY --from=builder /app/.next /app/.next
-COPY --from=builder /app/public /app/public
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
 
-# Copy Nginx configuration
-COPY nginx.conf /etc/nginx/nginx.conf
+# Set correct permissions
+RUN chown -R nextjs:nodejs /app
+USER nextjs
 
-# Create nginx directories
-RUN mkdir -p /var/log/nginx /var/cache/nginx
+# Expose port 3000
+EXPOSE 3000
 
-# Expose port 80
-EXPOSE 80
+# Set environment variables
+ENV NODE_ENV=production
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD wget --no-verbose --tries=1 --spider http://localhost:80/health || exit 1
+  CMD wget --no-verbose --tries=1 --spider http://localhost:3000/ || exit 1
 
-# Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Start the application
+CMD ["node", "server.js"]

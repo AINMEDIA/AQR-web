@@ -42,7 +42,7 @@ const socialLinks = [
 ]
 
 const contactInfo = [
-  { icon: Phone, text: "+256700341229 / +256745174879", href: "tel:+256700341229" },
+  { icon: Phone, text: "+256256748840180 / +256748840180", href: "tel:+256256748840180" },
   { icon: Mail, text: "atlantisquest4@gmail.com", href: "mailto:atlantisquest4@gmail.com" },
   { icon: MapPin, text: "Kampala, Uganda" },
   { icon: Clock, text: "Mon-Fri 9AM-6PM EAT" },
@@ -76,7 +76,7 @@ export function Footer() {
                    target="_blank" 
                    rel="noopener noreferrer" 
                    aria-label={social.label} 
-                   className={`transition-all duration-300 hover:scale-110 hover:animate-bounce ${social.color}`}
+                   className={`transition-all duration-300 hover:scale-110 ${social.color}`}
                    style={{ animationDelay: `${index * 100}ms` }}
                  >
                    <social.icon className="w-5 h-5" />
@@ -85,7 +85,7 @@ export function Footer() {
                <a 
                  href="tel:+256748840180" 
                  aria-label="Call Us" 
-                 className="transition-all duration-300 hover:scale-110 hover:animate-bounce hover:text-green-400"
+                 className="transition-all duration-300 hover:scale-110 hover:text-green-400"
                  style={{ animationDelay: '400ms' }}
                >
                  <Phone className="w-5 h-5" />
@@ -95,7 +95,7 @@ export function Footer() {
                  target="_blank" 
                  rel="noopener noreferrer" 
                  aria-label="YouTube" 
-                 className="transition-all duration-300 hover:scale-110 hover:animate-bounce hover:text-red-400"
+                 className="transition-all duration-300 hover:scale-110 hover:text-red-400"
                  style={{ animationDelay: '450ms' }}
                >
                  <Youtube className="w-5 h-5" />
@@ -105,17 +105,17 @@ export function Footer() {
                  target="_blank" 
                  rel="noopener noreferrer" 
                  aria-label="Our Location - Martyrs Mall Kyaliwajara" 
-                 className="transition-all duration-300 hover:scale-110 hover:animate-bounce hover:text-orange-400"
+                 className="transition-all duration-300 hover:scale-110 hover:text-orange-400"
                  style={{ animationDelay: '500ms' }}
                >
                  <MapPin className="w-5 h-5" />
                </a>
                <a 
-                 href="https://wa.me/256700341229" 
+                 href="https://wa.me/256256748840180" 
                  target="_blank" 
                  rel="noopener noreferrer" 
                  aria-label="WhatsApp" 
-                 className="transition-all duration-300 hover:scale-110 hover:animate-bounce hover:text-blue-400"
+                 className="transition-all duration-300 hover:scale-110 hover:text-blue-400"
                  style={{ animationDelay: '550ms' }}
                >
                  <WhatsAppIcon />
@@ -125,7 +125,7 @@ export function Footer() {
                  target="_blank" 
                  rel="noopener noreferrer" 
                  aria-label="TikTok" 
-                 className="transition-all duration-300 hover:scale-110 hover:animate-bounce hover:text-blue-400"
+                 className="transition-all duration-300 hover:scale-110 hover:text-blue-400"
                  style={{ animationDelay: '600ms' }}
                >
                  <TikTokIcon />

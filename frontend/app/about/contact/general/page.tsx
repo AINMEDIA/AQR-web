@@ -29,10 +29,10 @@ export default function GeneralContactPage() {
       setSuccess(true);
       // WhatsApp message
       const message = `General Inquiry\nName: ${form.name}\nEmail: ${form.email}\nSubject: ${form.subject}\nMessage: ${form.message}`;
-      const whatsappUrl = `https://wa.me/256700341229?text=${encodeURIComponent(message)}`;
+      const whatsappUrl = `https://wa.me/256256748840180?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
       setTimeout(() => {
-        const whatsappUrl2 = `https://wa.me/256745174879?text=${encodeURIComponent(message)}`;
+        const whatsappUrl2 = `https://wa.me/256748840180?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl2, '_blank');
         setSubmitting(false);
       }, 1000);
@@ -43,7 +43,7 @@ export default function GeneralContactPage() {
   return (
     <PageTransition>
       <div className="max-w-2xl mx-auto py-12 px-4 animate-fade-in">
-        <h1 className="text-3xl font-bold mb-6 flex items-center gap-2 text-green-800"><Mail className="w-7 h-7 text-green-500 animate-bounce" /> General Inquiry</h1>
+        <h1 className="text-3xl font-bold mb-6 flex items-center gap-2 text-green-800"><Mail className="w-7 h-7 text-green-500 " /> General Inquiry</h1>
         {success && (
           <div className="mb-4 p-4 bg-green-100 text-green-800 rounded-lg">Inquiry submitted! We will contact you soon.</div>
         )}

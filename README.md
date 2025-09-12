@@ -45,17 +45,17 @@ npm run dev
 docker build -t aqr-web .
 
 # Run the container
-docker run -d -p 3007:80 aqr-web
+docker run -d -p 3000:3000 aqr-web
 
 # Access the application
-open http://localhost:3007
+open http://localhost:3000
 ```
 
 ## 🌐 Application URLs
 
 - **Development**: http://localhost:3000
-- **Docker Container**: http://localhost:3007
-- **Production**: Available via Docker Hub: `ainmedia/aqr-web:v4`
+- **Docker Container**: http://localhost:3000
+- **Production**: Available via Docker Hub: `ainmedia/aqr-web:latest`
 
 ## 📋 Features
 
@@ -128,22 +128,28 @@ npm run export
 ```bash
 cd frontend
 docker build -t aqr-web .
-docker run -d -p 3007:80 aqr-web
+docker run -d -p 3000:3000 aqr-web
+```
+
+#### Using Docker Compose
+```bash
+cd frontend
+docker-compose up -d
 ```
 
 #### Deploy to Production
 ```bash
-# Pull the latest image
-docker pull ainmedia/aqr-web:v4
+# Build the image
+docker build -t aqr-web:latest .
 
 # Run the container
-docker run -d -p 80:80 ainmedia/aqr-web:v4
+docker run -d -p 3000:3000 aqr-web:latest
 ```
 
 #### Docker Hub
 The application is available on Docker Hub:
-- **Image**: `ainmedia/aqr-web:v4`
-- **Latest**: `ainmedia/aqr-web:latest`
+- **Image**: `ainmedia/aqr-web:latest`
+- **Port**: 3000
 
 ### Vercel Deployment
 ```bash

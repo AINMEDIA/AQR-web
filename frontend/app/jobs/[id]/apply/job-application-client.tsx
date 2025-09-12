@@ -54,10 +54,10 @@ export default function JobApplicationClient({ job }: JobApplicationClientProps)
       setSuccess(true);
       // WhatsApp message
       const message = `Job Application for ${job.title}\nName: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nCover Letter: ${form.coverLetter}\nCV: [Please attach your CV to this WhatsApp chat]`;
-      const whatsappUrl = `https://wa.me/256700341229?text=${encodeURIComponent(message)}`;
+      const whatsappUrl = `https://wa.me/256256748840180?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
       setTimeout(() => {
-        const whatsappUrl2 = `https://wa.me/256745174879?text=${encodeURIComponent(message)}`;
+        const whatsappUrl2 = `https://wa.me/256748840180?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl2, '_blank');
         setSubmitting(false);
       }, 1000);
@@ -69,7 +69,7 @@ export default function JobApplicationClient({ job }: JobApplicationClientProps)
     <PageTransition>
       <div className="max-w-2xl mx-auto py-12 px-4 animate-fade-in">
         <h1 className="text-3xl font-bold mb-6 flex items-center gap-2 text-indigo-800">
-          <Briefcase className="w-7 h-7 text-indigo-500 animate-bounce" /> 
+          <Briefcase className="w-7 h-7 text-indigo-500 " /> 
           Job Application - {job.title}
         </h1>
         {success && (

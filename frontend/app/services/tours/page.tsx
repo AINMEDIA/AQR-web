@@ -13,10 +13,9 @@ export default function ToursPage() {
             className="absolute inset-0 w-full h-full object-cover"
             data-aos="fade-in"
           />
-          <div className="absolute inset-0 bg-black/40 z-10 transition-all duration-500 group-hover:bg-black/30"></div>
           <div className="relative z-20 text-center text-white px-4" data-aos="fade-up">
-            <h1 className="text-5xl md:text-6xl font-extrabold mb-4 drop-shadow transition-all duration-700 hover:text-blue-200 hover:scale-105 cursor-default">Tour Packages</h1>
-            <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto transition-all duration-700">Explore our curated tour packages for unforgettable experiences.</p>
+            <h1 className="text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-2xl transition-all duration-700 hover:text-blue-200 hover:scale-105 cursor-default">Tour Packages</h1>
+            <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto transition-all duration-700 drop-shadow-lg">Explore our curated tour packages for unforgettable experiences.</p>
           </div>
         </section>
         
@@ -32,7 +31,7 @@ export default function ToursPage() {
               {/* Expert Guides */}
               <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-4 hover:border-blue-400 group cursor-pointer" data-aos="zoom-in" data-aos-delay="100">
                 <div className="flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-blue-100 rounded-full mb-3 md:mb-4 transition-all duration-500 group-hover:bg-blue-200 group-hover:scale-110">
-                  <Users className="w-6 h-6 md:w-8 md:h-8 text-blue-600 group-hover:text-blue-700 animate-bounce" />
+                  <Users className="w-6 h-6 md:w-8 md:h-8 text-blue-600 group-hover:text-blue-700" />
                 </div>
                 <h3 className="text-sm md:text-xl font-bold mb-1 md:mb-2 transition-all duration-700 group-hover:text-blue-700 group-hover:scale-105">Expert Guides</h3>
                 <p className="text-xs md:text-base text-gray-600 transition-all duration-700 opacity-90 group-hover:opacity-100">Professional and experienced tour guides</p>
@@ -41,7 +40,7 @@ export default function ToursPage() {
               {/* Custom Packages */}
               <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-4 hover:border-blue-400 group cursor-pointer" data-aos="zoom-in" data-aos-delay="200">
                 <div className="flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-blue-100 rounded-full mb-3 md:mb-4 transition-all duration-500 group-hover:bg-blue-200 group-hover:scale-110">
-                  <Target className="w-6 h-6 md:w-8 md:h-8 text-blue-600 group-hover:text-blue-700 animate-bounce" />
+                  <Target className="w-6 h-6 md:w-8 md:h-8 text-blue-600 group-hover:text-blue-700 " />
                 </div>
                 <h3 className="text-sm md:text-xl font-bold mb-1 md:mb-2 transition-all duration-700 group-hover:text-blue-700 group-hover:scale-105">Custom Packages</h3>
                 <p className="text-xs md:text-base text-gray-600 transition-all duration-700 opacity-90 group-hover:opacity-100">Tailored experiences for your preferences</p>
@@ -50,7 +49,7 @@ export default function ToursPage() {
               {/* Quality Service - Spans both columns on mobile */}
               <div className="col-span-2 md:col-span-1 bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-4 hover:border-blue-400 group cursor-pointer" data-aos="zoom-in" data-aos-delay="300">
                 <div className="flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-blue-100 rounded-full mb-3 md:mb-4 transition-all duration-500 group-hover:bg-blue-200 group-hover:scale-110">
-                  <Star className="w-6 h-6 md:w-8 md:h-8 text-blue-600 group-hover:text-blue-700 animate-bounce" />
+                  <Star className="w-6 h-6 md:w-8 md:h-8 text-blue-600 group-hover:text-blue-700 " />
                 </div>
                 <h3 className="text-sm md:text-xl font-bold mb-1 md:mb-2 transition-all duration-700 group-hover:text-blue-700 group-hover:scale-105">Quality Service</h3>
                 <p className="text-xs md:text-base text-gray-600 transition-all duration-700 opacity-90 group-hover:opacity-100">Premium service and unforgettable memories</p>
@@ -78,7 +77,7 @@ export default function ToursPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent group-hover:from-blue-900/60 group-hover:via-blue-400/20 group-hover:to-transparent transition-all duration-500"></div>
                   {/* Icon Overlay */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-80 transition-all duration-500 pointer-events-none">
-                    <Globe className="w-16 h-16 text-blue-400/80 group-hover:text-blue-300 animate-bounce" />
+                    <Globe className="w-16 h-16 text-blue-400/80 group-hover:text-blue-300 " />
                   </div>
                   <div className="relative z-10 p-3 md:p-6 flex flex-col justify-end h-full">
                     <h3 className="text-sm md:text-xl font-extrabold text-white mb-1 md:mb-2 drop-shadow-lg transition-all duration-700 group-hover:text-blue-200 group-hover:scale-110 group-hover:-translate-y-2 group-hover:drop-shadow-[0_0_16px_rgba(59,130,246,0.7)]">
@@ -116,7 +115,7 @@ export default function ToursPage() {
                   {/* Feature 1 */}
                   <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-4 hover:border-blue-400 group cursor-pointer">
                     <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full transition-all duration-500 group-hover:bg-blue-200 group-hover:scale-110">
-<Plane className="w-6 h-6 text-blue-600 group-hover:text-blue-700 animate-bounce" />
+<Plane className="w-6 h-6 text-blue-600 group-hover:text-blue-700 " />
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold mb-2 transition-all duration-700 group-hover:text-blue-700 group-hover:scale-105">Transportation</h4>
@@ -127,7 +126,7 @@ export default function ToursPage() {
                   {/* Feature 2 */}
                   <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-4 hover:border-blue-400 group cursor-pointer">
                     <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full transition-all duration-500 group-hover:bg-blue-200 group-hover:scale-110">
-                      <Camera className="w-6 h-6 text-blue-600 group-hover:text-blue-700 animate-bounce" />
+                      <Camera className="w-6 h-6 text-blue-600 group-hover:text-blue-700 " />
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold mb-2 transition-all duration-700 group-hover:text-blue-700 group-hover:scale-105">Photo Opportunities</h4>
@@ -138,7 +137,7 @@ export default function ToursPage() {
                   {/* Feature 3 */}
                   <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-4 hover:border-blue-400 group cursor-pointer">
                     <div className="flex items-center justify-center w-12 h-12 bg-purple-100 rounded-full transition-all duration-500 group-hover:bg-purple-200 group-hover:scale-110">
-                      <Heart className="w-6 h-6 text-purple-600 group-hover:text-purple-700 animate-bounce" />
+                      <Heart className="w-6 h-6 text-purple-600 group-hover:text-purple-700 " />
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold mb-2 transition-all duration-700 group-hover:text-blue-700 group-hover:scale-105">Personalized Service</h4>
@@ -149,7 +148,7 @@ export default function ToursPage() {
                   {/* Feature 4 */}
                   <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-4 hover:border-blue-400 group cursor-pointer">
                     <div className="flex items-center justify-center w-12 h-12 bg-orange-100 rounded-full transition-all duration-500 group-hover:bg-orange-200 group-hover:scale-110">
-                      <Globe className="w-6 h-6 text-orange-600 group-hover:text-orange-700 animate-bounce" />
+                      <Globe className="w-6 h-6 text-orange-600 group-hover:text-orange-700 " />
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold mb-2 transition-all duration-700 group-hover:text-blue-700 group-hover:scale-105">Local Expertise</h4>
@@ -167,7 +166,7 @@ export default function ToursPage() {
                   {/* Benefit 1 */}
                   <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-4 hover:border-blue-400 group cursor-pointer">
                     <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full transition-all duration-500 group-hover:bg-blue-200 group-hover:scale-110">
-<Star className="w-6 h-6 text-blue-600 group-hover:text-blue-700 animate-bounce" />
+<Star className="w-6 h-6 text-blue-600 group-hover:text-blue-700 " />
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold mb-2 transition-all duration-700 group-hover:text-blue-700 group-hover:scale-105">Premium Quality</h4>
@@ -178,7 +177,7 @@ export default function ToursPage() {
                   {/* Benefit 2 */}
                   <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-4 hover:border-blue-400 group cursor-pointer">
                     <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full transition-all duration-500 group-hover:bg-blue-200 group-hover:scale-110">
-                      <Zap className="w-6 h-6 text-blue-600 group-hover:text-blue-700 animate-bounce" />
+                      <Zap className="w-6 h-6 text-blue-600 group-hover:text-blue-700 " />
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold mb-2 transition-all duration-700 group-hover:text-blue-700 group-hover:scale-105">Flexible Options</h4>
@@ -189,7 +188,7 @@ export default function ToursPage() {
                   {/* Benefit 3 */}
                   <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-4 hover:border-blue-400 group cursor-pointer">
                     <div className="flex items-center justify-center w-12 h-12 bg-purple-100 rounded-full transition-all duration-500 group-hover:bg-purple-200 group-hover:scale-110">
-                      <Users className="w-6 h-6 text-purple-600 group-hover:text-purple-700 animate-bounce" />
+                      <Users className="w-6 h-6 text-purple-600 group-hover:text-purple-700 " />
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold mb-2 transition-all duration-700 group-hover:text-blue-700 group-hover:scale-105">Small Groups</h4>
@@ -200,7 +199,7 @@ export default function ToursPage() {
                   {/* Benefit 4 */}
                   <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-4 hover:border-blue-400 group cursor-pointer">
                     <div className="flex items-center justify-center w-12 h-12 bg-orange-100 rounded-full transition-all duration-500 group-hover:bg-orange-200 group-hover:scale-110">
-                      <Car className="w-6 h-6 text-orange-600 group-hover:text-orange-700 animate-bounce" />
+                      <Car className="w-6 h-6 text-orange-600 group-hover:text-orange-700 " />
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold mb-2 transition-all duration-700 group-hover:text-blue-700 group-hover:scale-105">Comfortable Travel</h4>
@@ -226,12 +225,12 @@ export default function ToursPage() {
             <p className="text-lg md:text-xl mb-8 opacity-90 transition-all duration-700" data-aos="fade-up" data-aos-delay="100">Book your unforgettable tour experience with us today or contact our team for a custom package.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="200">
               <a href="/services/tours/hotels/booking" className="inline-flex px-8 py-4 bg-white text-blue-700 font-bold rounded-full shadow-2xl hover:bg-blue-50 hover:text-blue-800 transition-all duration-500 text-xl hover:scale-105 hover:shadow-3xl items-center justify-center gap-3 group">
-                <Globe className="w-6 h-6 group-hover:scale-110 group-hover:animate-bounce transition-all duration-300" />
+                <Globe className="w-6 h-6 group-hover:scale-110 group-hover: transition-all duration-300" />
                 Book Now
                 <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
               </a>
-              <a href="https://wa.me/256745174879" target="_blank" rel="noopener noreferrer" className="inline-flex px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-full shadow-2xl hover:bg-white hover:text-blue-700 transition-all duration-500 text-xl hover:scale-105 hover:shadow-3xl items-center justify-center gap-3 group">
-                <MessageCircle className="w-6 h-6 group-hover:scale-110 group-hover:animate-bounce transition-all duration-300" />
+              <a href="https://wa.me/256748840180" target="_blank" rel="noopener noreferrer" className="inline-flex px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-full shadow-2xl hover:bg-white hover:text-blue-700 transition-all duration-500 text-xl hover:scale-105 hover:shadow-3xl items-center justify-center gap-3 group">
+                <MessageCircle className="w-6 h-6 group-hover:scale-110 group-hover: transition-all duration-300" />
                 WhatsApp Us
                 <ExternalLink className="w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
               </a>

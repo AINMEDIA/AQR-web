@@ -16,9 +16,9 @@ interface Job {
 }
 
 interface PageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 // Generate static params for all job IDs
@@ -28,8 +28,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function JobDetailsPage({ params }: PageProps) {
-  const { id } = params;
+export default async function JobDetailsPage({ params }: PageProps) {
+  const { id } = await params;
   
   // Find the job data
   const job = jobsData.find(job => job.id === parseInt(id));

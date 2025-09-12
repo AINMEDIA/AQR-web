@@ -189,7 +189,7 @@ export function Navbar() {
                     : isScrolled ? "text-gray-700 hover:text-blue-600" : "text-white hover:text-blue-200"
                 }`}
               >
-                <item.icon className={`w-5 h-5 transition-all duration-300 group-hover:scale-110 group-hover:animate-bounce ${item.color}`} />
+                <item.icon className={`w-5 h-5 transition-all duration-300 group-hover:scale-110 ${item.color}`} />
                 {item.label}
                 {item.children && item.children.length > 0 && (
                   <ChevronDown className={`w-4 h-4 transition-all duration-300 group-hover:rotate-180 ${isScrolled ? 'text-gray-700' : 'text-white'}`} />
@@ -226,7 +226,7 @@ export function Navbar() {
                       >
                         <div className="flex items-center gap-3">
                           <div className="flex items-center justify-center w-8 h-8 bg-blue-100 rounded-lg group-hover/item:bg-blue-300 transition-all duration-300">
-                            <child.icon className={`w-4 h-4 transition-all duration-300 group-hover/item:scale-110 group-hover/item:animate-bounce ${child.color}`} />
+                            <child.icon className={`w-4 h-4 transition-all duration-300 group-hover/item:scale-110 ${child.color}`} />
                           </div>
                           <div className="flex-1">
                             <div className="font-semibold text-sm">{child.label}</div>

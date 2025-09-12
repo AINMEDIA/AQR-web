@@ -61,26 +61,26 @@ npm run build
 
 ```bash
 # Build and run with Docker
-./build.sh
-
-# Or manually:
 docker build -t aqr-web:latest .
 docker-compose up -d
+
+# Or run directly:
+docker run -d -p 3000:3000 aqr-web:latest
 ```
 
-The application will be available on port 80.
+The application will be available on port 3000.
 
 ## Architecture
 
-This application uses a **static export** approach:
+This application uses a **standalone Next.js** approach:
 
-- **Build Time**: Next.js generates static HTML/CSS/JS files
-- **Runtime**: Nginx serves static files directly
+- **Build Time**: Next.js generates optimized production build
+- **Runtime**: Node.js serves the application with built-in server
 - **Benefits**: 
-  - Faster loading times
-  - Better SEO
-  - Lower server resource usage
-  - No Node.js runtime required in production
+  - Full Next.js features (SSR, API routes, etc.)
+  - Optimized performance
+  - Docker containerization
+  - Production-ready deployment
 
 ## Environment Variables
 

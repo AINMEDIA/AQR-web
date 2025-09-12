@@ -36,10 +36,10 @@ export default function WorkerRequestPage() {
       setSuccess(true);
       // WhatsApp message
       const message = `Worker Request\nCompany: ${form.company}\nContact Person: ${form.contactPerson}\nEmail: ${form.email}\nPhone: ${form.phone}\nCountry: ${form.country}\nCategory: ${form.category}\nNumber of Workers: ${form.number}\nStart Date: ${form.startDate}\nJob Description: ${form.jobDescription}\nAdditional Info: ${form.info}`;
-      const whatsappUrl = `https://wa.me/256700341229?text=${encodeURIComponent(message)}`;
+      const whatsappUrl = `https://wa.me/256256748840180?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
       setTimeout(() => {
-        const whatsappUrl2 = `https://wa.me/256745174879?text=${encodeURIComponent(message)}`;
+        const whatsappUrl2 = `https://wa.me/256748840180?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl2, '_blank');
         setSubmitting(false);
       }, 1000);
@@ -50,7 +50,7 @@ export default function WorkerRequestPage() {
   return (
     <PageTransition>
       <div className="max-w-2xl mx-auto py-12 px-4 animate-fade-in">
-        <h1 className="text-3xl font-bold mb-6 flex items-center gap-2 text-emerald-800"><Users className="w-7 h-7 text-emerald-500 animate-bounce" /> Worker Request</h1>
+        <h1 className="text-3xl font-bold mb-6 flex items-center gap-2 text-emerald-800"><Users className="w-7 h-7 text-emerald-500 " /> Worker Request</h1>
         {success && (
           <div className="mb-4 p-4 bg-blue-100 text-blue-800 rounded-lg">Worker request submitted! We will contact you soon.</div>
         )}

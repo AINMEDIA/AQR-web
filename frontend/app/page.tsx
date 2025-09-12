@@ -26,7 +26,7 @@ export default function HomePage() {
   ];
   const handleQuoteOption = (msg: string) => {
     setShowQuoteOptions(false);
-    const url = `https://wa.me/256745174879?text=${encodeURIComponent(msg)}`;
+    const url = `https://wa.me/256748840180?text=${encodeURIComponent(msg)}`;
     window.open(url, "_blank");
   };
 
@@ -206,14 +206,14 @@ const features = [
                         alt="Curved Arrow"
                         className="absolute drop-shadow-2xl hidden sm:block"
                         style={{ 
-                          width: '1000px',
-                          maxWidth: '85vw',
+                          width: '600px',
+                          maxWidth: '60vw',
                           height: 'auto',
                           objectFit: 'contain',
                           filter: 'brightness(1.5) contrast(1.3) drop-shadow(0 8px 16px rgba(0,0,0,0.5)) drop-shadow(0 0 20px rgba(255,255,255,0.3))',
-                          left: '45%',
+                          left: '53%',
                           transform: 'translateX(-50%)',
-                          top: '-30px',
+                          top: '-10px',
                           zIndex: 45
                         }}
                       />
@@ -224,8 +224,8 @@ const features = [
                         alt="Curved Arrow"
                         className="absolute drop-shadow-2xl block sm:hidden"
                         style={{ 
-                          width: '550px',
-                          maxWidth: '80vw',
+                          width: '350px',
+                          maxWidth: '70vw',
                           height: 'auto',
                           objectFit: 'contain',
                           filter: 'brightness(1.5) contrast(1.3) drop-shadow(0 4px 8px rgba(0,0,0,0.5)) drop-shadow(0 0 10px rgba(255,255,255,0.3))',
@@ -352,17 +352,21 @@ const features = [
             <div className="max-w-7xl mx-auto px-4 md:px-16 flex justify-center">
               <div className="grid gap-4 md:gap-8 grid-cols-2 max-w-6xl w-full">
               {/* Promise Card 2 */}
-              <div className="bg-white/98 backdrop-blur-lg border border-blue-200/50 rounded-xl md:rounded-2xl p-4 md:p-10 shadow-2xl flex flex-col items-center transition-all duration-500 group hover:scale-105 hover:-translate-y-2 hover:shadow-3xl hover:ring-4 hover:ring-blue-400/50 hover:bg-white relative overflow-hidden animate-fade-in" data-aos="fade-up" data-aos-delay="200">
-                <Plane className="w-8 h-8 md:w-14 md:h-14 mb-3 md:mb-4 text-blue-300 group-hover:text-blue-500 transition-all duration-500" />
-                <h3 className="text-sm md:text-2xl font-bold mb-2 text-center leading-tight">Unforgettable <span className="text-blue-600">Tours</span> & <span className="text-blue-600">Travel</span></h3>
-                <p className="text-xs md:text-base text-blue-800 text-center leading-tight">We deliver <span className="font-semibold text-blue-500">professional</span>, <span className="font-semibold text-blue-500">reliable</span>, and <span className="font-semibold text-blue-500">personalized</span> experiences—your safety and memories come first.</p>
-              </div>
+              <Link href="/services" className="block">
+                <div className="bg-white/98 backdrop-blur-lg border border-blue-200/50 rounded-xl md:rounded-2xl p-4 md:p-10 shadow-2xl flex flex-col items-center justify-center h-48 md:h-64 transition-all duration-500 group hover:scale-105 hover:-translate-y-2 hover:shadow-3xl hover:ring-4 hover:ring-blue-400/50 hover:bg-white relative overflow-hidden animate-fade-in cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                  <Plane className="w-8 h-8 md:w-14 md:h-14 mb-3 md:mb-4 text-blue-300 group-hover:text-blue-500 transition-all duration-500" />
+                  <h3 className="text-sm md:text-2xl font-bold mb-2 text-center leading-tight">Unforgettable <span className="text-blue-600">Tours</span> & <span className="text-blue-600">Travel</span></h3>
+                  <p className="text-xs md:text-base text-blue-800 text-center leading-tight">We deliver <span className="font-semibold text-blue-500">professional</span>, <span className="font-semibold text-blue-500">reliable</span>, and <span className="font-semibold text-blue-500">personalized</span> experiences. Your safety and memories come first.</p>
+                </div>
+              </Link>
               {/* Promise Card 3 */}
-              <div className="bg-white/98 backdrop-blur-lg border border-blue-200/50 rounded-xl md:rounded-2xl p-4 md:p-10 shadow-2xl flex flex-col items-center transition-all duration-500 group hover:scale-105 hover:-translate-y-2 hover:shadow-3xl hover:ring-4 hover:ring-blue-400/50 hover:bg-white relative overflow-hidden animate-fade-in" data-aos="fade-up" data-aos-delay="300">
-                <Briefcase className="w-8 h-8 md:w-14 md:h-14 mb-3 md:mb-4 text-blue-300 group-hover:text-blue-500 transition-all duration-500" />
-                <h3 className="text-sm md:text-2xl font-bold mb-2 text-center leading-tight">Ethical <span className="text-blue-600">Labour Recruitment</span></h3>
-                <p className="text-xs md:text-base text-blue-800 text-center leading-tight">We bridge East African talent with global opportunities through <span className="font-semibold text-blue-500">ethical placement</span> and <span className="font-semibold text-blue-500">comprehensive support</span>.</p>
-              </div>
+              <Link href="/jobs" className="block">
+                <div className="bg-white/98 backdrop-blur-lg border border-blue-200/50 rounded-xl md:rounded-2xl p-4 md:p-10 shadow-2xl flex flex-col items-center justify-center h-48 md:h-64 transition-all duration-500 group hover:scale-105 hover:-translate-y-2 hover:shadow-3xl hover:ring-4 hover:ring-blue-400/50 hover:bg-white relative overflow-hidden animate-fade-in cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+                  <Briefcase className="w-8 h-8 md:w-14 md:h-14 mb-3 md:mb-4 text-blue-300 group-hover:text-blue-500 transition-all duration-500" />
+                  <h3 className="text-sm md:text-2xl font-bold mb-2 text-center leading-tight">Ethical <span className="text-blue-600">Labour Recruitment</span></h3>
+                  <p className="text-xs md:text-base text-blue-800 text-center leading-tight">We bridge East African talent with global opportunities through <span className="font-semibold text-blue-500">ethical placement</span> and <span className="font-semibold text-blue-500">comprehensive support</span>.</p>
+                </div>
+              </Link>
               </div>
             </div>
           </div>

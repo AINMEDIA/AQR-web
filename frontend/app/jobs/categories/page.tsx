@@ -31,6 +31,7 @@ export default function JobCategoriesPage() {
               <h2 className="text-3xl font-bold mb-4 text-blue-800 transition-all duration-700 hover:text-blue-700 hover:scale-105 cursor-default">
                 Quick WhatsApp Inquiry for Job Opportunities
               </h2>
+
               <p className="text-xl text-blue-600 transition-all duration-700">
                 Get instant responses about job availability and application process via WhatsApp
               </p>

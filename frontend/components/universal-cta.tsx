@@ -25,7 +25,7 @@ export function UniversalCTA() {
         asChild
       >
         <Link href="/about/contact" className="flex items-center gap-3 px-6 py-4">
-          <Quote className="w-5 h-5 group-hover:scale-110 group-hover:animate-bounce transition-all duration-300" />
+          <Quote className="w-5 h-5 group-hover:scale-110 transition-all duration-300" />
           <span className="font-semibold group-hover:translate-x-1 transition-transform duration-300">Request A Quote</span>
           <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
         </Link>
@@ -38,12 +38,12 @@ export function UniversalCTA() {
         asChild
       >
         <a 
-          href="https://wa.me/256745174879" 
+          href="https://wa.me/256748840180" 
           target="_blank" 
           rel="noopener noreferrer"
           className="flex items-center justify-center"
         >
-          <MessageCircle className="w-7 h-7 group-hover:scale-110 group-hover:animate-bounce transition-all duration-300" />
+          <MessageCircle className="w-7 h-7 group-hover:scale-110 transition-all duration-300" />
         </a>
       </Button>
 
@@ -56,10 +56,10 @@ export function UniversalCTA() {
           asChild
         >
           <a 
-            href="tel:+256700341229" 
+            href="tel:+256256748840180" 
             className="flex items-center justify-center"
           >
-            <Phone className="w-5 h-5 group-hover/phone:scale-110 group-hover/phone:animate-bounce transition-all duration-300" />
+            <Phone className="w-5 h-5 group-hover/phone:scale-110 transition-all duration-300" />
           </a>
         </Button>
 
@@ -73,7 +73,7 @@ export function UniversalCTA() {
                             href="mailto:atlantisquest4@gmail.com" 
             className="flex items-center justify-center"
           >
-            <Mail className="w-5 h-5 group-hover/email:scale-110 group-hover/email:animate-bounce transition-all duration-300" />
+            <Mail className="w-5 h-5 group-hover/email:scale-110 transition-all duration-300" />
           </a>
         </Button>
       </div>

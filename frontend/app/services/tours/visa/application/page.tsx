@@ -1,87 +1,85 @@
 "use client"
 
-import { useState } from "react";
 import { PageTransition } from "@/components/page-transition";
 import { FileText, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function VisaApplicationPage() {
-  const [form, setForm] = useState({
-    name: "",
-    contact: "",
-    nationality: "",
-    destination: "",
-    visaType: "",
-    travelDates: "",
-    requests: "",
-  });
-  const [submitting, setSubmitting] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitting(true);
-    const message = `Visa Application Request\nName: ${form.name}\nContact: ${form.contact}\nNationality: ${form.nationality}\nDestination: ${form.destination}\nVisa Type: ${form.visaType}\nTravel Dates: ${form.travelDates}\nRequests: ${form.requests}`;
-    const whatsappUrl = `https://wa.me/256700341229?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-    setTimeout(() => {
-      const whatsappUrl2 = `https://wa.me/256745174879?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl2, '_blank');
-      setSubmitting(false);
-    }, 1000);
-  };
-
   return (
     <PageTransition>
-      <div className="max-w-2xl mx-auto py-12 px-4 animate-fade-in">
-        <h1 className="text-3xl font-bold mb-6 flex items-center gap-2 text-purple-800"><FileText className="w-7 h-7 text-purple-500 animate-bounce" /> Visa Application</h1>
-        <form onSubmit={handleSubmit} className="space-y-6 bg-white rounded-xl shadow-lg p-8">
-          <div>
-            <label className="block text-sm font-medium mb-1">Full Name</label>
-            <input type="text" name="name" value={form.name} onChange={handleChange} required className="w-full border rounded p-2" placeholder="Enter your full name*" />
+      <div className="animate-fade-in">
+        <section className="relative min-h-[40vh] flex items-center justify-center overflow-hidden rounded-br-[120px] md:rounded-br-[240px] group" data-aos="zoom-in">
+          <img
+            src="/images/down.jpg"
+            alt="Visa Application"
+            className="absolute inset-0 w-full h-full object-cover"
+            data-aos="fade-in"
+          />
+          <div className="absolute inset-0 bg-black/40 z-10 transition-all duration-500 group-hover:bg-black/30"></div>
+          <div className="relative z-20 text-center text-white px-4" data-aos="fade-up">
+            <h1 className="text-5xl md:text-6xl font-extrabold mb-4 drop-shadow transition-all duration-700 hover:text-blue-200 hover:scale-105 cursor-default">Visa Application</h1>
+            <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto transition-all duration-700">Professional visa application support for your travel needs.</p>
           </div>
-          <div>
-            <label className="block text-sm font-medium mb-1">Contact (Email or Phone)</label>
-            <input type="text" name="contact" value={form.contact} onChange={handleChange} required className="w-full border rounded p-2" placeholder="Enter your email or phone number*" />
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium mb-1">Nationality</label>
-              <input type="text" name="nationality" value={form.nationality} onChange={handleChange} required className="w-full border rounded p-2" placeholder="e.g. Ugandan" />
+        </section>
+
+        {/* Visa Services Section */}
+        <section className="py-16 bg-gradient-to-br from-blue-50 to-blue-100 animate-fade-in-delay">
+          <div className="w-full max-w-7xl mx-auto px-6 animate-scale-in">
+            <div className="grid grid-cols-2 gap-4 md:gap-8">
+              {/* Left Card */}
+              <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-4 hover:border-blue-400 group cursor-pointer flex flex-col items-center justify-center text-center" data-aos="zoom-in" data-aos-delay="100">
+                <div className="flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-blue-100 rounded-full mb-3 md:mb-4 transition-all duration-500 group-hover:bg-blue-200 group-hover:scale-110">
+                  <FileText className="w-6 h-6 md:w-8 md:h-8 text-blue-600 group-hover:text-blue-700" />
+                </div>
+                <h3 className="text-sm md:text-xl font-bold mb-2 md:mb-3 transition-all duration-700 group-hover:text-blue-700 group-hover:scale-105">Simplifying Your Visa Journey.</h3>
+                <p className="text-xs md:text-base text-gray-600 transition-all duration-700 opacity-90 group-hover:opacity-100 leading-relaxed">
+                  Applying for a visa doesn't have to be complicated. We provide professional visa application support to guide you through every step from document preparation to submission and follow-up ensuring a smooth, stress-free experience with higher chances of approval.
+                </p>
+              </div>
+
+              {/* Right Card */}
+              <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-xl border-2 border-blue-200 flex flex-col items-center justify-start text-center" data-aos="zoom-in" data-aos-delay="200">
+                <h3 className="text-sm md:text-lg font-extrabold text-blue-700 mb-3 md:mb-4 flex items-center gap-1 md:gap-2">
+                  <FileText className="w-4 h-4 md:w-5 md:h-5 text-blue-500" /> 
+                  <span className="text-xs md:text-sm">Visa Services</span>
+                </h3>
+                <div className="space-y-2 md:space-y-3">
+                  <div className="flex items-start gap-2 text-left">
+                    <span className="text-orange-500 text-sm">📋</span>
+                    <span className="text-xs md:text-sm text-blue-900 font-semibold">Document Preparation & Review – Ensuring all paperwork is accurate and complete.</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-left">
+                    <span className="text-orange-500 text-sm">🌍</span>
+                    <span className="text-xs md:text-sm text-blue-900 font-semibold">Visa Types Covered – Work visas, travel visas, student visas, business visas, and more.</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-left">
+                    <span className="text-orange-500 text-sm">🧭</span>
+                    <span className="text-xs md:text-sm text-blue-900 font-semibold">Step-by-Step Guidance – Clear instructions throughout the process.</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-left">
+                    <span className="text-orange-500 text-sm">🤝</span>
+                    <span className="text-xs md:text-sm text-blue-900 font-semibold">Trusted Embassy Partnerships – Strong networks for reliable processing.</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-left">
+                    <span className="text-orange-500 text-sm">⏳</span>
+                    <span className="text-xs md:text-sm text-blue-900 font-semibold">Time-Saving Support – Faster, hassle-free application handling.</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-left">
+                    <span className="text-orange-500 text-sm">🛂</span>
+                    <span className="text-xs md:text-sm text-blue-900 font-semibold">Pre-Departure Briefing – Travel tips and requirements before you leave.</span>
+                  </div>
+                </div>
+                <div className="w-full mt-4 md:mt-6">
+                  <Link href="/services/tours/visa/booking" className="w-full px-6 py-3 bg-blue-700 text-white font-bold rounded-full shadow-lg hover:bg-blue-800 hover:text-white transition-all duration-500 text-base hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2 group">
+                    Apply for Visa
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-all duration-300" />
+                  </Link>
+                </div>
+              </div>
             </div>
-            <div>
-              <label className="block text-sm font-medium mb-1">Destination Country</label>
-              <input type="text" name="destination" value={form.destination} onChange={handleChange} required className="w-full border rounded p-2" placeholder="e.g. Qatar" />
-            </div>
           </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium mb-1">Visa Type</label>
-              <select name="visaType" value={form.visaType} onChange={handleChange} required className="w-full border rounded p-2">
-                <option value="">Select Visa Type</option>
-                <option value="Tourist">Tourist</option>
-                <option value="Business">Business</option>
-                <option value="Student">Student</option>
-                <option value="Work">Work</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            <div>
-              <label className="block text-sm font-medium mb-1">Travel Dates</label>
-              <input type="text" name="travelDates" value={form.travelDates} onChange={handleChange} required className="w-full border rounded p-2" placeholder="e.g. 2024-07-01 to 2024-07-15" />
-            </div>
-          </div>
-          <div>
-            <label className="block text-sm font-medium mb-1">Special Requests</label>
-            <textarea name="requests" value={form.requests} onChange={handleChange} className="w-full border rounded p-2" placeholder="Any special requests? (Optional)" />
-          </div>
-          <button type="submit" className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-60" disabled={submitting}>
-            {submitting ? 'Submitting...' : <><ArrowRight className="w-5 h-5" /> Submit &amp; WhatsApp</>}
-          </button>
-        </form>
+        </section>
       </div>
     </PageTransition>
   );
-} 
+}

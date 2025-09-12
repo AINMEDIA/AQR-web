@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { jobsApi } from '@/lib/api';
+// import { jobsApi } from '@/lib/api'; // Removed for static site
 
 interface JobFormProps {
   onSuccess?: () => void;
@@ -41,7 +41,8 @@ export function JobForm({ onSuccess, onCancel }: JobFormProps) {
     setError(null);
     setSuccess(false);
     try {
-      await jobsApi.createJob({
+      // For static site - log form data instead of API call
+      console.log('Job form submission:', {
         ...form,
         tags: form.tags.split(',').map(t => t.trim()).filter(Boolean).join(','),
         featured: !!form.featured,

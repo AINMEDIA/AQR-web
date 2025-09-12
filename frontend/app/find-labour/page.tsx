@@ -488,7 +488,7 @@ export default function FindLabourPage() {
 
                 <div className="flex gap-4 pt-4">
                   <Button className="flex-1 transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2 group bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800" onClick={handleWorkerRequestSubmit}>
-                    <Target className="w-4 h-4 group-hover:scale-110 group-hover:animate-bounce transition-all duration-300" />
+                    <Target className="w-4 h-4 group-hover:scale-110 group-hover: transition-all duration-300" />
                     Submit Request
                     <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
                   </Button>

@@ -168,7 +168,7 @@ export default function FloatingActions() {
       }, 1000);
     } catch (error) {
       console.error("Email submit error:", error);
-      setEmailStatus("idle");
+      setEmailStatus(null);
     }
   };
 
@@ -280,7 +280,7 @@ export default function FloatingActions() {
             variant="secondary"
             className="bg-blue-500 text-white hover:bg-blue-600 shadow-lg px-3 md:px-4 py-2 text-sm md:text-base"
           >
-            <a href="https://wa.me/256745174879" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/256748840180" target="_blank" rel="noopener noreferrer">
               <MessageCircle className="mr-1 md:mr-2 w-4 h-4" /> 
               <span className="hidden sm:inline">WhatsApp</span>
               <span className="sm:hidden">Chat</span>

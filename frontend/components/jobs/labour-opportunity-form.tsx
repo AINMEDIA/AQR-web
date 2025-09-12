@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { laborApi } from '@/lib/api';
+// import { laborApi } from '@/lib/api'; // Removed for static site
 
 interface LabourOpportunityFormProps {
   onSuccess?: () => void;
@@ -41,7 +41,8 @@ export function LabourOpportunityForm({ onSuccess, onCancel }: LabourOpportunity
     setError(null);
     setSuccess(false);
     try {
-      await laborApi.createLaborOpportunity({
+      // For static site - log form data instead of API call
+      console.log('Labour opportunity form submission:', {
         ...form,
         workers_available: Number(form.workers_available),
         hourly_rate: form.hourly_rate ? Number(form.hourly_rate) : undefined,

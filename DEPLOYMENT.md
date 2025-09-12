@@ -1,142 +1,263 @@
-# 🚀 AQR Web Deployment Guide
+# AQR-Web Deployment Guide
 
-## 📋 Pre-Deployment Checklist
+This guide covers all deployment options for the AQR-Web application.
 
-### ✅ Build Status
-- [x] All pages compile successfully (31 pages)
-- [x] No TypeScript errors
-- [x] No ESLint errors
-- [x] CSS conflicts resolved
-- [x] Hero flashing effects implemented
-- [x] Navbar transparency working
+## 🚀 Quick Deployment Options
 
-### 📊 Build Statistics
-- **Total Pages:** 31
-- **Static Pages:** 29 (prerendered)
-- **Dynamic Pages:** 2 (server-rendered)
-- **First Load JS:** 99.6 kB
-- **Build Time:** ~16 seconds
+### Option 1: Docker (Recommended)
 
-## 🎯 Deployment Options
+#### Prerequisites
+- Docker installed on your system
+- Docker Compose (optional, for easier management)
 
-### Option 1: Vercel (Recommended)
+#### Steps
 ```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Deploy
+# Navigate to frontend directory
 cd frontend
-vercel --prod
+
+# Build the Docker image
+docker build -t aqr-web:latest .
+
+# Run the container
+docker run -d -p 3000:3000 --name aqr-web aqr-web:latest
+
+# Or use Docker Compose
+docker-compose up -d
 ```
 
-### Option 2: Docker Deployment
-```bash
-# Build Docker image
-cd frontend
-docker build -t aqr-web .
+#### Access the Application
+- **URL**: http://localhost:3000
+- **Health Check**: http://localhost:3000/ (should return 200 OK)
 
-# Run container
-docker run -p 3000:3000 aqr-web
+### Option 2: Local Development
+
+#### Prerequisites
+- Node.js 18+ installed
+- npm or yarn package manager
+
+#### Steps
+```bash
+# Navigate to frontend directory
+cd frontend
+
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
 ```
 
-### Option 3: Traditional Server
+#### Access the Application
+- **URL**: http://localhost:3000
+
+### Option 3: Production Build
+
+#### Steps
 ```bash
+# Navigate to frontend directory
+cd frontend
+
+# Install dependencies
+npm install
+
 # Build for production
-cd frontend
 npm run build
 
 # Start production server
 npm start
 ```
 
-## 🔧 Environment Configuration
+## 🐳 Docker Configuration Details
 
-### Production Environment Variables
-```env
+### Dockerfile Structure
+The Dockerfile uses a multi-stage build:
+
+1. **Builder Stage**: Installs dependencies and builds the application
+2. **Runner Stage**: Creates a minimal production image with Node.js
+
+### Key Features
+- **Multi-stage build** for optimized image size
+- **Non-root user** for security
+- **Health checks** for container monitoring
+- **Standalone Next.js** output for better performance
+
+### Environment Variables
+```bash
 NODE_ENV=production
-NEXT_PUBLIC_SITE_URL=https://atlantisquestandreality.com
-NEXT_PUBLIC_APP_NAME="Atlantic Quest & Reality"
-NEXT_PUBLIC_APP_DESCRIPTION="Connecting East African talent with global opportunities"
+PORT=3000
+HOSTNAME=0.0.0.0
 ```
 
-## 📁 File Structure
+### Port Configuration
+- **Container Port**: 3000
+- **Host Port**: 3000 (configurable)
+- **Protocol**: HTTP
+
+## 🔧 Docker Compose Configuration
+
+### Services
+- **aqr-web**: Main application container
+- **aqr-network**: Custom bridge network
+
+### Features
+- **Automatic restart** unless stopped
+- **Health checks** every 30 seconds
+- **Custom network** for isolation
+- **Environment variables** configuration
+
+## 📊 Performance Optimization
+
+### Build Optimizations
+- **Standalone output** reduces image size
+- **Multi-stage build** eliminates dev dependencies
+- **Alpine Linux** base image for minimal footprint
+- **Node.js optimization** for production
+
+### Runtime Optimizations
+- **Next.js built-in optimizations**
+- **Static asset optimization**
+- **Automatic code splitting**
+- **Image optimization**
+
+## 🔍 Monitoring and Health Checks
+
+### Health Check Configuration
+```dockerfile
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD wget --no-verbose --tries=1 --spider http://localhost:3000/ || exit 1
 ```
-frontend/
-├── .next/                 # Build output
-├── app/                   # Next.js 13+ app directory
-├── components/            # Reusable components
-├── public/               # Static assets
-├── styles/               # Global styles
-├── Dockerfile            # Docker configuration
-├── next.config.mjs       # Next.js configuration
-└── package.json          # Dependencies
-```
 
-## 🎨 Features Implemented
+### Monitoring Endpoints
+- **Health Check**: `GET /` (returns 200 OK if healthy)
+- **Application Status**: Available through container logs
 
-### ✅ Hero Sections
-- **Flashing Animation:** All 20+ hero sections have consistent flashing effects
-- **Dynamic Scaling:** 5% scale increase with brightness enhancement
-- **Smooth Transitions:** 3-second ease-in-out animation
-
-### ✅ Navigation
-- **Transparent Navbar:** Completely transparent over hero sections
-- **Dynamic Background:** Semi-transparent white when scrolled
-- **Responsive Colors:** White text when transparent, dark when scrolled
-
-### ✅ Performance Optimizations
-- **Static Generation:** 29 out of 31 pages are statically generated
-- **Image Optimization:** WebP and AVIF formats supported
-- **CSS Optimization:** Tailwind CSS with purging
-- **Bundle Splitting:** Optimized JavaScript chunks
-
-## 🚀 Quick Deploy Commands
-
-### For Vercel:
+### Logs
 ```bash
-cd frontend
-vercel --prod
+# View container logs
+docker logs aqr-web
+
+# Follow logs in real-time
+docker logs -f aqr-web
 ```
 
-### For Docker:
+## 🚀 Production Deployment
+
+### Cloud Deployment Options
+
+#### AWS ECS/Fargate
 ```bash
-cd frontend
+# Build and push to ECR
 docker build -t aqr-web .
-docker run -p 3000:3000 aqr-web
+docker tag aqr-web:latest <account>.dkr.ecr.<region>.amazonaws.com/aqr-web:latest
+docker push <account>.dkr.ecr.<region>.amazonaws.com/aqr-web:latest
 ```
 
-### For Traditional Server:
+#### Google Cloud Run
 ```bash
-cd frontend
-npm run build
-npm start
+# Build and deploy
+gcloud builds submit --tag gcr.io/<project-id>/aqr-web
+gcloud run deploy --image gcr.io/<project-id>/aqr-web --platform managed
 ```
 
-## 📱 Mobile Optimization
-- ✅ Responsive design for all screen sizes
-- ✅ Touch-friendly navigation
-- ✅ Optimized images for mobile
-- ✅ Fast loading times
+#### Azure Container Instances
+```bash
+# Build and push to ACR
+az acr build --registry <registry-name> --image aqr-web .
+```
 
-## 🔍 SEO Features
-- ✅ Meta tags for all pages
-- ✅ Open Graph tags
-- ✅ Structured data
-- ✅ Sitemap generation
-- ✅ Robots.txt
+### Load Balancer Configuration
+- **Port**: 3000
+- **Health Check Path**: `/`
+- **Protocol**: HTTP
+- **Timeout**: 30 seconds
 
-## 🎉 Deployment Complete!
+## 🔒 Security Considerations
 
-Your AQR website is now ready for deployment with:
-- ✨ Beautiful hero flashing effects
-- 🌐 Transparent navigation
-- 📱 Mobile-optimized design
-- ⚡ Fast performance
-- 🔍 SEO optimized
+### Container Security
+- **Non-root user** execution
+- **Minimal base image** (Alpine Linux)
+- **No unnecessary packages** in production image
+- **Regular security updates**
 
-**Next Steps:**
-1. Choose your deployment platform
-2. Run the deployment command
-3. Configure your domain
-4. Test all features
-5. Go live! 🚀 
+### Network Security
+- **Custom Docker network** for isolation
+- **Port binding** to specific interfaces
+- **Health check** for monitoring
+
+## 📝 Troubleshooting
+
+### Common Issues
+
+#### Container Won't Start
+```bash
+# Check container logs
+docker logs aqr-web
+
+# Check if port is already in use
+netstat -tulpn | grep :3000
+```
+
+#### Application Not Accessible
+```bash
+# Verify container is running
+docker ps
+
+# Check port mapping
+docker port aqr-web
+
+# Test connectivity
+curl http://localhost:3000
+```
+
+#### Build Failures
+```bash
+# Clean Docker cache
+docker system prune -a
+
+# Rebuild without cache
+docker build --no-cache -t aqr-web .
+```
+
+### Performance Issues
+```bash
+# Check container resource usage
+docker stats aqr-web
+
+# Monitor application logs
+docker logs -f aqr-web
+```
+
+## 📋 Maintenance
+
+### Regular Tasks
+- **Update base images** monthly
+- **Monitor security advisories**
+- **Review and update dependencies**
+- **Backup application data**
+
+### Updates
+```bash
+# Pull latest changes
+git pull origin main
+
+# Rebuild and redeploy
+docker-compose down
+docker-compose up -d --build
+```
+
+## 📞 Support
+
+For deployment issues or questions:
+1. Check the troubleshooting section above
+2. Review container logs
+3. Contact the development team
+4. Submit an issue through the project repository
+
+## 📊 Version Information
+
+- **Next.js**: 15.4.3
+- **Node.js**: 18 (Alpine)
+- **Docker**: Multi-stage build
+- **Base Image**: node:18-alpine
+- **Port**: 3000
+- **Protocol**: HTTP

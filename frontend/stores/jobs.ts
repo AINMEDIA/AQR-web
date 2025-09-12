@@ -1,5 +1,30 @@
 import { create } from 'zustand';
-import { jobsApi, Job, Application } from '@/lib/api';
+
+// Define types locally for static site
+interface Job {
+  id: number;
+  title: string;
+  company: string;
+  location: string;
+  type: string;
+  salary: string;
+  description: string;
+  requirements: string[];
+  benefits: string[];
+  category: string;
+}
+
+interface Application {
+  id: number;
+  jobId: number;
+  applicantName: string;
+  applicantEmail: string;
+  applicantPhone: string;
+  resume: string;
+  coverLetter: string;
+  status: 'pending' | 'reviewed' | 'accepted' | 'rejected';
+  appliedAt: string;
+}
 
 interface JobsState {
   jobs: Job[];
@@ -65,7 +90,8 @@ export const useJobsStore = create<JobsStore>((set, get) => ({
   getJobs: async (params) => {
     set({ isLoading: true, error: null });
     try {
-      const jobs = await jobsApi.getJobs(params);
+      // Mock API call for static site
+      const jobs: Job[] = [];
       set({ jobs, isLoading: false });
     } catch (error) {
       set({
@@ -78,7 +104,8 @@ export const useJobsStore = create<JobsStore>((set, get) => ({
   getJob: async (jobId) => {
     set({ isLoading: true, error: null });
     try {
-      const job = await jobsApi.getJob(jobId);
+      // Mock API call for static site
+      const job: Job | null = null;
       set({ currentJob: job, isLoading: false });
     } catch (error) {
       set({
@@ -91,7 +118,19 @@ export const useJobsStore = create<JobsStore>((set, get) => ({
   createJob: async (jobData) => {
     set({ isLoading: true, error: null });
     try {
-      const job = await jobsApi.createJob(jobData);
+      // Mock API call for static site
+      const job: Job = { 
+        id: Date.now(),
+        title: jobData.title || '',
+        company: jobData.company || '',
+        location: jobData.location || '',
+        type: jobData.type || '',
+        salary: jobData.salary || '',
+        description: jobData.description || '',
+        requirements: Array.isArray(jobData.requirements) ? jobData.requirements : (jobData.requirements ? [jobData.requirements] : []),
+        benefits: [],
+        category: 'General'
+      };
       set((state) => ({
         jobs: [job, ...state.jobs],
         myJobs: [job, ...state.myJobs],
@@ -110,11 +149,23 @@ export const useJobsStore = create<JobsStore>((set, get) => ({
   updateJob: async (jobId, jobData) => {
     set({ isLoading: true, error: null });
     try {
-      const updatedJob = await jobsApi.updateJob(jobId, jobData);
+      // Mock API call for static site
+      const updatedJob: Job = { 
+        id: typeof jobId === 'string' ? parseInt(jobId) : jobId,
+        title: jobData.title || '',
+        company: jobData.company || '',
+        location: jobData.location || '',
+        type: jobData.type || '',
+        salary: jobData.salary || '',
+        description: jobData.description || '',
+        requirements: Array.isArray(jobData.requirements) ? jobData.requirements : (jobData.requirements ? [jobData.requirements] : []),
+        benefits: [],
+        category: 'General'
+      };
       set((state) => ({
-        jobs: state.jobs.map((job) => (job.id === jobId ? updatedJob : job)),
-        myJobs: state.myJobs.map((job) => (job.id === jobId ? updatedJob : job)),
-        currentJob: state.currentJob?.id === jobId ? updatedJob : state.currentJob,
+        jobs: state.jobs.map((job) => (job.id === (typeof jobId === 'string' ? parseInt(jobId) : jobId) ? updatedJob : job)),
+        myJobs: state.myJobs.map((job) => (job.id === (typeof jobId === 'string' ? parseInt(jobId) : jobId) ? updatedJob : job)),
+        currentJob: state.currentJob?.id === (typeof jobId === 'string' ? parseInt(jobId) : jobId) ? updatedJob : state.currentJob,
         isLoading: false,
       }));
     } catch (error) {
@@ -129,10 +180,11 @@ export const useJobsStore = create<JobsStore>((set, get) => ({
   deleteJob: async (jobId) => {
     set({ isLoading: true, error: null });
     try {
-      await jobsApi.deleteJob(jobId);
+      // Mock API call for static site
+      console.log('Mock delete job:', jobId);
       set((state) => ({
-        jobs: state.jobs.filter((job) => job.id !== jobId),
-        myJobs: state.myJobs.filter((job) => job.id !== jobId),
+        jobs: state.jobs.filter((job) => job.id !== (typeof jobId === 'string' ? parseInt(jobId) : jobId)),
+        myJobs: state.myJobs.filter((job) => job.id !== (typeof jobId === 'string' ? parseInt(jobId) : jobId)),
         isLoading: false,
       }));
     } catch (error) {
@@ -147,7 +199,8 @@ export const useJobsStore = create<JobsStore>((set, get) => ({
   getMyJobs: async () => {
     set({ isLoading: true, error: null });
     try {
-      const myJobs = await jobsApi.getMyJobs();
+      // Mock API call for static site
+      const myJobs: Job[] = [];
       set({ myJobs, isLoading: false });
     } catch (error) {
       set({
@@ -160,7 +213,18 @@ export const useJobsStore = create<JobsStore>((set, get) => ({
   applyToJob: async (jobId, coverLetter) => {
     set({ isLoading: true, error: null });
     try {
-      const application = await jobsApi.applyToJob(jobId, coverLetter);
+      // Mock API call for static site
+      const application: Application = {
+        id: Date.now(),
+        jobId: typeof jobId === 'string' ? parseInt(jobId) : jobId,
+        applicantName: 'Mock User',
+        applicantEmail: 'mock@example.com',
+        applicantPhone: '123-456-7890',
+        resume: 'mock-resume.pdf',
+        coverLetter: coverLetter || '',
+        status: 'pending',
+        appliedAt: new Date().toISOString(),
+      };
       set((state) => ({
         applications: [application, ...state.applications],
         isLoading: false,
@@ -177,7 +241,8 @@ export const useJobsStore = create<JobsStore>((set, get) => ({
   getMyApplications: async () => {
     set({ isLoading: true, error: null });
     try {
-      const applications = await jobsApi.getMyApplications();
+      // Mock API call for static site
+      const applications: Application[] = [];
       set({ applications, isLoading: false });
     } catch (error) {
       set({

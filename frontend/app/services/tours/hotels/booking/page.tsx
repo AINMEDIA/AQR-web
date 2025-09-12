@@ -35,10 +35,10 @@ export default function HotelBookingPage() {
       setSuccess(true);
       // WhatsApp message
       const message = `Hotel Booking Request\nName: ${form.name}\nContact: ${form.contact}\nCheck-in: ${form.checkin}\nCheck-out: ${form.checkout}\nGuests: ${form.guests}\nRoom Type: ${form.roomType}\nRequests: ${form.requests}`;
-      const whatsappUrl = `https://wa.me/256700341229?text=${encodeURIComponent(message)}`;
+      const whatsappUrl = `https://wa.me/256256748840180?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
       setTimeout(() => {
-        const whatsappUrl2 = `https://wa.me/256745174879?text=${encodeURIComponent(message)}`;
+        const whatsappUrl2 = `https://wa.me/256748840180?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl2, '_blank');
         setSubmitting(false);
       }, 1000);
@@ -50,7 +50,7 @@ export default function HotelBookingPage() {
   return (
     <PageTransition>
       <div className="max-w-2xl mx-auto py-12 px-4 animate-fade-in">
-        <h1 className="text-3xl font-bold mb-6 flex items-center gap-2 text-blue-800"><Hotel className="w-7 h-7 text-blue-500 animate-bounce" /> Hotel Booking</h1>
+        <h1 className="text-3xl font-bold mb-6 flex items-center gap-2 text-blue-800"><Hotel className="w-7 h-7 text-blue-500" /> Hotel Booking</h1>
         {success && (
           <div className="mb-4 p-4 bg-blue-100 text-blue-800 rounded-lg">Booking submitted! We will contact you soon.</div>
         )}

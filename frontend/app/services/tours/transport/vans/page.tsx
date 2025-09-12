@@ -31,8 +31,8 @@ export default function VansHirePage() {
       `Pickup: ${form.pickup}\n` +
       `Drop-off: ${form.dropoff}\n` +
       `Special Requests: ${form.requests}`;
-    const wa1 = `https://wa.me/256700341229?text=${encodeURIComponent(message)}`;
-    const wa2 = `https://wa.me/256745174879?text=${encodeURIComponent(message)}`;
+    const wa1 = `https://wa.me/256256748840180?text=${encodeURIComponent(message)}`;
+    const wa2 = `https://wa.me/256748840180?text=${encodeURIComponent(message)}`;
     window.open(wa1, "_blank");
     setTimeout(() => window.open(wa2, "_blank"), 500);
     setSubmitting(false);
