@@ -54,11 +54,19 @@ export default function JobApplicationClient({ job }: JobApplicationClientProps)
       setSuccess(true);
       // WhatsApp message
       const message = `Job Application for ${job.title}\nName: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nCover Letter: ${form.coverLetter}\nCV: [Please attach your CV to this WhatsApp chat]`;
-      const whatsappUrl = `https://wa.me/256256748840180?text=${encodeURIComponent(message)}`;
+      const whatsappUrl = `https://wa.me/256745174879?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
+      
+      // Email setup
+      const emailSubject = `Job Application for ${job.title} - ${form.name}`;
+      const emailBody = `Job Application for ${job.title}\n\nName: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nCover Letter: ${form.coverLetter}\nCV: [Please attach your CV to this email]\n\n---\nThis message was sent from the AQR website.\n\nContact Information:\nEmail: atlantisquest4@gmail.com\nWhatsApp: +256745174879\nPhone: 0748840180`;
+      const emailUrl = `mailto:atlantisquest4@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+      
       setTimeout(() => {
         const whatsappUrl2 = `https://wa.me/256748840180?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl2, '_blank');
+        // Open email client
+        window.open(emailUrl, '_blank');
         setSubmitting(false);
       }, 1000);
       setForm({ name: "", email: "", phone: "", coverLetter: "", cv: null });
@@ -101,7 +109,7 @@ export default function JobApplicationClient({ job }: JobApplicationClientProps)
             <textarea name="coverLetter" value={form.coverLetter} onChange={handleChange} required className="w-full border rounded p-2" placeholder="Write your cover letter here..." />
           </div>
           <button type="submit" className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-60" disabled={submitting}>
-            {submitting ? 'Submitting...' : <><ArrowRight className="w-5 h-5" /> Submit & WhatsApp</>}
+            {submitting ? 'Submitting...' : <><ArrowRight className="w-5 h-5" /> Submit</>}
           </button>
         </form>
       </div>

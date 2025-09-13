@@ -354,7 +354,12 @@ const features = [
               {/* Promise Card 2 */}
               <Link href="/services" className="block">
                 <div className="bg-white/98 backdrop-blur-lg border border-blue-200/50 rounded-xl md:rounded-2xl p-4 md:p-10 shadow-2xl flex flex-col items-center justify-center h-48 md:h-64 transition-all duration-500 group hover:scale-105 hover:-translate-y-2 hover:shadow-3xl hover:ring-4 hover:ring-blue-400/50 hover:bg-white relative overflow-hidden animate-fade-in cursor-pointer" data-aos="fade-up" data-aos-delay="200">
-                  <Plane className="w-8 h-8 md:w-14 md:h-14 mb-3 md:mb-4 text-blue-300 group-hover:text-blue-500 transition-all duration-500" />
+                  {/* Standardized Icon */}
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-blue-100 rounded-full flex items-center justify-center mb-3 md:mb-4">
+                    <div className="w-8 h-8 md:w-12 md:h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                      <Plane className="w-4 h-4 md:w-6 md:h-6 text-white" />
+                    </div>
+                  </div>
                   <h3 className="text-sm md:text-2xl font-bold mb-2 text-center leading-tight">Unforgettable <span className="text-blue-600">Tours</span> & <span className="text-blue-600">Travel</span></h3>
                   <p className="text-xs md:text-base text-blue-800 text-center leading-tight">We deliver <span className="font-semibold text-blue-500">professional</span>, <span className="font-semibold text-blue-500">reliable</span>, and <span className="font-semibold text-blue-500">personalized</span> experiences. Your safety and memories come first.</p>
                 </div>
@@ -362,7 +367,12 @@ const features = [
               {/* Promise Card 3 */}
               <Link href="/jobs" className="block">
                 <div className="bg-white/98 backdrop-blur-lg border border-blue-200/50 rounded-xl md:rounded-2xl p-4 md:p-10 shadow-2xl flex flex-col items-center justify-center h-48 md:h-64 transition-all duration-500 group hover:scale-105 hover:-translate-y-2 hover:shadow-3xl hover:ring-4 hover:ring-blue-400/50 hover:bg-white relative overflow-hidden animate-fade-in cursor-pointer" data-aos="fade-up" data-aos-delay="300">
-                  <Briefcase className="w-8 h-8 md:w-14 md:h-14 mb-3 md:mb-4 text-blue-300 group-hover:text-blue-500 transition-all duration-500" />
+                  {/* Standardized Icon */}
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-blue-100 rounded-full flex items-center justify-center mb-3 md:mb-4">
+                    <div className="w-8 h-8 md:w-12 md:h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                      <Briefcase className="w-4 h-4 md:w-6 md:h-6 text-white" />
+                    </div>
+                  </div>
                   <h3 className="text-sm md:text-2xl font-bold mb-2 text-center leading-tight">Ethical <span className="text-blue-600">Labour Recruitment</span></h3>
                   <p className="text-xs md:text-base text-blue-800 text-center leading-tight">We bridge East African talent with global opportunities through <span className="font-semibold text-blue-500">ethical placement</span> and <span className="font-semibold text-blue-500">comprehensive support</span>.</p>
                 </div>

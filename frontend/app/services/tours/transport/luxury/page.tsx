@@ -23,14 +23,23 @@ export default function LuxuryCarHirePage() {
     e.preventDefault();
     setSubmitting(true);
     const message = `Luxury Car Hire Request\nName: ${form.name}\nContact: ${form.contact}\nRental Dates: ${form.startDate} to ${form.endDate}\nPickup: ${form.pickup}\nDrop-off: ${form.dropoff}\nRequests: ${form.requests}`;
-    const whatsappUrl = `https://wa.me/256256748840180?text=${encodeURIComponent(message)}`;
+    
+    // Open WhatsApp
+    const whatsappUrl = `https://wa.me/256745174879?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
+    
+    // Also open email client
+    const emailSubject = `Luxury Car Hire Request - ${form.name}`;
+    const emailBody = `Luxury Car Hire Request\n\nName: ${form.name}\nContact: ${form.contact}\nRental Dates: ${form.startDate} to ${form.endDate}\nPickup: ${form.pickup}\nDrop-off: ${form.dropoff}\nRequests: ${form.requests}\n\n---\nThis message was sent from the AQR website.\n\nContact Information:\nEmail: atlantisquest4@gmail.com\nWhatsApp: +256745174879\nPhone: 0748840180`;
+    const emailUrl = `mailto:atlantisquest4@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    
     setTimeout(() => {
       const whatsappUrl2 = `https://wa.me/256748840180?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl2, '_blank');
+      // Open email client
+      window.open(emailUrl, '_blank');
       setSubmitting(false);
     }, 1000);
-    // TODO: Trigger admin notification (email/dashboard)
   };
 
   return (

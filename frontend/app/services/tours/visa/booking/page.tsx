@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { PageTransition } from "@/components/page-transition";
 import { FileText, ArrowRight } from "lucide-react";
+import { handleFormSubmit } from "@/lib/form-utils";
 
 export default function VisaBookingPage() {
   const [form, setForm] = useState({
@@ -17,23 +18,22 @@ export default function VisaBookingPage() {
   });
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitting(true);
-    const message = `Visa Application Request\nName: ${form.name}\nContact: ${form.contact}\nNationality: ${form.nationality}\nDestination: ${form.destination}\nVisa Type: ${form.visaType}\nTravel Dates: ${form.travelDates}\nPassport Number: ${form.passportNumber}\nSpecial Requests: ${form.requests}`;
-    const whatsappUrl = `https://wa.me/256256748840180?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-    setTimeout(() => {
-      const whatsappUrl2 = `https://wa.me/256748840180?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl2, '_blank');
-      setSubmitting(false);
-      setSuccess(true);
-    }, 1000);
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    await handleFormSubmit(
+      e,
+      form,
+      "Visa Application",
+      setSubmitting,
+      setSuccess,
+      setError,
+      () => setForm({ name: "", contact: "", nationality: "", destination: "", visaType: "", travelDates: "", passportNumber: "", requests: "" })
+    );
   };
 
   return (
@@ -85,9 +85,20 @@ export default function VisaBookingPage() {
             <label className="block text-sm font-medium mb-1">Special Requests</label>
             <textarea name="requests" value={form.requests} onChange={handleChange} className="w-full border rounded p-2" placeholder="Any special requests or additional information? (Optional)" />
           </div>
-          {success && (
-            <div className="mb-4 p-4 bg-blue-100 text-blue-800 rounded-lg">Visa application request submitted! We will contact you soon.</div>
-          )}
+        {success && (
+          <div className="mb-4 p-4 bg-blue-100 text-blue-800 rounded-lg border border-blue-200">
+            <div className="flex items-center gap-2">
+              <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center">
+                <span className="text-white text-xs">✓</span>
+              </div>
+              <span className="font-semibold">Success!</span>
+            </div>
+            <p className="mt-1">Visa application submitted successfully! We've opened WhatsApp and your email client. We'll contact you soon.</p>
+          </div>
+        )}
+        {error && (
+          <div className="mb-4 p-4 bg-red-100 text-red-800 rounded-lg">{error}</div>
+        )}
           <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-60" disabled={submitting}>
             {submitting ? 'Submitting...' : <><ArrowRight className="w-5 h-5" /> Submit &amp; WhatsApp</>}
           </button>

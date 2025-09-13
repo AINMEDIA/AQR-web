@@ -50,7 +50,7 @@ export default function TransportPage() {
                   <Car className="w-6 h-6 md:w-8 md:h-8 text-blue-600" />
                   <h3 className="text-sm md:text-xl font-bold transition-all duration-700 group-hover:text-blue-700 group-hover:scale-105">Vehicle Types</h3>
                 </div>
-                <div className="space-y-2 md:space-y-3">
+                <div className="space-y-2 md:space-y-3 mb-4 md:mb-6">
                   <div className="flex items-center gap-2 justify-center">
                     <Car className="w-4 h-4 md:w-5 md:h-5 text-orange-500" />
                     <span className="text-xs md:text-sm text-gray-600">SUVs (4x4, luxury, family)</span>
@@ -72,25 +72,15 @@ export default function TransportPage() {
                     <span className="text-xs md:text-sm text-gray-600">Trucks & Pickups (cargo, moving)</span>
               </div>
             </div>
+            {/* Book Now Button */}
+            <a href="/services/tours/transport/booking" className="w-full px-6 py-3 bg-blue-600 text-white font-bold rounded-full shadow-lg hover:bg-blue-700 hover:text-white transition-all duration-500 text-base hover:scale-105 hover:shadow-xl flex items-center justify-center gap-2 group">
+              <Car className="w-4 h-4 group-hover:scale-110 transition-all duration-300" />
+              Book Now
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-all duration-300" />
+            </a>
           </div>
 
             </div>
-          </div>
-        </section>
-        {/* Call to Action */}
-        <section className="relative py-16 bg-gradient-to-br from-yellow-100 to-yellow-50 animate-fade-in-delay">
-          {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent"></div>
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1)_0%,transparent_50%)]"></div>
-          </div>
-          <div className="relative z-10 flex flex-col items-center justify-center gap-6">
-              <h2 className="text-3xl md:text-4xl font-extrabold mb-4 drop-shadow transition-all duration-700 hover:text-yellow-700 hover:scale-105 cursor-default" data-aos="fade-up">Ready for your Ride?</h2>
-              <a href="/services/tours/transport/booking" className="px-8 py-4 bg-white text-yellow-800 font-bold rounded-full shadow-2xl hover:bg-yellow-50 hover:text-yellow-900 transition-all duration-500 text-xl hover:scale-105 hover:shadow-3xl flex items-center justify-center gap-3 group" data-aos="fade-up" data-aos-delay="100">
-                <Car className="w-6 h-6 group-hover:scale-110 transition-all duration-300" />
-                Book Now
-                <ArrowRight className="w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-              </a>
           </div>
         </section>
 

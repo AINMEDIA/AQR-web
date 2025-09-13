@@ -3,7 +3,8 @@
 import { useState, useRef } from "react";
 import { PageTransition } from "@/components/page-transition";
 import { Hotel, ArrowRight } from "lucide-react";
-import { ChangeEvent, FormEvent } from "react";
+import { ChangeEvent } from "react";
+import { handleFormSubmit } from "@/lib/form-utils";
 
 export default function HotelBookingPage() {
   const [form, setForm] = useState({
@@ -24,27 +25,19 @@ export default function HotelBookingPage() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSubmitting(true);
-    setError("");
-    setSuccess(false);
-    
-    // Simulate booking submission for static site
-    setTimeout(() => {
-      setSuccess(true);
-      // WhatsApp message
-      const message = `Hotel Booking Request\nName: ${form.name}\nContact: ${form.contact}\nCheck-in: ${form.checkin}\nCheck-out: ${form.checkout}\nGuests: ${form.guests}\nRoom Type: ${form.roomType}\nRequests: ${form.requests}`;
-      const whatsappUrl = `https://wa.me/256256748840180?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, '_blank');
-      setTimeout(() => {
-        const whatsappUrl2 = `https://wa.me/256748840180?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl2, '_blank');
-        setSubmitting(false);
-      }, 1000);
-      setForm({ name: "", contact: "", checkin: "", checkout: "", guests: 1, roomType: "", requests: "" });
-      if (fileInputRef.current) (fileInputRef.current as HTMLInputElement).value = '';
-    }, 1000);
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    await handleFormSubmit(
+      e,
+      form,
+      "Hotel Booking",
+      setSubmitting,
+      setSuccess,
+      setError,
+      () => {
+        setForm({ name: "", contact: "", checkin: "", checkout: "", guests: 1, roomType: "", requests: "" });
+        if (fileInputRef.current) (fileInputRef.current as HTMLInputElement).value = '';
+      }
+    );
   };
 
   return (
@@ -52,7 +45,15 @@ export default function HotelBookingPage() {
       <div className="max-w-2xl mx-auto py-12 px-4 animate-fade-in">
         <h1 className="text-3xl font-bold mb-6 flex items-center gap-2 text-blue-800"><Hotel className="w-7 h-7 text-blue-500" /> Hotel Booking</h1>
         {success && (
-          <div className="mb-4 p-4 bg-blue-100 text-blue-800 rounded-lg">Booking submitted! We will contact you soon.</div>
+          <div className="mb-4 p-4 bg-blue-100 text-blue-800 rounded-lg border border-blue-200">
+            <div className="flex items-center gap-2">
+              <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center">
+                <span className="text-white text-xs">✓</span>
+              </div>
+              <span className="font-semibold">Success!</span>
+            </div>
+            <p className="mt-1">Hotel booking submitted successfully! We've opened WhatsApp and your email client. We'll contact you soon.</p>
+          </div>
         )}
         {error && (
           <div className="mb-4 p-4 bg-red-100 text-red-800 rounded-lg">{error}</div>
@@ -98,7 +99,7 @@ export default function HotelBookingPage() {
             <textarea name="requests" value={form.requests} onChange={handleChange} className="w-full border rounded p-2" placeholder="Any special requests? (Optional)" />
           </div>
           <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-60" disabled={submitting}>
-            {submitting ? 'Submitting...' : <><ArrowRight className="w-5 h-5" /> Submit & WhatsApp</>}
+            {submitting ? 'Submitting...' : <><ArrowRight className="w-5 h-5" /> Submit </>}
           </button>
         </form>
       </div>

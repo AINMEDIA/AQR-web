@@ -101,7 +101,7 @@ ${data.message}
     try {
       // WhatsApp numbers (you can add multiple numbers)
       const whatsappNumbers = [
-        '+256256748840180',
+        '+256745174879',
         '+256748840180'
       ]
 
@@ -114,10 +114,41 @@ ${data.message}
       // Open in new tab
       window.open(whatsappUrl, '_blank')
 
+      // Also open email client
+      const emailSubject = `${services.find(s => s.value === formData.service)?.label || formData.service} Inquiry - ${formData.name}`;
+      const emailBody = `New Client Inquiry - AQR Web
+
+Client Information:
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Location: ${formData.location}
+
+Service Requested:
+Service: ${services.find(s => s.value === formData.service)?.label || formData.service}
+Preferred Contact: ${contactMethods.find(c => c.value === formData.preferredContact)?.label}
+
+Message:
+${formData.message}
+
+---
+This message was sent from the AQR website.
+
+Contact Information:
+Email: atlantisquest4@gmail.com
+WhatsApp: +256745174879
+Phone: 0748840180`;
+      const emailUrl = `mailto:atlantisquest4@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+      
+      // Open email client after a short delay
+      setTimeout(() => {
+        window.open(emailUrl, '_blank');
+      }, 500);
+
       // Show success message
       toast({
         title: "Message Prepared!",
-        description: "WhatsApp is opening with your inquiry. Please send the message to complete your request.",
+        description: "WhatsApp and email client are opening with your inquiry. Please send the messages to complete your request.",
       })
 
       // Reset form

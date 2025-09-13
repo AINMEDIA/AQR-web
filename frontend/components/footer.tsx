@@ -42,7 +42,7 @@ const socialLinks = [
 ]
 
 const contactInfo = [
-  { icon: Phone, text: "+256256748840180 / +256748840180", href: "tel:+256256748840180" },
+  { icon: Phone, text: "+256745174879 / +256748840180", href: "tel:+256745174879" },
   { icon: Mail, text: "atlantisquest4@gmail.com", href: "mailto:atlantisquest4@gmail.com" },
   { icon: MapPin, text: "Kampala, Uganda" },
   { icon: Clock, text: "Mon-Fri 9AM-6PM EAT" },
@@ -83,7 +83,7 @@ export function Footer() {
                  </a>
                ))}
                <a 
-                 href="tel:+256748840180" 
+                 href="tel:+256745174879" 
                  aria-label="Call Us" 
                  className="transition-all duration-300 hover:scale-110 hover:text-green-400"
                  style={{ animationDelay: '400ms' }}
@@ -111,7 +111,7 @@ export function Footer() {
                  <MapPin className="w-5 h-5" />
                </a>
                <a 
-                 href="https://wa.me/256256748840180" 
+                 href="https://wa.me/256745174879" 
                  target="_blank" 
                  rel="noopener noreferrer" 
                  aria-label="WhatsApp" 

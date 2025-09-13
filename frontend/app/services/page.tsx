@@ -27,7 +27,12 @@ export default function ServicesPage() {
           <div className="container mx-auto px-4 grid grid-cols-2 gap-6 md:gap-12">
             {/* Labour Recruitment Card - Left Column */}
             <div className="relative bg-white rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 p-4 md:p-10 flex flex-col items-center justify-center text-center border-2 border-blue-100 group cursor-pointer" data-aos="fade-right">
-              <span className="text-blue-600 text-3xl md:text-5xl mb-2 md:mb-4 transition-all duration-700 group-hover:scale-110">💼</span>
+              {/* Standardized Icon */}
+              <div className="w-12 h-12 md:w-16 md:h-16 bg-blue-100 rounded-full flex items-center justify-center mb-2 md:mb-4">
+                <div className="w-8 h-8 md:w-12 md:h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                  <span className="text-white text-xl md:text-2xl">💼</span>
+                </div>
+              </div>
               <h3 className="text-sm md:text-2xl font-extrabold mb-1 md:mb-2 text-blue-800 transition-all duration-700 group-hover:text-blue-700 group-hover:scale-105">Travel with AQR</h3>
               <p className="text-xs md:text-lg text-gray-700 mb-1 md:mb-2 transition-all duration-700 opacity-90 group-hover:opacity-100">Delivering seamless travel experiences with transparent pricing, professional service, reliable networks, quick bookings, and customised solutions.</p>
               <span className="text-blue-400 font-semibold text-xs md:text-base transition-all duration-700 group-hover:text-blue-600">Your gateway to global opportunities!</span>
@@ -38,30 +43,45 @@ export default function ServicesPage() {
               {/* Car Hire Card */}
               <Link href="/services/tours/transport" className="block">
                 <div className="relative bg-white rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 p-4 md:p-6 flex flex-col items-center text-center border-2 border-blue-100 group cursor-pointer" data-aos="fade-left">
-                  <span className="text-blue-600 text-2xl md:text-4xl mb-2 md:mb-3 transition-all duration-700 group-hover:scale-110">✈️</span>
+                  {/* Standardized Icon */}
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-100 rounded-full flex items-center justify-center mb-2 md:mb-3">
+                    <div className="w-6 h-6 md:w-8 md:h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                      <span className="text-white text-sm md:text-lg">✈️</span>
+                    </div>
+                  </div>
                   <h3 className="text-sm md:text-xl font-extrabold mb-1 md:mb-2 text-blue-800 transition-all duration-700 group-hover:text-blue-700 group-hover:scale-105">Car Hire</h3>
                   <p className="text-xs md:text-base text-gray-700 mb-1 md:mb-2 transition-all duration-700 opacity-90 group-hover:opacity-100">Wildlife Safaris, Holiday Packages, Car Hire & Transport Solutions</p>
-                  <span className="text-blue-400 font-semibold text-xs md:text-sm transition-all duration-700 group-hover:text-blue-600">Explore the world with us!</span>
+                  <span className="text-blue-400 font-semibold text-xs md:text-sm transition-all duration-700 group-hover:text-blue-600">Click here to Explore the world with us!</span>
           </div>
               </Link>
               
               {/* Hotel Booking Card */}
               <Link href="/services/tours/hotels" className="block">
                 <div className="relative bg-white rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 p-4 md:p-6 flex flex-col items-center text-center border-2 border-blue-100 group cursor-pointer" data-aos="fade-left" data-aos-delay="100">
-                  <span className="text-blue-600 text-2xl md:text-4xl mb-2 md:mb-3 transition-all duration-700 group-hover:scale-110">🏨</span>
+                  {/* Standardized Icon */}
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-100 rounded-full flex items-center justify-center mb-2 md:mb-3">
+                    <div className="w-6 h-6 md:w-8 md:h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                      <span className="text-white text-sm md:text-lg">🏨</span>
+                    </div>
+                  </div>
                   <h3 className="text-sm md:text-xl font-extrabold mb-1 md:mb-2 text-blue-800 transition-all duration-700 group-hover:text-blue-700 group-hover:scale-105">Hotel Booking</h3>
                   <p className="text-xs md:text-base text-gray-700 mb-1 md:mb-2 transition-all duration-700 opacity-90 group-hover:opacity-100">Premium accommodations with best rates and instant confirmations</p>
-                  <span className="text-blue-400 font-semibold text-xs md:text-sm transition-all duration-700 group-hover:text-blue-600">Book your stay today!</span>
+                  <span className="text-blue-400 font-semibold text-xs md:text-sm transition-all duration-700 group-hover:text-blue-600">Click here to Book your stay today!</span>
                 </div>
               </Link>
               
               {/* Visa Services Card */}
               <Link href="/services/tours/visa" className="block">
                 <div className="relative bg-white rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 p-4 md:p-6 flex flex-col items-center text-center border-2 border-blue-100 group cursor-pointer" data-aos="fade-left" data-aos-delay="200">
-                  <span className="text-blue-600 text-2xl md:text-4xl mb-2 md:mb-3 transition-all duration-700 group-hover:scale-110">📋</span>
+                  {/* Standardized Icon */}
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-100 rounded-full flex items-center justify-center mb-2 md:mb-3">
+                    <div className="w-6 h-6 md:w-8 md:h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                      <span className="text-white text-sm md:text-lg">📋</span>
+                    </div>
+                  </div>
                   <h3 className="text-sm md:text-xl font-extrabold mb-1 md:mb-2 text-blue-800 transition-all duration-700 group-hover:text-blue-700 group-hover:scale-105">Visa Services</h3>
                   <p className="text-xs md:text-base text-gray-700 mb-1 md:mb-2 transition-all duration-700 opacity-90 group-hover:opacity-100">Expert visa processing and documentation assistance</p>
-                  <span className="text-blue-400 font-semibold text-xs md:text-sm transition-all duration-700 group-hover:text-blue-600">Get your visa approved!</span>
+                  <span className="text-blue-400 font-semibold text-xs md:text-sm transition-all duration-700 group-hover:text-blue-600">Click here to Get your visa approved!</span>
                 </div>
               </Link>
             </div>

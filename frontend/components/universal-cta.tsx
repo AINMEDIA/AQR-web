@@ -38,7 +38,7 @@ export function UniversalCTA() {
         asChild
       >
         <a 
-          href="https://wa.me/256748840180" 
+          href="https://wa.me/256745174879" 
           target="_blank" 
           rel="noopener noreferrer"
           className="flex items-center justify-center"
@@ -56,7 +56,7 @@ export function UniversalCTA() {
           asChild
         >
           <a 
-            href="tel:+256256748840180" 
+            href="tel:+256745174879" 
             className="flex items-center justify-center"
           >
             <Phone className="w-5 h-5 group-hover/phone:scale-110 transition-all duration-300" />

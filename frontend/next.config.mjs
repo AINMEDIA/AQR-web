@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // output: process.env.NODE_ENV === 'production' ? 'export' : undefined, // Temporarily disabled
-  output: 'standalone',
+  output: 'export',
   trailingSlash: true,
   eslint: {
     ignoreDuringBuilds: false,

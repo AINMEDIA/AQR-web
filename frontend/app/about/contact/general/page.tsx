@@ -1,7 +1,8 @@
 "use client";
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, ChangeEvent } from "react";
 import { PageTransition } from "@/components/page-transition";
 import { Mail, ArrowRight } from "lucide-react";
+import { handleFormSubmit } from "@/lib/form-utils";
 
 export default function GeneralContactPage() {
   const [form, setForm] = useState({
@@ -18,26 +19,16 @@ export default function GeneralContactPage() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSubmitting(true);
-    setError("");
-    setSuccess(false);
-    
-    // Simulate form submission for static site
-    setTimeout(() => {
-      setSuccess(true);
-      // WhatsApp message
-      const message = `General Inquiry\nName: ${form.name}\nEmail: ${form.email}\nSubject: ${form.subject}\nMessage: ${form.message}`;
-      const whatsappUrl = `https://wa.me/256256748840180?text=${encodeURIComponent(message)}`;
-      window.open(whatsappUrl, '_blank');
-      setTimeout(() => {
-        const whatsappUrl2 = `https://wa.me/256748840180?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl2, '_blank');
-        setSubmitting(false);
-      }, 1000);
-      setForm({ name: "", email: "", subject: "", message: "" });
-    }, 1000);
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    await handleFormSubmit(
+      e,
+      form,
+      "General Inquiry",
+      setSubmitting,
+      setSuccess,
+      setError,
+      () => setForm({ name: "", email: "", subject: "", message: "" })
+    );
   };
 
   return (
@@ -45,7 +36,15 @@ export default function GeneralContactPage() {
       <div className="max-w-2xl mx-auto py-12 px-4 animate-fade-in">
         <h1 className="text-3xl font-bold mb-6 flex items-center gap-2 text-green-800"><Mail className="w-7 h-7 text-green-500 " /> General Inquiry</h1>
         {success && (
-          <div className="mb-4 p-4 bg-green-100 text-green-800 rounded-lg">Inquiry submitted! We will contact you soon.</div>
+          <div className="mb-4 p-4 bg-green-100 text-green-800 rounded-lg border border-green-200">
+            <div className="flex items-center gap-2">
+              <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center">
+                <span className="text-white text-xs">✓</span>
+              </div>
+              <span className="font-semibold">Success!</span>
+            </div>
+            <p className="mt-1">Form submitted successfully! We've opened WhatsApp and your email client. We'll contact you soon.</p>
+          </div>
         )}
         {error && (
           <div className="mb-4 p-4 bg-red-100 text-red-800 rounded-lg">{error}</div>
@@ -68,7 +67,7 @@ export default function GeneralContactPage() {
             <textarea name="message" value={form.message} onChange={handleChange} required className="w-full border rounded p-2" placeholder="Type your message here..." />
           </div>
           <button type="submit" className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-60" disabled={submitting}>
-            {submitting ? 'Submitting...' : <><ArrowRight className="w-5 h-5" /> Submit & WhatsApp</>}
+            {submitting ? 'Submitting...' : <><ArrowRight className="w-5 h-5" /> Submit</>}
           </button>
         </form>
       </div>

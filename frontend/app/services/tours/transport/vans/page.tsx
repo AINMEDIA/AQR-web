@@ -31,12 +31,23 @@ export default function VansHirePage() {
       `Pickup: ${form.pickup}\n` +
       `Drop-off: ${form.dropoff}\n` +
       `Special Requests: ${form.requests}`;
-    const wa1 = `https://wa.me/256256748840180?text=${encodeURIComponent(message)}`;
+    
+    const wa1 = `https://wa.me/256745174879?text=${encodeURIComponent(message)}`;
     const wa2 = `https://wa.me/256748840180?text=${encodeURIComponent(message)}`;
+    
+    // Email setup
+    const emailSubject = `Vans & Minibuses Hire Request - ${form.name}`;
+    const emailBody = `Vans & Minibuses Hire Request\n\nName: ${form.name}\nContact: ${form.contact}\nRental Start: ${form.startDate}\nRental End: ${form.endDate}\nPickup: ${form.pickup}\nDrop-off: ${form.dropoff}\nSpecial Requests: ${form.requests}\n\n---\nThis message was sent from the AQR website.\n\nContact Information:\nEmail: atlantisquest4@gmail.com\nWhatsApp: +256745174879\nPhone: 0748840180`;
+    const emailUrl = `mailto:atlantisquest4@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    
     window.open(wa1, "_blank");
-    setTimeout(() => window.open(wa2, "_blank"), 500);
-    setSubmitting(false);
-    setForm({ name: "", contact: "", startDate: "", endDate: "", pickup: "", dropoff: "", requests: "" });
+    setTimeout(() => {
+      window.open(wa2, "_blank");
+      // Open email client
+      window.open(emailUrl, "_blank");
+      setSubmitting(false);
+      setForm({ name: "", contact: "", startDate: "", endDate: "", pickup: "", dropoff: "", requests: "" });
+    }, 500);
   };
 
   return (

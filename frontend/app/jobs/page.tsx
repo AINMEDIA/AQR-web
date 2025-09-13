@@ -78,73 +78,100 @@ export default function JobsPage() {
         {/* Recruitment Services Section */}
         <section className="py-16 bg-white animate-fade-in-delay">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-2 gap-2 md:gap-8 lg:gap-12 items-start">
-              {/* Left Column - Labour Recruitment Services */}
-              <div 
-                className="relative h-[calc(112px*3+4px*2)] md:h-[calc(128px*3+24px*2)] lg:h-[calc(160px*3+24px*2)] rounded-2xl shadow-xl bg-gradient-to-br from-blue-50 to-blue-100 hover:shadow-2xl transition-all duration-500"
-                data-aos="fade-right"
-                data-aos-delay="100"
-              >
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 via-blue-400/10 to-transparent rounded-2xl"></div>
-                <div className="relative z-10 p-3 md:p-8 flex flex-col justify-center h-full">
-                  <h2 className="text-base md:text-4xl font-bold text-blue-800 mb-3 md:mb-6 drop-shadow-lg">
-                    Labour Recruitment Services
-                  </h2>
-                  <div className="space-y-3 md:space-y-4 text-blue-700">
-                    <p className="text-sm md:text-xl font-medium leading-tight">
-                      "Connecting the right talent to the right opportunity."
-                    </p>
-                    <p className="text-xs md:text-lg leading-relaxed">
-                      At AQR, we believe that the right job can change a life — and the right employee can transform a business. Our recruitment services connect skilled and motivated workers to employers locally and abroad, ensuring a perfect match every time.
-                    </p>
-                  </div>
-                </div>
-              </div>
+            <div className="grid grid-cols-2 gap-2 md:gap-8 lg:gap-12 items-stretch">
+               {/* Left Column - Labour Recruitment Services */}
+               <div 
+                 className="relative bg-white rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 p-4 md:p-6 flex flex-col items-center text-center border-2 border-blue-100 group cursor-pointer"
+                 data-aos="fade-right"
+                 data-aos-delay="100"
+               >
+                 <div className="flex flex-col justify-center h-full">
+                   {/* Standardized Icon */}
+                   <div className="flex items-center justify-center mb-3 md:mb-6">
+                     <div className="w-12 h-12 md:w-16 md:h-16 bg-blue-100 rounded-full flex items-center justify-center">
+                       <div className="w-8 h-8 md:w-12 md:h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                         <Users className="w-4 h-4 md:w-6 md:h-6 text-white" />
+                       </div>
+                     </div>
+                   </div>
+                   <h2 className="text-sm md:text-2xl font-bold mb-2 text-center leading-tight text-blue-800 transition-all duration-700 group-hover:text-blue-700 group-hover:scale-105">
+                   Connecting Talent to Opportunity, Building Success Together.
+                   </h2>
+                   <p className="text-xs md:text-base text-gray-700 mb-1 md:mb-2 transition-all duration-700 opacity-90 group-hover:opacity-100 text-center">
+                   AQR bridges the gap between ethical employers and dependable workers, creating a win-win connection that fuels business growth and transforms lives.
+                   </p>
+                 </div>
+               </div>
 
-              {/* Right Column - Three Cards Stacked Vertically */}
+              {/* Right Column - Two Cards Stacked Vertically */}
               <div className="space-y-1 md:space-y-6 flex flex-col justify-start">
-                {/* Construction Card */}
-                <div 
-                  className="relative h-28 md:h-32 lg:h-40 rounded-xl shadow-xl bg-gradient-to-br from-blue-100 to-blue-200 hover:shadow-2xl hover:scale-105 transition-all duration-500"
-                  data-aos="zoom-in"
-                  data-aos-delay="200"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 via-blue-400/10 to-transparent rounded-xl"></div>
-                  <div className="relative z-10 p-3 md:p-6 flex flex-col justify-center h-full">
-                    <h3 className="text-sm md:text-xl lg:text-2xl font-bold text-blue-800 mb-2 md:mb-2 drop-shadow-lg">
-                      Construction
-                    </h3>
-                    <p className="text-blue-700 text-xs md:text-sm lg:text-base opacity-90 leading-tight">Skilled construction professionals</p>
+                 {/* Find Labour Card */}
+                 <div 
+                   className="relative bg-white rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 p-4 md:p-6 flex flex-col items-center text-center border-2 border-blue-100 group cursor-pointer"
+                   data-aos="zoom-in"
+                   data-aos-delay="200"
+                 >
+                   <div className="flex flex-col justify-between h-full">
+                     <div>
+                       {/* Standardized Icon */}
+                       <div className="flex items-center justify-center mb-2 md:mb-3">
+                         <div className="w-8 h-8 md:w-10 md:h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                           <div className="w-5 h-5 md:w-6 md:h-6 bg-blue-600 rounded-lg flex items-center justify-center">
+                             <Users className="w-3 h-3 md:w-4 md:h-4 text-white" />
+                           </div>
+                         </div>
+                       </div>
+                       <h3 className="text-sm md:text-xl font-extrabold mb-1 md:mb-2 text-blue-800 transition-all duration-700 group-hover:text-blue-700 group-hover:scale-105 text-center">
+                         Find Labour
+                       </h3>
+                       <p className="text-xs md:text-base text-gray-700 mb-1 md:mb-2 transition-all duration-700 opacity-90 group-hover:opacity-100 text-center">
+                         We help you build strong, reliable teams by connecting you to skilled, vetted workers through a transparent and ethical recruitment process saving you time, money, and stress.
+                       </p>
+                       <span className="text-blue-400 font-semibold text-xs md:text-sm transition-all duration-700 group-hover:text-blue-600 text-center">
+                         Find the Right Talent, Hassle-Free.
+                       </span>
+                    </div>
+                    <Link href="/find-labour/request" className="mt-3 md:mt-4">
+                      <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 md:py-3 px-4 md:px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2">
+                        Hire Talent with Confidence
+                        <ArrowRight className="w-4 h-4" />
+                      </Button>
+                    </Link>
                   </div>
                 </div>
 
-                {/* Healthcare Card */}
-                <div 
-                  className="relative h-28 md:h-32 lg:h-40 rounded-xl shadow-xl bg-gradient-to-br from-blue-200 to-blue-300 hover:shadow-2xl hover:scale-105 transition-all duration-500"
-                  data-aos="zoom-in"
-                  data-aos-delay="300"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 via-blue-400/10 to-transparent rounded-xl"></div>
-                  <div className="relative z-10 p-3 md:p-6 flex flex-col justify-center h-full">
-                    <h3 className="text-sm md:text-xl lg:text-2xl font-bold text-blue-800 mb-2 md:mb-2 drop-shadow-lg">
-                      Healthcare
-                    </h3>
-                    <p className="text-blue-700 text-xs md:text-sm lg:text-base opacity-90 leading-tight">Medical and care professionals</p>
-                  </div>
-                </div>
-
-                {/* Hospitality Card */}
-                <div 
-                  className="relative h-28 md:h-32 lg:h-40 rounded-xl shadow-xl bg-gradient-to-br from-blue-300 to-blue-400 hover:shadow-2xl hover:scale-105 transition-all duration-500"
-                  data-aos="zoom-in"
-                  data-aos-delay="400"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 via-blue-400/10 to-transparent rounded-xl"></div>
-                  <div className="relative z-10 p-3 md:p-6 flex flex-col justify-center h-full">
-                    <h3 className="text-sm md:text-xl lg:text-2xl font-bold text-blue-800 mb-2 md:mb-2 drop-shadow-lg">
-                      Hospitality
-                    </h3>
-                    <p className="text-blue-700 text-xs md:text-sm lg:text-base opacity-90 leading-tight">Hotel and service industry</p>
+                 {/* Find Work Card */}
+                 <div 
+                   className="relative bg-white rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 p-4 md:p-6 flex flex-col items-center text-center border-2 border-blue-100 group cursor-pointer"
+                   data-aos="zoom-in"
+                   data-aos-delay="300"
+                 >
+                   <div className="flex flex-col justify-between h-full">
+                     <div>
+                       {/* Standardized Icon */}
+                       <div className="flex items-center justify-center mb-2 md:mb-3">
+                         <div className="w-8 h-8 md:w-10 md:h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                           <div className="w-5 h-5 md:w-6 md:h-6 bg-blue-600 rounded-lg flex items-center justify-center">
+                             <Briefcase className="w-3 h-3 md:w-4 md:h-4 text-white" />
+                           </div>
+                         </div>
+                       </div>
+                       <h3 className="text-sm md:text-xl font-extrabold mb-1 md:mb-2 text-blue-800 transition-all duration-700 group-hover:text-blue-700 group-hover:scale-105 text-center">
+                         Find Work
+                       </h3>
+                       <p className="text-xs md:text-base text-gray-700 mb-1 md:mb-2 transition-all duration-700 opacity-90 group-hover:opacity-100 text-center">
+                         We connect you to safe, rewarding jobs abroad, providing guidance, support, and transparency every step of the way so you can work with dignity and achieve your dreams.
+                       </p>
+                       <span className="text-blue-400 font-semibold text-xs md:text-sm transition-all duration-700 group-hover:text-blue-600 text-center">
+                         Your Future Starts Here.
+                       </span>
+                    </div>
+                    <Link href="/jobs" className="mt-3 md:mt-4">
+                      <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 md:py-3 px-4 md:px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2">
+                        Apply Now for Jobs Abroad
+                        <ArrowRight className="w-4 h-4" />
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </div>
