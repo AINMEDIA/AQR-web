@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { PageTransition } from "@/components/page-transition";
 import { Truck, ArrowRight } from "lucide-react";
+import { handleFormSubmit } from "@/lib/form-utils";
 
 export default function VansHirePage() {
   const [form, setForm] = useState({
@@ -14,40 +15,23 @@ export default function VansHirePage() {
     requests: "",
   });
   const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitting(true);
-    const message =
-      `Vans & Minibuses Hire Request\n` +
-      `Name: ${form.name}\n` +
-      `Contact: ${form.contact}\n` +
-      `Rental Start: ${form.startDate}\n` +
-      `Rental End: ${form.endDate}\n` +
-      `Pickup: ${form.pickup}\n` +
-      `Drop-off: ${form.dropoff}\n` +
-      `Special Requests: ${form.requests}`;
-    
-    const wa1 = `https://wa.me/256745174879?text=${encodeURIComponent(message)}`;
-    const wa2 = `https://wa.me/256748840180?text=${encodeURIComponent(message)}`;
-    
-    // Email setup
-    const emailSubject = `Vans & Minibuses Hire Request - ${form.name}`;
-    const emailBody = `Vans & Minibuses Hire Request\n\nName: ${form.name}\nContact: ${form.contact}\nRental Start: ${form.startDate}\nRental End: ${form.endDate}\nPickup: ${form.pickup}\nDrop-off: ${form.dropoff}\nSpecial Requests: ${form.requests}\n\n---\nThis message was sent from the AQR website.\n\nContact Information:\nEmail: atlantisquest4@gmail.com\nWhatsApp: +256745174879\nPhone: 0748840180`;
-    const emailUrl = `mailto:atlantisquest4@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-    
-    window.open(wa1, "_blank");
-    setTimeout(() => {
-      window.open(wa2, "_blank");
-      // Open email client
-      window.open(emailUrl, "_blank");
-      setSubmitting(false);
-      setForm({ name: "", contact: "", startDate: "", endDate: "", pickup: "", dropoff: "", requests: "" });
-    }, 500);
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    await handleFormSubmit(
+      e,
+      form,
+      "Vans & Minibuses Hire Request",
+      setSubmitting,
+      setSuccess,
+      setError,
+      () => setForm({ name: "", contact: "", startDate: "", endDate: "", pickup: "", dropoff: "", requests: "" })
+    );
   };
 
   return (
@@ -56,6 +40,25 @@ export default function VansHirePage() {
         <h1 className="text-4xl font-bold mb-6 flex items-center gap-2 text-blue-700">
           <Truck className="w-8 h-8 text-blue-500" /> Vans & Minibuses Hire Request
         </h1>
+        
+        {success && (
+          <div className="mb-4 p-4 bg-blue-100 text-blue-800 rounded-lg border border-blue-200">
+            <div className="flex items-center gap-2">
+              <span className="text-green-500">✓</span>
+              <span>Form submitted successfully! We've opened WhatsApp and your email client. We'll contact you soon.</span>
+            </div>
+          </div>
+        )}
+        
+        {error && (
+          <div className="mb-4 p-4 bg-red-100 text-red-800 rounded-lg border border-red-200">
+            <div className="flex items-center gap-2">
+              <span className="text-red-500">✗</span>
+              <span>{error}</span>
+            </div>
+          </div>
+        )}
+        
         <form onSubmit={handleSubmit} className="space-y-6 bg-white rounded-xl shadow-lg p-8">
           <div>
             <label className="block text-sm font-medium mb-1">Full Name</label>

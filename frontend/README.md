@@ -1,40 +1,25 @@
-# AQR-Web Frontend
+# Atlantic Quest & Reality - International Recruitment Platform
 
-Next.js frontend application for the AQR-Web job and travel services platform.
+A modern Next.js application for international recruitment services, connecting skilled East African workers with employers worldwide.
 
 ## Features
 
-- **Next.js 14** with App Router
+- **International Recruitment**: Connect employers from UAE, Qatar, Saudi Arabia, and other countries with skilled East African workers
+- **Job Listings**: Comprehensive job board with filtering and search capabilities
+- **Travel Services**: Visa processing, hotel bookings, and transport solutions
+- **SEO Optimized**: Fully optimized for international search engines and employers
+- **Responsive Design**: Mobile-first design with modern UI/UX
+- **Static Generation**: Fast loading with Next.js static generation
+
+## Tech Stack
+
+- **Next.js 15** with App Router
 - **TypeScript** for type safety
 - **Tailwind CSS** for styling
-- **Zustand** for state management
-- **Framer Motion** for animations
-- **Radix UI** components
-- **Form validation** with React Hook Form
-- **Responsive design** with mobile support
-- **Static export** for optimal performance
-
-## Pages
-
-- **Home** (`/`) - Landing page with services overview
-- **Jobs** (`/jobs`) - Job listings with search and filtering
-- **Find Labour** (`/find-labour`) - Worker request system
-- **Services** (`/services`) - Company services information
-- **Contact** (`/contact`) - Contact form
-- **Emergency** (`/emergency`) - Emergency alert system
-- **Dashboard** (`/dashboard`) - User dashboard with role-based features
-- **Auth** (`/login`, `/signup`) - Authentication pages
-
-## State Management
-
-The app uses Zustand stores for state management:
-
-- `useAuthStore` - Authentication state
-- `useJobsStore` - Job listings and applications
-- `useProfileStore` - User profile management
-- `useContactStore` - Contact form submissions
-- `useEmergencyStore` - Emergency alerts
-- `useWorkersStore` - Worker requests
+- **Lucide React** for icons
+- **AOS** for animations
+- **React Hook Form** for form handling
+- **Zod** for validation
 
 ## Quick Start
 
@@ -51,78 +36,76 @@ npm run dev
 ### Production Build
 
 ```bash
-# Build for production (static export)
+# Build for production
 npm run build
 
-# The build output will be in .next/ directory
+# Start production server
+npm start
 ```
 
-### Docker Deployment
+## Docker Deployment
+
+### Build and Run with Docker
 
 ```bash
-# Build and run with Docker
+# Build Docker image
 docker build -t aqr-web:latest .
-docker-compose up -d
 
-# Or run directly:
+# Run container
 docker run -d -p 3000:3000 aqr-web:latest
 ```
 
-The application will be available on port 3000.
+### Using Docker Compose
 
-## Architecture
+```bash
+# Start services
+docker-compose up -d
 
-This application uses a **standalone Next.js** approach:
+# Stop services
+docker-compose down
+```
 
-- **Build Time**: Next.js generates optimized production build
-- **Runtime**: Node.js serves the application with built-in server
-- **Benefits**: 
-  - Full Next.js features (SSR, API routes, etc.)
-  - Optimized performance
-  - Docker containerization
-  - Production-ready deployment
+The application will be available at `http://localhost:3000`
+
+## SEO Features
+
+- **International Targeting**: Optimized for global employers and recruiters
+- **Structured Data**: JSON-LD schemas for jobs, services, and organization
+- **Sitemap**: Auto-generated sitemap for all pages
+- **Meta Tags**: Comprehensive meta tags for social sharing
+- **Breadcrumbs**: Navigation breadcrumbs with schema markup
+- **FAQ Sections**: Rich snippets for common questions
+
+## Project Structure
+
+```
+frontend/
+├── app/                    # Next.js App Router
+│   ├── (pages)/           # Page components
+│   ├── components/        # Reusable components
+│   └── lib/              # Utility functions
+├── components/            # UI components
+│   ├── ui/               # Base UI components
+│   └── seo/              # SEO components
+├── public/               # Static assets
+└── data/                 # Static data files
+```
 
 ## Environment Variables
 
-Create a `.env.local` file with:
+No environment variables are required for basic functionality. The application uses static data and client-side form submissions.
 
-```env
-NEXT_PUBLIC_API_URL=http://localhost:8000
-```
+## Deployment
 
-## API Integration
+The application is optimized for deployment on:
+- **Vercel** (recommended)
+- **Netlify**
+- **Docker containers**
+- **Static hosting** (with `output: 'export'`)
 
-The frontend communicates with the FastAPI backend through:
+## Support
 
-- **API Client** (`lib/api.ts`) - Centralized API communication
-- **Type Definitions** - TypeScript interfaces for API responses
-- **Error Handling** - Consistent error handling across the app
-- **Token Management** - Automatic JWT token handling
-
-## UI Components
-
-The app uses a consistent design system with:
-
-- **Radix UI** primitives for accessibility
-- **Tailwind CSS** for styling
-- **Custom components** in `/components`
-- **Responsive design** for all screen sizes
-- **Dark/light theme** support
-
-## User Roles
-
-The frontend adapts based on user roles:
-
-- **Guest**: Can browse jobs and submit contact forms
-- **User**: Can apply for jobs and manage profile
-- **Worker**: Can browse opportunities and submit applications
-- **Employer**: Can create and manage job postings
-- **Admin**: Can manage all content and users
-
-## Performance Optimizations
-
-- **Static Export**: Pre-built HTML for instant loading
-- **Gzip Compression**: Enabled in nginx
-- **Caching**: Aggressive caching for static assets
-- **Image Optimization**: WebP and AVIF formats
-- **Code Splitting**: Automatic by Next.js
+For support or questions, contact:
+- Email: info@atlantisquestandreality.com
+- Phone: +256745174879
+- Website: https://atlantisquestandreality.com

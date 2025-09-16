@@ -102,7 +102,7 @@ ${data.message}
       // WhatsApp numbers (you can add multiple numbers)
       const whatsappNumbers = [
         '+256745174879',
-        '+256748840180'
+        '+256745174879'
       ]
 
       // Create WhatsApp message
@@ -211,7 +211,7 @@ Phone: 0748840180`;
               </label>
               <Input
                 type="tel"
-                placeholder="+256748840180*"
+                placeholder="+256745174879*"
                 value={formData.phone}
                 onChange={(e) => handleInputChange('phone', e.target.value)}
                 className="border-blue-200 focus:border-blue-500"

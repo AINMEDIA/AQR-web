@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
+import { Icon } from "@/components/ui/icon"
 import { Menu, Briefcase, Users, MapPin, Phone, User, Globe, Camera, Building2, Info, ChevronDown, ArrowRight, Home, FileText, X } from "lucide-react"
 
 const navItems = [
@@ -225,9 +226,12 @@ export function Navbar() {
                         style={{ animationDelay: `${childIndex * 50}ms` }}
                       >
                         <div className="flex items-center gap-3">
-                          <div className="flex items-center justify-center w-8 h-8 bg-blue-100 rounded-lg group-hover/item:bg-blue-300 transition-all duration-300">
-                            <child.icon className={`w-4 h-4 transition-all duration-300 group-hover/item:scale-110 ${child.color}`} />
-                          </div>
+                          <Icon 
+                            icon={child.icon} 
+                            size="sm" 
+                            variant="outline"
+                            className="group-hover/item:scale-110 transition-all duration-300"
+                          />
                           <div className="flex-1">
                             <div className="font-semibold text-sm">{child.label}</div>
                             <div className="text-xs text-gray-500 group-hover/item:text-gray-700">{child.description}</div>

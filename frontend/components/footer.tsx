@@ -42,7 +42,7 @@ const socialLinks = [
 ]
 
 const contactInfo = [
-  { icon: Phone, text: "+256745174879 / +256748840180", href: "tel:+256745174879" },
+  { icon: Phone, text: "+256745174879", href: "tel:+256745174879" },
   { icon: Mail, text: "atlantisquest4@gmail.com", href: "mailto:atlantisquest4@gmail.com" },
   { icon: MapPin, text: "Kampala, Uganda" },
   { icon: Clock, text: "Mon-Fri 9AM-6PM EAT" },

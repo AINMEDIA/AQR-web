@@ -1,5 +1,5 @@
 import { PageTransition } from "@/components/page-transition"
-import { Hotel, ArrowRight, CheckCircle, Star, Shield, Clock, Globe, Users, Headphones } from "lucide-react"
+import { Hotel, ArrowRight, CheckCircle, Star, Shield, Clock, Globe, Users, Headphones, Plane, Bus, Ship, Target, Wallet, Heart } from "lucide-react"
 import Link from "next/link"
 
 export default function HotelsPage() {
@@ -45,27 +45,27 @@ export default function HotelsPage() {
                   </h3>
                   <div className="space-y-2 md:space-y-3 mb-4 md:mb-6">
                     <div className="flex items-start gap-2 text-left">
-                      <Star className="w-3 h-3 md:w-4 md:h-4 text-orange-500 mt-0.5 flex-shrink-0" />
+                      <Star className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
                       <span className="text-xs md:text-sm text-blue-900 font-semibold">Wide Selection of Hotels - From budget-friendly stays to luxury resorts.</span>
                     </div>
                     <div className="flex items-start gap-2 text-left">
-                      <Shield className="w-3 h-3 md:w-4 md:h-4 text-orange-500 mt-0.5 flex-shrink-0" />
+                      <Shield className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
                       <span className="text-xs md:text-sm text-blue-900 font-semibold">Best Price Guarantee - Transparent rates with no hidden fees.</span>
                     </div>
                     <div className="flex items-start gap-2 text-left">
-                      <Clock className="w-3 h-3 md:w-4 md:h-4 text-orange-500 mt-0.5 flex-shrink-0" />
+                      <Clock className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
                       <span className="text-xs md:text-sm text-blue-900 font-semibold">Fast & Easy Booking - Quick reservations tailored to your schedule.</span>
                     </div>
                     <div className="flex items-start gap-2 text-left">
-                      <Globe className="w-3 h-3 md:w-4 md:h-4 text-orange-500 mt-0.5 flex-shrink-0" />
+                      <Globe className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
                       <span className="text-xs md:text-sm text-blue-900 font-semibold">Global Network - Stay anywhere, whether local or international.</span>
                     </div>
                     <div className="flex items-start gap-2 text-left">
-                      <Users className="w-3 h-3 md:w-4 md:h-4 text-orange-500 mt-0.5 flex-shrink-0" />
+                      <Users className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
                       <span className="text-xs md:text-sm text-blue-900 font-semibold">Personalized Recommendations - Hotels matched to your needs and preferences.</span>
                     </div>
                     <div className="flex items-start gap-2 text-left">
-                      <Headphones className="w-3 h-3 md:w-4 md:h-4 text-orange-500 mt-0.5 flex-shrink-0" />
+                      <Headphones className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
                       <span className="text-xs md:text-sm text-blue-900 font-semibold">24/7 Support - Assistance before, during, and after your stay.</span>
                     </div>
                   </div>
@@ -83,27 +83,27 @@ export default function HotelsPage() {
                   </h3>
                   <div className="space-y-2 md:space-y-3 mb-4 md:mb-6">
                     <div className="flex items-start gap-2 text-left">
-                      <span className="text-orange-500 text-sm">✈</span>
+                      <Plane className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
                       <span className="text-xs md:text-sm text-blue-900 font-semibold">Flight Bookings – Domestic and international flights at competitive rates.</span>
                     </div>
                     <div className="flex items-start gap-2 text-left">
-                      <span className="text-orange-500 text-sm">🚌</span>
+                      <Bus className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
                       <span className="text-xs md:text-sm text-blue-900 font-semibold">Bus & Coach Tickets – Convenient options for city and upcountry travel.</span>
                     </div>
                     <div className="flex items-start gap-2 text-left">
-                      <span className="text-orange-500 text-sm">🚢</span>
+                      <Ship className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
                       <span className="text-xs md:text-sm text-blue-900 font-semibold">Ferry & Cruise Reservations – For waterway travel and leisure trips.</span>
                     </div>
                     <div className="flex items-start gap-2 text-left">
-                      <span className="text-orange-500 text-sm">🌍</span>
+                      <Target className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
                       <span className="text-xs md:text-sm text-blue-900 font-semibold">Multi-Destination Planning – Perfect for tours and complex itineraries.</span>
                     </div>
                     <div className="flex items-start gap-2 text-left">
-                      <span className="text-orange-500 text-sm">💳</span>
+                      <Wallet className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
                       <span className="text-xs md:text-sm text-blue-900 font-semibold">Flexible Payments – Secure and convenient payment options.</span>
                     </div>
                     <div className="flex items-start gap-2 text-left">
-                      <span className="text-orange-500 text-sm">🤝</span>
+                      <Heart className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
                       <span className="text-xs md:text-sm text-blue-900 font-semibold">24/7 Support – Assistance with cancellations, changes, or emergencies.</span>
                     </div>
                   </div>

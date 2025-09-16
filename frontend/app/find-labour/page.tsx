@@ -2,6 +2,10 @@
 
 import { Footer } from "@/components/footer"
 import { PageTransition } from "@/components/page-transition"
+import { Breadcrumb } from "@/components/seo/breadcrumb"
+import { ServiceSchema } from "@/components/seo/structured-data"
+import { Icon } from "@/components/ui/icon"
+import { Globe, Shield, FileText, GraduationCap, Plane, Phone } from "lucide-react"
 
 
 export default function FindLabourPage() {
@@ -10,18 +14,39 @@ export default function FindLabourPage() {
 
   return (
     <PageTransition>
+      <ServiceSchema 
+        name="International Labour Recruitment Services"
+        description="Professional international recruitment services connecting employers worldwide with skilled East African workers. Specialized in domestic workers, construction, hospitality, and healthcare recruitment for UAE, Qatar, Saudi Arabia, and global markets."
+        serviceType="International Recruitment Services"
+        areaServed={["United Arab Emirates", "Qatar", "Saudi Arabia", "Kuwait", "Oman", "Bahrain", "Asia", "Middle East"]}
+        hasOfferCatalog={{
+          name: "International Recruitment Services",
+          itemListElement: [
+            { name: "Domestic Workers", description: "Reliable household staff for international employers" },
+            { name: "Construction Workers", description: "Skilled construction professionals for international projects" },
+            { name: "Hospitality Staff", description: "Trained hospitality workers for hotels and restaurants" },
+            { name: "Healthcare Workers", description: "Qualified healthcare professionals for international facilities" },
+            { name: "Skilled Trades", description: "Certified tradespeople for various international industries" }
+          ]
+        }}
+      />
+      <div className="container mx-auto px-4 py-4">
+        <Breadcrumb items={[
+          { name: "Find Labour", url: "/find-labour" }
+        ]} />
+      </div>
       {/* Hero Section */}
       <section className="relative min-h-[40vh] w-full flex items-center justify-center overflow-hidden rounded-br-[120px] md:rounded-br-[240px]">
         <img
           src="/images/Labour.jpeg"
-          alt="Labour Sourcing Hero"
+          alt="Labour sourcing and recruitment services - Atlantic Quest & Reality"
           className="absolute inset-0 w-full h-full object-cover z-0"
           data-aos="fade-in"
         />
         <div className="absolute inset-0 bg-black/40 z-10"></div>
         <div className="relative z-20 text-center text-white px-4" data-aos="fade-up">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-2 drop-shadow">Labour Sourcing & Externalisation</h1>
-          <p className="text-lg md:text-xl font-medium drop-shadow">Connecting skilled Ugandan workers with global opportunities and employers.</p>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-2 drop-shadow">International Labour Recruitment</h1>
+          <p className="text-lg md:text-xl font-medium drop-shadow">Connecting international employers with skilled East African workers for global opportunities.</p>
         </div>
       </section>
 
@@ -35,18 +60,14 @@ export default function FindLabourPage() {
               <div className="h-full flex flex-col justify-center">
                 {/* Icon */}
                 <div className="flex items-center justify-center mb-6">
-                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                    <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                      <span className="text-white text-2xl">🌍</span>
-                    </div>
-                  </div>
+                  <Icon icon={Globe} size="xl" />
                 </div>
                 
                 <h2 className="text-3xl md:text-4xl font-extrabold text-blue-800 mb-6 text-center">
-                  Your Future, Your Opportunity.
+                  Connecting Global Employers with Skilled East African Talent.
                 </h2>
                 <p className="text-lg md:text-xl text-gray-700 leading-relaxed text-center">
-                  At AQR, we believe in creating safe and rewarding pathways for individuals seeking to work abroad. We connect you to trusted employers who value your skills and ensure a transparent, ethical recruitment process so you can work with dignity, earn a fair income, and secure a brighter future for yourself and your family.
+                  At AQR, we specialize in connecting international employers with skilled, reliable East African workers. Our comprehensive recruitment services ensure employers find the right talent while workers receive fair treatment, competitive compensation, and ongoing support in their international assignments.
                 </p>
               </div>
             </div>
@@ -57,31 +78,31 @@ export default function FindLabourPage() {
                 {/* Header */}
                 <div className="text-center mb-8">
                   <div className="flex items-center justify-center gap-3 mb-4">
-                    <span className="text-3xl">🌍</span>
-                    <h2 className="text-2xl md:text-3xl font-bold text-blue-800">Work Opportunities</h2>
+                    <Icon icon={Globe} size="lg" />
+                    <h2 className="text-2xl md:text-3xl font-bold text-blue-800">International Work Opportunities</h2>
                   </div>
                 </div>
 
                 {/* Features List */}
                 <div className="space-y-4 mb-8">
                   <div className="flex items-start gap-3">
-                    <span className="text-2xl">🌍</span>
+                    <Icon icon={Shield} size="sm" variant="minimal" />
                     <div>
-                      <h3 className="text-lg font-bold text-blue-800 mb-1">Safe & Trusted Opportunities</h3>
-                      <p className="text-gray-700 text-sm">We work only with ethical employers, ensuring secure jobs with dignity and respect.</p>
+                      <h3 className="text-lg font-bold text-blue-800 mb-1">International Employer Partnerships</h3>
+                      <p className="text-gray-700 text-sm">We work with verified employers from UAE, Qatar, Saudi Arabia, and other international markets, ensuring secure jobs with fair treatment and competitive compensation.</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3">
-                    <span className="text-2xl">📋</span>
+                    <Icon icon={FileText} size="sm" variant="minimal" />
                     <div>
-                      <h3 className="text-lg font-bold text-blue-800 mb-1">Full Guidance & Support</h3>
-                      <p className="text-gray-700 text-sm">From application to departure, we walk with you step-by-step, making the process smooth and stress-free.</p>
+                      <h3 className="text-lg font-bold text-blue-800 mb-1">Complete International Support</h3>
+                      <p className="text-gray-700 text-sm">From application to international placement, we provide comprehensive support including visa processing, pre-departure training, and ongoing assistance while working abroad.</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3">
-                    <span className="text-2xl">💰</span>
+                    <Icon icon={Shield} size="sm" variant="minimal" />
                     <div>
                       <h3 className="text-lg font-bold text-blue-800 mb-1">Transparent Process</h3>
                       <p className="text-gray-700 text-sm">Clear costs, no hidden fees, and a commitment to honesty at every stage.</p>
@@ -89,26 +110,26 @@ export default function FindLabourPage() {
                   </div>
                   
                   <div className="flex items-start gap-3">
-                    <span className="text-2xl">🧑‍🏫</span>
+                    <Icon icon={GraduationCap} size="sm" variant="minimal" />
                     <div>
-                      <h3 className="text-lg font-bold text-blue-800 mb-1">Pre-Departure Training</h3>
-                      <p className="text-gray-700 text-sm">Get prepared with skills, cultural orientation, and expectations before you travel.</p>
+                      <h3 className="text-lg font-bold text-blue-800 mb-1">International Pre-Departure Training</h3>
+                      <p className="text-gray-700 text-sm">Comprehensive training including cultural orientation, language basics, job-specific skills, and expectations for working in international markets like UAE, Qatar, and Saudi Arabia.</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3">
-                    <span className="text-2xl">🛂</span>
+                    <Icon icon={Plane} size="sm" variant="minimal" />
                     <div>
-                      <h3 className="text-lg font-bold text-blue-800 mb-1">Visa & Documentation Assistance</h3>
-                      <p className="text-gray-700 text-sm">Hassle-free support to process your paperwork quickly and correctly.</p>
+                      <h3 className="text-lg font-bold text-blue-800 mb-1">International Visa & Documentation</h3>
+                      <p className="text-gray-700 text-sm">Complete visa processing support for international destinations including UAE, Qatar, Saudi Arabia, and other countries. We handle all documentation requirements efficiently.</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3">
-                    <span className="text-2xl">📞</span>
+                    <Icon icon={Phone} size="sm" variant="minimal" />
                     <div>
-                      <h3 className="text-lg font-bold text-blue-800 mb-1">Ongoing Support While Abroad</h3>
-                      <p className="text-gray-700 text-sm">Even after placement, our team remains available to assist and guide you.</p>
+                      <h3 className="text-lg font-bold text-blue-800 mb-1">24/7 International Support</h3>
+                      <p className="text-gray-700 text-sm">Round-the-clock support for workers in international assignments. Our team maintains regular contact and provides assistance with any challenges while working abroad.</p>
                     </div>
                   </div>
                 </div>
@@ -119,7 +140,7 @@ export default function FindLabourPage() {
                     href="/find-labour/apply"
                     className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-xl transition-all duration-300 flex items-center gap-3 shadow-lg hover:shadow-xl hover:scale-105 transform mx-auto"
                   >
-                    <span className="text-base">Apply for Work Abroad</span>
+                    <span className="text-base">Hire International Workers</span>
                     <span className="text-xl">→</span>
                   </a>
                 </div>

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { PageTransition } from "@/components/page-transition";
 import { Truck, ArrowRight } from "lucide-react";
+import { handleFormSubmit } from "@/lib/form-utils";
 
 export default function TrucksHirePage() {
   const [form, setForm] = useState({
@@ -29,11 +30,11 @@ export default function TrucksHirePage() {
     
     // Email setup
     const emailSubject = `Trucks & Pickups Hire Request - ${form.name}`;
-    const emailBody = `Trucks & Pickups Hire Request\n\nName: ${form.name}\nContact: ${form.contact}\nRental Dates: ${form.startDate} to ${form.endDate}\nPickup: ${form.pickup}\nDrop-off: ${form.dropoff}\nRequests: ${form.requests}\n\n---\nThis message was sent from the AQR website.\n\nContact Information:\nEmail: atlantisquest4@gmail.com\nWhatsApp: +256745174879\nPhone: 0748840180`;
+    const emailBody = `Trucks & Pickups Hire Request\n\nName: ${form.name}\nContact: ${form.contact}\nRental Dates: ${form.startDate} to ${form.endDate}\nPickup: ${form.pickup}\nDrop-off: ${form.dropoff}\nRequests: ${form.requests}\n\n---\nThis message was sent from the AQR website.\n\nContact Information:\nEmail: atlantisquest4@gmail.com\nWhatsApp: +256745174879\nPhone: 0745174879`;
     const emailUrl = `mailto:atlantisquest4@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
     
     setTimeout(() => {
-      const whatsappUrl2 = `https://wa.me/256748840180?text=${encodeURIComponent(message)}`;
+      const whatsappUrl2 = `https://wa.me/256745174879?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl2, '_blank');
       // Open email client
       window.open(emailUrl, '_blank');

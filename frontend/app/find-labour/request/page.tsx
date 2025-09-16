@@ -41,11 +41,11 @@ export default function WorkerRequestPage() {
   return (
     <PageTransition>
       <div className="max-w-2xl mx-auto py-12 px-4 animate-fade-in">
-        <h1 className="text-3xl font-bold mb-6 flex items-center gap-2 text-emerald-800"><Users className="w-7 h-7 text-emerald-500 " /> Worker Request</h1>
+        <h1 className="text-3xl font-bold mb-6 flex items-center gap-2 text-blue-800"><Users className="w-7 h-7 text-blue-500 " /> Worker Request</h1>
         {success && (
-          <div className="mb-4 p-4 bg-emerald-100 text-emerald-800 rounded-lg border border-emerald-200">
+          <div className="mb-4 p-4 bg-blue-100 text-blue-800 rounded-lg border border-blue-200">
             <div className="flex items-center gap-2">
-              <div className="w-5 h-5 bg-emerald-500 rounded-full flex items-center justify-center">
+              <div className="w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center">
                 <span className="text-white text-xs">✓</span>
               </div>
               <span className="font-semibold">Success!</span>
@@ -103,7 +103,7 @@ export default function WorkerRequestPage() {
             <label className="block text-sm font-medium mb-1">Additional Info</label>
             <textarea name="info" value={form.info} onChange={handleChange} className="w-full border rounded p-2" placeholder="Any additional information? (Optional)" />
           </div>
-          <button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-60" disabled={submitting}>
+          <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-60" disabled={submitting}>
             {submitting ? 'Submitting...' : <><ArrowRight className="w-5 h-5" /> Submit</>}
           </button>
         </form>

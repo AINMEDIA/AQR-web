@@ -59,11 +59,11 @@ export default function JobApplicationClient({ job }: JobApplicationClientProps)
       
       // Email setup
       const emailSubject = `Job Application for ${job.title} - ${form.name}`;
-      const emailBody = `Job Application for ${job.title}\n\nName: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nCover Letter: ${form.coverLetter}\nCV: [Please attach your CV to this email]\n\n---\nThis message was sent from the AQR website.\n\nContact Information:\nEmail: atlantisquest4@gmail.com\nWhatsApp: +256745174879\nPhone: 0748840180`;
+      const emailBody = `Job Application for ${job.title}\n\nName: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nCover Letter: ${form.coverLetter}\nCV: [Please attach your CV to this email]\n\n---\nThis message was sent from the AQR website.\n\nContact Information:\nEmail: atlantisquest4@gmail.com\nWhatsApp: +256745174879\nPhone: 0745174879`;
       const emailUrl = `mailto:atlantisquest4@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
       
       setTimeout(() => {
-        const whatsappUrl2 = `https://wa.me/256748840180?text=${encodeURIComponent(message)}`;
+        const whatsappUrl2 = `https://wa.me/256745174879?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl2, '_blank');
         // Open email client
         window.open(emailUrl, '_blank');

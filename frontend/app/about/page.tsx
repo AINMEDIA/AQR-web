@@ -2,16 +2,22 @@
 
 import React from "react"
 import { PageTransition } from "@/components/page-transition"
+import { Breadcrumb } from "@/components/seo/breadcrumb"
 import Link from "next/link"
 
 export default function AboutPage() {
   return (
     <PageTransition>
+      <div className="container mx-auto px-4 py-4">
+        <Breadcrumb items={[
+          { name: "About", url: "/about" }
+        ]} />
+      </div>
       <div className="animate-fade-in">
         <section className="relative min-h-[40vh] w-full flex items-center justify-center overflow-hidden rounded-br-[120px] md:rounded-br-[240px]">
           <img
             src="/images/hero-background.jpg"
-            alt="About AQR Hero"
+            alt="About Atlantic Quest & Reality - Your bridge to opportunity and discovery"
             className="absolute inset-0 w-full h-full object-cover z-0"
             data-aos="fade-in"
           />

@@ -26,7 +26,7 @@ export default function HomePage() {
   ];
   const handleQuoteOption = (msg: string) => {
     setShowQuoteOptions(false);
-    const url = `https://wa.me/256748840180?text=${encodeURIComponent(msg)}`;
+    const url = `https://wa.me/256745174879?text=${encodeURIComponent(msg)}`;
     window.open(url, "_blank");
   };
 

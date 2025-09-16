@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation';
 import jobsData from '@/data/jobs.json';
 import JobDetailsClient from './job-details-client';
+import { JobPostingSchema } from '@/components/seo/structured-data';
+import { Breadcrumb } from '@/components/seo/breadcrumb';
 
 interface Job {
   id: number;
@@ -38,5 +40,31 @@ export default async function JobDetailsPage({ params }: PageProps) {
     notFound();
   }
 
-  return <JobDetailsClient job={job} />;
+  const currentDate = new Date().toISOString();
+  const validThrough = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(); // 30 days from now
+
+  return (
+    <>
+      <JobPostingSchema
+        title={job.title}
+        description={job.description}
+        company={job.company}
+        location={job.location}
+        employmentType={job.type}
+        salary={job.salary}
+        datePosted={currentDate}
+        validThrough={validThrough}
+        url={`https://atlantisquestandreality.com/jobs/${job.id}`}
+        requirements={job.requirements}
+        benefits={job.benefits}
+      />
+      <div className="container mx-auto px-4 py-4">
+        <Breadcrumb items={[
+          { name: "Jobs", url: "/jobs" },
+          { name: job.title, url: `/jobs/${job.id}` }
+        ]} />
+      </div>
+      <JobDetailsClient job={job} />
+    </>
+  );
 } 

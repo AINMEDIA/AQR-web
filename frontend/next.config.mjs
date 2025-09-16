@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  trailingSlash: true,
+  output: 'standalone',
   eslint: {
     ignoreDuringBuilds: false,
   },
@@ -9,12 +8,10 @@ const nextConfig = {
     ignoreBuildErrors: false,
   },
   images: {
-    unoptimized: true,
     formats: ['image/webp', 'image/avif'],
     domains: [],
     remotePatterns: [],
   },
-  // Removed serverActions and headers for static export compatibility
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },

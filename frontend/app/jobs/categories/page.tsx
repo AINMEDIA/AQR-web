@@ -1,6 +1,8 @@
 "use client"
 
 import { PageTransition } from "@/components/page-transition"
+import { Icon } from "@/components/ui/icon"
+import { Building2, Search, Handshake, Zap, Globe, FileText, Phone } from "lucide-react"
 
 export default function JobCategoriesPage() {
 
@@ -31,11 +33,7 @@ export default function JobCategoriesPage() {
                 <div className="h-full flex flex-col justify-center">
                   {/* Icon */}
                   <div className="flex items-center justify-center mb-6">
-                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                      <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                        <span className="text-white text-2xl">🏢</span>
-                      </div>
-                    </div>
+                    <Icon icon={Building2} size="xl" />
                   </div>
                   
                   <h2 className="text-3xl md:text-4xl font-extrabold text-blue-800 mb-6 text-center">
@@ -53,7 +51,7 @@ export default function JobCategoriesPage() {
                   {/* Header */}
                   <div className="text-center mb-8">
                     <div className="flex items-center justify-center gap-3 mb-4">
-                      <span className="text-3xl">🏢</span>
+                      <Icon icon={Building2} size="lg" />
                       <h2 className="text-2xl md:text-3xl font-bold text-blue-800">Job Opportunities</h2>
                     </div>
                   </div>
@@ -61,7 +59,7 @@ export default function JobCategoriesPage() {
                   {/* Features List */}
                   <div className="space-y-4 mb-8">
                     <div className="flex items-start gap-3">
-                      <span className="text-2xl">🔍</span>
+                      <Icon icon={Search} size="sm" variant="minimal" />
                       <div>
                         <h3 className="text-lg font-bold text-blue-800 mb-1">Skilled, Vetted Workers</h3>
                         <p className="text-gray-700 text-sm">Every candidate is thoroughly screened and trained to meet your specific business needs.</p>
@@ -69,7 +67,7 @@ export default function JobCategoriesPage() {
                     </div>
                     
                     <div className="flex items-start gap-3">
-                      <span className="text-2xl">🤝</span>
+                      <Icon icon={Handshake} size="sm" variant="minimal" />
                       <div>
                         <h3 className="text-lg font-bold text-blue-800 mb-1">Ethical Recruitment Practices</h3>
                         <p className="text-gray-700 text-sm">We ensure a fair, transparent, and compliant hiring process that builds trust and long-term success.</p>
@@ -77,7 +75,7 @@ export default function JobCategoriesPage() {
                     </div>
                     
                     <div className="flex items-start gap-3">
-                      <span className="text-2xl">⚡</span>
+                      <Icon icon={Zap} size="sm" variant="minimal" />
                       <div>
                         <h3 className="text-lg font-bold text-blue-800 mb-1">Fast & Efficient Matching</h3>
                         <p className="text-gray-700 text-sm">Streamlined processes to fill vacancies quickly without compromising on quality.</p>
@@ -85,7 +83,7 @@ export default function JobCategoriesPage() {
                     </div>
                     
                     <div className="flex items-start gap-3">
-                      <span className="text-2xl">🌍</span>
+                      <Icon icon={Globe} size="sm" variant="minimal" />
                       <div>
                         <h3 className="text-lg font-bold text-blue-800 mb-1">Diverse Talent Pool</h3>
                         <p className="text-gray-700 text-sm">Access workers from various industries and skill levels, ready to work globally.</p>
@@ -93,7 +91,7 @@ export default function JobCategoriesPage() {
                     </div>
                     
                     <div className="flex items-start gap-3">
-                      <span className="text-2xl">📑</span>
+                      <Icon icon={FileText} size="sm" variant="minimal" />
                       <div>
                         <h3 className="text-lg font-bold text-blue-800 mb-1">Full Documentation Support</h3>
                         <p className="text-gray-700 text-sm">Assistance with contracts, visas, and compliance to simplify the hiring process.</p>
@@ -101,7 +99,7 @@ export default function JobCategoriesPage() {
                     </div>
                     
                     <div className="flex items-start gap-3">
-                      <span className="text-2xl">📞</span>
+                      <Icon icon={Phone} size="sm" variant="minimal" />
                       <div>
                         <h3 className="text-lg font-bold text-blue-800 mb-1">Ongoing Employer Support</h3>
                         <p className="text-gray-700 text-sm">Continuous communication and support to ensure smooth onboarding and retention.</p>

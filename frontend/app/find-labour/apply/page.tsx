@@ -80,7 +80,7 @@ This message was sent from the AQR website.
 Contact Information:
 Email: atlantisquest4@gmail.com
 WhatsApp: +256745174879
-Phone: 0748840180`;
+Phone: 0745174879`;
     
     const emailUrl = `mailto:atlantisquest4@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
     

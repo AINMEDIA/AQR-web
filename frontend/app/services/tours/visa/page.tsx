@@ -1,17 +1,39 @@
 "use client"
 
 import { PageTransition } from "@/components/page-transition";
-import { FileText, ArrowRight } from "lucide-react";
+import { Icon } from "@/components/ui/icon";
+import { Breadcrumb } from "@/components/seo/breadcrumb";
+import { ServiceSchema } from "@/components/seo/structured-data";
+import { FileText, ArrowRight, PenTool, Globe, Navigation, Shield, Clock, Briefcase } from "lucide-react";
 import Link from "next/link";
 
 export default function VisaPage() {
   return (
     <PageTransition>
+      <ServiceSchema 
+        name="Visa Application Services"
+        description="Professional visa application support for work, travel, student, and business visas"
+        serviceType="Visa Services"
+        hasOfferCatalog={{
+          name: "Visa Services",
+          itemListElement: [
+            { name: "Work Visa", description: "Professional work visa processing" },
+            { name: "Travel Visa", description: "Tourist and business travel visas" },
+            { name: "Student Visa", description: "Educational visa assistance" }
+          ]
+        }}
+      />
+      <div className="container mx-auto px-4 py-4">
+        <Breadcrumb items={[
+          { name: "Services", url: "/services" },
+          { name: "Visa Services", url: "/services/tours/visa" }
+        ]} />
+      </div>
       <div className="animate-fade-in">
         <section className="relative min-h-[40vh] flex items-center justify-center overflow-hidden rounded-br-[120px] md:rounded-br-[240px] group" data-aos="zoom-in">
           <img
             src="/images/down.jpg"
-            alt="Visa Application"
+            alt="Professional visa application services - Atlantic Quest & Reality"
             className="absolute inset-0 w-full h-full object-cover"
             data-aos="fade-in"
           />
@@ -40,32 +62,32 @@ export default function VisaPage() {
               {/* Right Card */}
               <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-xl border-2 border-blue-200 flex flex-col items-center justify-start text-center" data-aos="zoom-in" data-aos-delay="200">
                 <h3 className="text-sm md:text-lg font-extrabold text-blue-700 mb-3 md:mb-4 flex items-center gap-1 md:gap-2">
-                  <FileText className="w-4 h-4 md:w-5 md:h-5 text-blue-500" /> 
+                  <Icon icon={FileText} size="sm" variant="minimal" /> 
                   <span className="text-xs md:text-sm">Visa Services</span>
                 </h3>
                 <div className="space-y-2 md:space-y-3">
                   <div className="flex items-start gap-2 text-left">
-                    <span className="text-orange-500 text-sm">📋</span>
+                    <PenTool className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
                     <span className="text-xs md:text-sm text-blue-900 font-semibold">Document Preparation & Review – Ensuring all paperwork is accurate and complete.</span>
                   </div>
                   <div className="flex items-start gap-2 text-left">
-                    <span className="text-orange-500 text-sm">🌍</span>
+                    <Globe className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
                     <span className="text-xs md:text-sm text-blue-900 font-semibold">Visa Types Covered – Work visas, travel visas, student visas, business visas, and more.</span>
                   </div>
                   <div className="flex items-start gap-2 text-left">
-                    <span className="text-orange-500 text-sm">🧭</span>
+                    <Navigation className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
                     <span className="text-xs md:text-sm text-blue-900 font-semibold">Step-by-Step Guidance – Clear instructions throughout the process.</span>
                   </div>
                   <div className="flex items-start gap-2 text-left">
-                    <span className="text-orange-500 text-sm">🤝</span>
+                    <Shield className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
                     <span className="text-xs md:text-sm text-blue-900 font-semibold">Trusted Embassy Partnerships – Strong networks for reliable processing.</span>
                   </div>
                   <div className="flex items-start gap-2 text-left">
-                    <span className="text-orange-500 text-sm">⏳</span>
+                    <Clock className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
                     <span className="text-xs md:text-sm text-blue-900 font-semibold">Time-Saving Support – Faster, hassle-free application handling.</span>
                   </div>
                   <div className="flex items-start gap-2 text-left">
-                    <span className="text-orange-500 text-sm">🛂</span>
+                    <Briefcase className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
                     <span className="text-xs md:text-sm text-blue-900 font-semibold">Pre-Departure Briefing – Travel tips and requirements before you leave.</span>
                   </div>
                 </div>
