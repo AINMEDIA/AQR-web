@@ -206,35 +206,26 @@ const features = [
                         alt="Curved Arrow"
                         className="absolute drop-shadow-2xl hidden sm:block"
                         style={{ 
-                          width: '600px',
-                          maxWidth: '60vw',
+                          width: '800px',
+                          maxWidth: '80vw',
                           height: 'auto',
                           objectFit: 'contain',
                           filter: 'brightness(1.5) contrast(1.3) drop-shadow(0 8px 16px rgba(0,0,0,0.5)) drop-shadow(0 0 20px rgba(255,255,255,0.3))',
                           left: '53%',
                           transform: 'translateX(-50%)',
-                          top: '-10px',
+                          top: '70px',
                           zIndex: 45
                         }}
                       />
                       
-                      {/* Mobile-specific arrow - centered and positioned to flow from "mysteries" */}
-                      <img
-                        src="/images/PULLUP.png"
-                        alt="Curved Arrow"
-                        className="absolute drop-shadow-2xl block sm:hidden"
-                        style={{ 
-                          width: '350px',
-                          maxWidth: '70vw',
-                          height: 'auto',
-                          objectFit: 'contain',
-                          filter: 'brightness(1.5) contrast(1.3) drop-shadow(0 4px 8px rgba(0,0,0,0.5)) drop-shadow(0 0 10px rgba(255,255,255,0.3))',
-                          left: '60%',
-                          transform: 'translateX(-50%)',
-                          top: '10px',
-                          zIndex: 45
-                        }}
-                      />
+                      {/* Mobile-specific arrow - basic positioning */}
+                      <div className="absolute block sm:hidden right-0 top-0 z-40">
+                        <img
+                          src="/images/PULLUP.png"
+                          alt="Curved Arrow"
+                          className="w-72 max-w-[65vw] h-auto object-contain brightness-150 contrast-130 drop-shadow-2xl"
+                        />
+                      </div>
                     </h1>
                   </div>
                 </div>
