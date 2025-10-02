@@ -326,7 +326,7 @@ const features = [
           {/* Background Image */}
           <div className="absolute inset-0 z-0">
             <img
-              src="/images/hero-background.jpg"
+              src="/images/Find labour.jpg"
               alt="AQR Background"
               className="w-full h-full object-cover object-center"
               loading="lazy"
