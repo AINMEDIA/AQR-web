@@ -143,15 +143,17 @@ export function JobPostingSchema({
       }
     },
     "employmentType": employmentType,
-    "baseSalary": salary ? {
-      "@type": "MonetaryAmount",
-      "currency": "USD",
-      "value": {
-        "@type": "QuantitativeValue",
-        "value": salary,
-        "unitText": "MONTH"
+    ...(salary && {
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "USD",
+        "value": {
+          "@type": "QuantitativeValue",
+          "value": salary,
+          "unitText": "MONTH"
+        }
       }
-    } : undefined,
+    }),
     "datePosted": datePosted,
     "validThrough": validThrough,
     "url": url,
