@@ -2,10 +2,10 @@
 
 # Build the Docker image
 echo "Building Docker image..."
-docker build -t aqr-web:latest .
+docker build -t ainmedia/aqr-web:latest .
 
 # Run the container
 echo "Starting container..."
 docker-compose up -d
 
-echo "Build complete! Application is running on port 80" 
+echo "Build complete! Application is running on port 3000" 
