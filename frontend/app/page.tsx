@@ -213,13 +213,13 @@ const features = [
                           filter: 'brightness(1.5) contrast(1.3) drop-shadow(0 8px 16px rgba(0,0,0,0.5)) drop-shadow(0 0 20px rgba(255,255,255,0.3))',
                           left: '53%',
                           transform: 'translateX(-50%)',
-                          top: '70px',
+                          top: '-50px',
                           zIndex: 45
                         }}
                       />
                       
-                      {/* Mobile-specific arrow - basic positioning */}
-                      <div className="absolute block sm:hidden right-0 top-0 z-40">
+                      {/* Mobile-specific arrow - centered */}
+                      <div className="absolute block sm:hidden left-1/2 transform -translate-x-1/2 -top-0 z-40">
                         <img
                           src="/images/PULLUP.png"
                           alt="Curved Arrow"

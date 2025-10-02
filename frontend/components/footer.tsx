@@ -43,7 +43,9 @@ const socialLinks = [
 
 const contactInfo = [
   { icon: Phone, text: "+256745174879", href: "tel:+256745174879" },
+  { icon: Phone, text: "+256748840180", href: "tel:+256748840180" },
   { icon: Mail, text: "atlantisquest4@gmail.com", href: "mailto:atlantisquest4@gmail.com" },
+  { icon: Mail, text: "info@atlantisquestandreality.com", href: "mailto:info@atlantisquestandreality.com" },
   { icon: MapPin, text: "Kampala, Uganda" },
   { icon: Clock, text: "Mon-Fri 9AM-6PM EAT" },
 ]
@@ -140,7 +142,33 @@ export function Footer() {
          <img src="/images/skyline-footer.jpg" alt="Skyline" className="w-full object-cover object-top" style={{ background: '#f1f5f9' }} />
        </div>
        
-       {/* Footer Logo - moved after skyline */}
+       {/* Contact Information */}
+       <div className="py-4 w-full" style={{ background: '#757575' }}>
+         <div className="max-w-7xl mx-auto px-8">
+           <div className="text-center mb-3">
+             <h3 className="text-xl font-semibold text-white mb-2">Get In Touch</h3>
+             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-2">
+               {contactInfo.map((contact, index) => (
+                 <div key={index} className="flex flex-col items-center justify-center gap-1 text-white p-1">
+                   <contact.icon className="w-4 h-4 text-blue-300 flex-shrink-0" />
+                   {contact.href ? (
+                     <a 
+                       href={contact.href} 
+                       className="text-xs text-center hover:text-blue-300 transition-colors duration-300 break-words"
+                     >
+                       {contact.text}
+                     </a>
+                   ) : (
+                     <span className="text-xs text-center break-words">{contact.text}</span>
+                   )}
+                 </div>
+               ))}
+             </div>
+           </div>
+         </div>
+       </div>
+       
+       {/* Footer Logo - moved after contact info */}
        <div className="w-full flex justify-center items-center py-6" style={{ background: '#757575' }}>
          <img src="/images/footer-logo.png" alt="AQR Footer Logo" className="h-24 w-auto transition-all duration-700 hover:scale-105 hover:shadow-2xl" />
        </div>

@@ -12,6 +12,7 @@ import { PageTransition } from "@/components/page-transition"
 import { MapPin, Briefcase, Clock, DollarSign, Star, Building, ArrowRight, Loader2, Zap, Heart, Globe, Users } from "lucide-react"
 import { Icon } from "@/components/ui/icon"
 import Link from "next/link"
+import Image from "next/image"
 import { FadeIn } from "@/components/FadeIn"
 import { ProminentCTA } from "@/components/prominent-cta"
 import jobsData from "@/data/jobs.json"
@@ -35,6 +36,22 @@ interface Job {
 export default function JobsPage() {
   const [jobs, setJobs] = useState<Job[]>([])
   const [loading, setLoading] = useState(true)
+  
+  // Slideshow state and data for the main card
+  const [currentSlide, setCurrentSlide] = useState(0)
+  
+  const slideshowImages = [
+    {
+      src: "/images/Find labour.jpg",
+      alt: "Find Labour Services",
+      title: "Find Labour"
+    },
+    {
+      src: "/images/find work.jpeg", 
+      alt: "Find Work Services",
+      title: "Find Work"
+    }
+  ]
 
   // Load static jobs data
   useEffect(() => {
@@ -43,6 +60,15 @@ export default function JobsPage() {
     setJobs(jobsData as Job[])
     setLoading(false)
   }, [])
+
+  // Auto-advance slideshow
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slideshowImages.length)
+    }, 4000) // Change slide every 4 seconds
+
+    return () => clearInterval(interval)
+  }, [slideshowImages.length])
 
   const filteredJobs = jobs
 
@@ -87,23 +113,77 @@ export default function JobsPage() {
         <section className="py-16 bg-white animate-fade-in-delay">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-2 gap-2 md:gap-8 lg:gap-12 items-stretch">
-               {/* Left Column - Labour Recruitment Services */}
+               {/* Left Column - Labour Recruitment Services - Full Image Slideshow */}
                <div 
-                 className="relative bg-white rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 p-4 md:p-6 flex flex-col items-center text-center border-2 border-blue-100 group cursor-pointer"
+                 className="relative rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 border-2 border-blue-100 group cursor-pointer min-h-[300px] md:min-h-[400px] overflow-hidden"
                  data-aos="fade-right"
                  data-aos-delay="100"
                >
-                 <div className="flex flex-col justify-center h-full">
-                   {/* Standardized Icon */}
-                   <div className="flex items-center justify-center mb-3 md:mb-6">
-                     <Icon icon={Users} size="lg" />
+                 {/* Full Background Image with Smooth Transitions */}
+                 <div className="absolute inset-0">
+                   {slideshowImages.map((image, index) => (
+                     <Image
+                       key={index}
+                       src={image.src}
+                       alt={image.alt}
+                       fill
+                       className={`absolute inset-0 object-cover transition-all duration-1000 ease-in-out ${
+                         index === currentSlide 
+                           ? 'opacity-100 scale-100' 
+                           : 'opacity-0 scale-105'
+                       }`}
+                     />
+                   ))}
+                   {/* Dark overlay for better text readability */}
+                   <div className="absolute inset-0 bg-black/40 transition-opacity duration-1000"></div>
+                 </div>
+                 
+                 {/* Content Overlay */}
+                 <div className="relative z-10 p-4 md:p-6 h-full flex flex-col">
+                   {/* Top Content Section */}
+                   <div className="flex flex-col items-center text-center mb-4">
+                     {/* Standardized Icon */}
+                     <div className="mb-3 md:mb-4">
+                       <div className="w-12 h-12 md:w-16 md:h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                         <div className="w-8 h-8 md:w-12 md:h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                           <Users className="w-4 h-4 md:w-6 md:h-6 text-white" />
+                         </div>
+                       </div>
+                     </div>
+                     <h2 className="text-sm md:text-2xl font-bold mb-2 text-center leading-tight text-white transition-all duration-700 group-hover:text-blue-200 group-hover:scale-105 drop-shadow-lg">
+                     Connecting Talent to Opportunity, Building Success Together.
+                     </h2>
+                     <p className="text-xs md:text-base text-white/90 mb-1 md:mb-2 transition-all duration-700 opacity-90 group-hover:opacity-100 text-center drop-shadow-md">
+                     AQR bridges the gap between ethical employers and dependable workers, creating a win-win connection that fuels business growth and transforms lives.
+                     </p>
                    </div>
-                   <h2 className="text-sm md:text-2xl font-bold mb-2 text-center leading-tight text-blue-800 transition-all duration-700 group-hover:text-blue-700 group-hover:scale-105">
-                   Connecting Talent to Opportunity, Building Success Together.
-                   </h2>
-                   <p className="text-xs md:text-base text-gray-700 mb-1 md:mb-2 transition-all duration-700 opacity-90 group-hover:opacity-100 text-center">
-                   AQR bridges the gap between ethical employers and dependable workers, creating a win-win connection that fuels business growth and transforms lives.
-                   </p>
+                   
+                   {/* Bottom Section with Service Info */}
+                   <div className="flex-1 flex flex-col justify-end">
+                     {/* Current Service Highlight */}
+                     <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 md:p-4 mb-4 transition-all duration-1000 ease-in-out">
+                       <h4 className="text-white font-bold text-sm md:text-lg mb-1 drop-shadow-lg transition-all duration-1000 ease-in-out">
+                         {slideshowImages[currentSlide].title}
+                       </h4>
+                       <p className="text-white/90 text-xs md:text-sm drop-shadow-md transition-all duration-1000 ease-in-out">
+                         {currentSlide === 0 && "Connecting skilled workers with international opportunities"}
+                         {currentSlide === 1 && "Finding the right talent for your business needs"}
+                       </p>
+                     </div>
+                     
+                     {/* Slide indicator dots */}
+                     <div className="flex justify-center space-x-2 mb-2">
+                       {slideshowImages.map((_, index) => (
+                         <button
+                           key={index}
+                           onClick={() => setCurrentSlide(index)}
+                           className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                             index === currentSlide ? 'bg-white shadow-lg' : 'bg-white/60 hover:bg-white/80'
+                           }`}
+                         />
+                       ))}
+                     </div>
+                   </div>
                  </div>
                </div>
 

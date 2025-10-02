@@ -9,8 +9,39 @@ import { Icon } from "@/components/ui/icon"
 import { Briefcase, Plane, Building, FileText } from "lucide-react"
 import Link from "next/link"
 import { ProminentCTA } from "@/components/prominent-cta"
+import { useState, useEffect } from "react"
+import Image from "next/image"
 
 export default function ServicesPage() {
+  // Slideshow state and data for Travel with AQR card
+  const [currentSlide, setCurrentSlide] = useState(0)
+  
+  const slideshowImages = [
+    {
+      src: "/images/Hotel booking.jpeg",
+      alt: "Hotel Booking Services",
+      title: "Hotel Booking"
+    },
+    {
+      src: "/images/car Hire.jpeg", 
+      alt: "Car Hire Services",
+      title: "Car Hire"
+    },
+    {
+      src: "/images/Visa Services.jpeg",
+      alt: "Visa Services",
+      title: "Visa Services"
+    }
+  ]
+
+  // Auto-advance slideshow
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slideshowImages.length)
+    }, 3000) // Change slide every 3 seconds
+
+    return () => clearInterval(interval)
+  }, [slideshowImages.length])
 
   return (
     <PageTransition>
@@ -48,15 +79,76 @@ export default function ServicesPage() {
         {/* Services Grid */}
         <section className="py-16 bg-gradient-to-b from-blue-50 to-white" data-aos="fade-up">
           <div className="container mx-auto px-4 grid grid-cols-2 gap-6 md:gap-12">
-            {/* Labour Recruitment Card - Left Column */}
-            <div className="relative bg-white rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 p-4 md:p-10 flex flex-col items-center justify-center text-center border-2 border-blue-100 group cursor-pointer" data-aos="fade-right">
-              {/* Standardized Icon */}
-              <div className="mb-2 md:mb-4">
-                <Icon icon={Briefcase} size="lg" />
+            {/* Travel with AQR Card - Left Column */}
+            <div className="relative rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 border-2 border-blue-100 group cursor-pointer min-h-[400px] md:min-h-[500px] overflow-hidden" data-aos="fade-right">
+                {/* Full Background Image with Smooth Transitions */}
+                <div className="absolute inset-0">
+                  {slideshowImages.map((image, index) => (
+                    <Image
+                      key={index}
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      className={`absolute inset-0 object-cover transition-all duration-1000 ease-in-out ${
+                        index === currentSlide 
+                          ? 'opacity-100 scale-100' 
+                          : 'opacity-0 scale-105'
+                      }`}
+                      onError={(e) => {
+                        // Fallback to a placeholder if image doesn't exist
+                        e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='500' viewBox='0 0 400 500'%3E%3Crect width='400' height='500' fill='%23e5e7eb'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%236b7280' font-family='Arial' font-size='16'%3E" + image.title + "%3C/text%3E%3C/svg%3E"
+                      }}
+                    />
+                  ))}
+                  {/* Dark overlay for better text readability */}
+                  <div className="absolute inset-0 bg-black/40 transition-opacity duration-1000"></div>
+                </div>
+              
+              {/* Content Overlay */}
+              <div className="relative z-10 p-4 md:p-6 h-full flex flex-col">
+                {/* Top Content Section */}
+                <div className="flex flex-col items-center text-center mb-6">
+                  {/* Standardized Icon */}
+                  <div className="mb-3 md:mb-4">
+                    <div className="w-12 h-12 md:w-16 md:h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                      <div className="w-8 h-8 md:w-12 md:h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                        <Briefcase className="w-4 h-4 md:w-6 md:h-6 text-white" />
+                      </div>
+                    </div>
+                  </div>
+                  <h3 className="text-sm md:text-2xl font-extrabold mb-2 md:mb-3 text-white transition-all duration-700 group-hover:text-blue-200 group-hover:scale-105 drop-shadow-lg">Travel with AQR</h3>
+                  <p className="text-xs md:text-lg text-white/90 mb-2 md:mb-3 transition-all duration-700 opacity-90 group-hover:opacity-100 leading-relaxed drop-shadow-md">Delivering seamless travel experiences with transparent pricing, professional service, reliable networks, quick bookings, and customised solutions.</p>
+                  <span className="text-blue-200 font-semibold text-xs md:text-base transition-all duration-700 group-hover:text-blue-100 drop-shadow-md">Your gateway to global opportunities!</span>
+                </div>
+                
+                {/* Bottom Section with Service Info */}
+                <div className="flex-1 flex flex-col justify-end">
+                    {/* Current Service Highlight */}
+                    <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 md:p-4 mb-4 transition-all duration-1000 ease-in-out">
+                      <h4 className="text-white font-bold text-sm md:text-lg mb-1 drop-shadow-lg transition-all duration-1000 ease-in-out">
+                        {slideshowImages[currentSlide].title}
+                      </h4>
+                      <p className="text-white/90 text-xs md:text-sm drop-shadow-md transition-all duration-1000 ease-in-out">
+                        {currentSlide === 0 && "Premium accommodations with best rates and instant confirmations"}
+                        {currentSlide === 1 && "Reliable vehicles for all your transportation needs"}
+                        {currentSlide === 2 && "Expert visa processing and documentation assistance"}
+                      </p>
+                    </div>
+                  
+                  {/* Slide indicator dots */}
+                  <div className="flex justify-center space-x-2 mb-2">
+                    {slideshowImages.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentSlide(index)}
+                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                          index === currentSlide ? 'bg-white shadow-lg' : 'bg-white/60 hover:bg-white/80'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
-              <h3 className="text-sm md:text-2xl font-extrabold mb-1 md:mb-2 text-blue-800 transition-all duration-700 group-hover:text-blue-700 group-hover:scale-105">Travel with AQR</h3>
-              <p className="text-xs md:text-lg text-gray-700 mb-1 md:mb-2 transition-all duration-700 opacity-90 group-hover:opacity-100">Delivering seamless travel experiences with transparent pricing, professional service, reliable networks, quick bookings, and customised solutions.</p>
-              <span className="text-blue-400 font-semibold text-xs md:text-base transition-all duration-700 group-hover:text-blue-600">Your gateway to global opportunities!</span>
             </div>
             
             {/* Right Column - 3 Cards Stacked Vertically */}
