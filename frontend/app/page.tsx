@@ -11,6 +11,7 @@ import { FadeIn } from "@/components/FadeIn"
 import { Navbar } from "@/components/navbar";
 import { tours } from "@/data/tours"
 import React, { useState, useEffect } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export default function HomePage() {
   const heading = "Unlocking Mysteries";
@@ -150,6 +151,7 @@ const features = [
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
   const [isClient, setIsClient] = useState(false)
+  const isMobile = useIsMobile()
 
   // Carousel logic for testimonials
   const nextTestimonial = () => setTestimonialIndex((i) => (i + 1) % testimonials.length)
@@ -175,14 +177,44 @@ const features = [
         <section className="animate-slide-up" data-aos="fade-up">
           {/* Hero Section - Simplified design */}
           <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden rounded-br-[120px] md:rounded-br-[240px] -mt-32" data-aos="zoom-in">
-            {/* Background Image - optimized */}
-            <img
-              src="/images/download.jpg"
-              alt="Hero background"
-              className="absolute inset-0 w-full h-full object-cover z-0"
-              data-aos="fade-in"
-              loading="eager"
-            />
+            {/* Background Video - Mobile Optimized */}
+            {!isMobile ? (
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className="absolute inset-0 w-full h-full object-cover object-center z-0"
+                data-aos="fade-in"
+                style={{
+                  minWidth: '100%',
+                  minHeight: '100%',
+                  width: 'auto',
+                  height: 'auto'
+                }}
+              >
+                <source src="/images/1009.mp4" type="video/mp4" />
+                {/* Fallback image for browsers that don't support video */}
+                <img
+                  src="/images/download.jpg"
+                  alt="Hero background"
+                  className="absolute inset-0 w-full h-full object-cover object-center"
+                />
+              </video>
+            ) : (
+              /* Mobile: Use optimized image instead of large video */
+              <div 
+                className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
+                style={{
+                  backgroundImage: "url('/images/download.jpg')",
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center center',
+                  backgroundRepeat: 'no-repeat'
+                }}
+                data-aos="fade-in"
+              />
+            )}
             
             {/* Simple overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/20 to-transparent z-0"></div>
