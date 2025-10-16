@@ -58,10 +58,10 @@ export default function AboutPage() {
 
             {/* Mission Section */}
             <div className="w-full mx-auto px-2 animate-scale-in">
-              <div className="grid grid-cols-2 gap-3 md:gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-6">
                 {/* Work that transforms */}
                 <Link href="/jobs" className="block">
-                  <ParallaxSection speed={0.2} direction="up" className="relative h-56 md:h-96 lg:h-[28rem] xl:h-[32rem] md:min-h-[24rem] rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 group cursor-pointer overflow-hidden
+                  <ParallaxSection speed={0.2} direction="up" className="relative h-64 sm:h-56 md:h-96 lg:h-[28rem] xl:h-[32rem] md:min-h-[24rem] rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 group cursor-pointer overflow-hidden
                        hover:scale-105 hover:rotate-1 hover:shadow-2xl hover:border-4 hover:border-blue-400
                        hover:brightness-110 hover:saturate-150 bg-gradient-to-br from-blue-50 to-blue-100"
                     data-aos="zoom-in"
@@ -82,7 +82,7 @@ export default function AboutPage() {
 
                 {/* Travel that reveals */}
                 <Link href="/services" className="block">
-                  <ParallaxSection speed={0.2} direction="down" className="relative h-56 md:h-96 lg:h-[28rem] xl:h-[32rem] md:min-h-[24rem] rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 group cursor-pointer overflow-hidden
+                  <ParallaxSection speed={0.2} direction="down" className="relative h-64 sm:h-56 md:h-96 lg:h-[28rem] xl:h-[32rem] md:min-h-[24rem] rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 group cursor-pointer overflow-hidden
                        hover:scale-105 hover:rotate-1 hover:shadow-2xl hover:border-4 hover:border-blue-400
                        hover:brightness-110 hover:saturate-150 bg-gradient-to-br from-blue-100 to-blue-200"
                     data-aos="zoom-in"

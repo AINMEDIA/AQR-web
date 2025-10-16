@@ -107,10 +107,10 @@ export default function JobsPage() {
         {/* Recruitment Services Section */}
         <section className="relative py-16 overflow-hidden">
           <div className="container mx-auto px-4 relative z-10">
-            <div className="grid grid-cols-2 gap-2 md:gap-8 lg:gap-12 items-stretch">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 lg:gap-12 items-stretch">
                {/* Left Column - Labour Recruitment Services - Full Image Slideshow */}
                <div 
-                 className="relative rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 border-2 border-blue-100 group cursor-pointer min-h-[300px] md:min-h-[400px] overflow-hidden"
+                 className="relative rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 border-2 border-blue-100 group cursor-pointer min-h-[350px] md:min-h-[400px] overflow-hidden"
                  data-aos="fade-right"
                  data-aos-delay="100"
                >

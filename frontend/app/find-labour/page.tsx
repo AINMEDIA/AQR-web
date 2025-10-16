@@ -94,15 +94,15 @@ export default function FindLabourPage() {
           />
         </ParallaxBackground>
         <div className="container mx-auto px-4 max-w-7xl relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
             
             {/* Left Card - Main Content */}
-            <ParallaxSection speed={0.1} direction="left" className="bg-white rounded-2xl shadow-2xl p-8 md:p-12 border-2 border-blue-100 relative overflow-hidden">
+            <ParallaxSection speed={0.1} direction="left" className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 lg:p-12 border-2 border-blue-100 relative overflow-hidden">
               <div className="h-full flex flex-col relative z-10">
-                <h2 className="text-3xl md:text-4xl font-extrabold text-blue-800 mb-6 text-center">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-blue-800 mb-4 md:mb-6 text-center">
                   Connecting Global Employers with Skilled East African Talent.
                 </h2>
-                <p className="text-lg md:text-xl text-gray-700 leading-relaxed text-center">
+                <p className="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed text-center">
                   At AQR, we specialize in connecting international employers with skilled, reliable East African workers. Our comprehensive recruitment services ensure employers find the right talent while workers receive fair treatment, competitive compensation, and ongoing support in their international assignments.
                 </p>
               </div>
@@ -132,13 +132,13 @@ export default function FindLabourPage() {
             </ParallaxSection>
             
             {/* Right Card - Work Opportunities */}
-            <ParallaxSection speed={0.1} direction="right" className="bg-white rounded-2xl shadow-2xl p-8 md:p-12 border-2 border-blue-100">
+            <ParallaxSection speed={0.1} direction="right" className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 lg:p-12 border-2 border-blue-100">
               <div className="h-full flex flex-col justify-between">
                 {/* Header */}
                 <div className="text-center mb-8">
                   <div className="flex items-center justify-center gap-3 mb-4">
                     <Icon icon={Globe} size="lg" />
-                    <h2 className="text-2xl md:text-3xl font-bold text-blue-800">International Work Opportunities</h2>
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-800">International Work Opportunities</h2>
                   </div>
                 </div>
 

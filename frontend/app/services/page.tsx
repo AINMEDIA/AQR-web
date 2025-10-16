@@ -109,9 +109,9 @@ export default function ServicesPage() {
           
           {/* Services Grid */}
           <section className="relative py-16 overflow-hidden" data-aos="fade-up">
-            <div className="container mx-auto px-4 grid grid-cols-2 gap-6 md:gap-12 relative z-10">
+            <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 relative z-10">
             {/* Travel with AQR Card - Left Column */}
-            <ParallaxSection speed={0.15} direction="left" className="relative rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 border-2 border-blue-100 group cursor-pointer min-h-[400px] md:min-h-[500px] overflow-hidden" data-aos="fade-right">
+            <ParallaxSection speed={0.15} direction="left" className="relative rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 border-2 border-blue-100 group cursor-pointer min-h-[450px] md:min-h-[500px] overflow-hidden" data-aos="fade-right">
                 {/* Full Background Image with Smooth Transitions */}
                 <div className="absolute inset-0">
                   {slideshowImages.map((image, index) => (

@@ -195,25 +195,26 @@ const features = [
                 }}
               >
                 <source src="/images/1009.mp4" type="video/mp4" />
-                {/* Fallback image for browsers that don't support video */}
-                <img
-                  src="/images/download.jpg"
-                  alt="Hero background"
-                  className="absolute inset-0 w-full h-full object-cover object-center"
-                />
               </video>
             ) : (
-              /* Mobile: Use optimized image instead of large video */
-              <div 
-                className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
-                style={{
-                  backgroundImage: "url('/images/download.jpg')",
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center center',
-                  backgroundRepeat: 'no-repeat'
-                }}
+              /* Mobile: Use video as well for consistency */
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className="absolute inset-0 w-full h-full object-cover object-center z-0"
                 data-aos="fade-in"
-              />
+                style={{
+                  minWidth: '100%',
+                  minHeight: '100%',
+                  width: 'auto',
+                  height: 'auto'
+                }}
+              >
+                <source src="/images/1009.mp4" type="video/mp4" />
+              </video>
             )}
             
             {/* Simple overlay */}
