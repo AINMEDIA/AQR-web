@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Badge } from "@/components/ui/badge"
 import { Footer } from "@/components/footer"
 import { PageTransition } from "@/components/page-transition"
+import { ParallaxBackground, ParallaxSection, ParallaxText } from "@/components/ParallaxSection"
 import { MapPin, Briefcase, Clock, DollarSign, Star, Building, ArrowRight, Loader2, Zap, Heart, Globe, Users } from "lucide-react"
 import { Icon } from "@/components/ui/icon"
 import Link from "next/link"
@@ -80,38 +81,32 @@ export default function JobsPage() {
         ]} />
       </div>
       <div>
+        {/* Single Parallax Background for entire page */}
+        <ParallaxBackground speed={0.3} className="fixed inset-0 w-full h-full opacity-60 pointer-events-none z-0">
+          <img
+            src="/images/Jobs abroad.jpeg"
+            alt="Jobs Abroad background"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </ParallaxBackground>
+        
         <section>
           {/* Hero Section */}
-          <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden " >
-            {/* Background Image */}
-            <div className="absolute inset-0 overflow-hidden ">
-              <div
-                className="w-full min-h-[800px] flex items-center justify-center relative rounded-br-[400px] md:rounded-br-[600px] lg:rounded-br-[800px]"
-                style={{
-                  backgroundImage: "url('/images/jobs-hero.png')",
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center top',
-                  backgroundRepeat: 'no-repeat',
-                }}
-                
-              />
-            </div>
-            {/* Logo halfway down, offset left */}
-            {/* <div className="absolute z-20 left-[4cm] top-1/2 -translate-y-1/2 transition-all duration-700 group-hover:scale-110" data-aos="fade-right">
-              <img src="/android-chrome-192x192.png" alt="AQR-Web Logo" className="h-40 w-40 animate-logo-breathe" />
-            </div> */}
+          <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden rounded-br-[120px] md:rounded-br-[240px]" >
+            {/* Dark overlay for better text readability */}
+            <div className="absolute inset-0 bg-black/40 z-5"></div>
             {/* Centered Content */}
-            <div className="container mx-auto px-4 relative z-10 flex flex-col items-center justify-center text-center" data-aos="fade-up">
+            <ParallaxText speed={0.1} className="container mx-auto px-4 relative z-10 flex flex-col items-center justify-center text-center" data-aos="fade-up">
               <h1 className="text-3xl md:text-5xl lg:text-7xl font-extrabold mb-2 text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.7)] transition-all duration-700 hover:text-blue-200 hover:scale-105 cursor-default">
                 Jobs Abroad
               </h1>
-            </div>
+            </ParallaxText>
           </section>
         </section>
 
         {/* Recruitment Services Section */}
-        <section className="py-16 bg-white animate-fade-in-delay">
-          <div className="container mx-auto px-4">
+        <section className="relative py-16 overflow-hidden">
+          <div className="container mx-auto px-4 relative z-10">
             <div className="grid grid-cols-2 gap-2 md:gap-8 lg:gap-12 items-stretch">
                {/* Left Column - Labour Recruitment Services - Full Image Slideshow */}
                <div 
@@ -142,14 +137,6 @@ export default function JobsPage() {
                  <div className="relative z-10 p-4 md:p-6 h-full flex flex-col">
                    {/* Top Content Section */}
                    <div className="flex flex-col items-center text-center mb-4">
-                     {/* Standardized Icon */}
-                     <div className="mb-3 md:mb-4">
-                       <div className="w-12 h-12 md:w-16 md:h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                         <div className="w-8 h-8 md:w-12 md:h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                           <Users className="w-4 h-4 md:w-6 md:h-6 text-white" />
-                         </div>
-                       </div>
-                     </div>
                      <h2 className="text-sm md:text-2xl font-bold mb-2 text-center leading-tight text-white transition-all duration-700 group-hover:text-blue-200 group-hover:scale-105 drop-shadow-lg">
                      Connecting Talent to Opportunity, Building Success Together.
                      </h2>
@@ -191,8 +178,7 @@ export default function JobsPage() {
               <div className="space-y-1 md:space-y-6 flex flex-col justify-start">
                  {/* Find Labour Card */}
                  <Link href="/find-labour" className="block">
-                   <div 
-                     className="relative bg-white rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 p-4 md:p-6 flex flex-col items-center text-center border-2 border-blue-100 group cursor-pointer"
+                   <ParallaxSection speed={0.1} direction="left" className="relative bg-white rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 p-4 md:p-6 flex flex-col items-center text-center border-2 border-blue-100 group cursor-pointer"
                      data-aos="zoom-in"
                      data-aos-delay="200"
                    >
@@ -219,13 +205,12 @@ export default function JobsPage() {
                         </Button>
                       </div>
                     </div>
-                  </div>
+                  </ParallaxSection>
                 </Link>
 
                  {/* Find Work Card */}
                  <Link href="/jobs/categories" className="block">
-                   <div 
-                     className="relative bg-white rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 p-4 md:p-6 flex flex-col items-center text-center border-2 border-blue-100 group cursor-pointer"
+                   <ParallaxSection speed={0.1} direction="right" className="relative bg-white rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 p-4 md:p-6 flex flex-col items-center text-center border-2 border-blue-100 group cursor-pointer"
                      data-aos="zoom-in"
                      data-aos-delay="300"
                    >
@@ -252,7 +237,7 @@ export default function JobsPage() {
                         </Button>
                       </div>
                     </div>
-                  </div>
+                  </ParallaxSection>
                 </Link>
               </div>
             </div>
@@ -260,38 +245,79 @@ export default function JobsPage() {
         </section>
 
         
-        {/* Prominent CTA Section */}
-        <ProminentCTA 
-          title="Need Help Finding the Right Job?"
-          subtitle="Contact us for personalized job matching and application assistance"
-        />
-        
-        {/* FAQ Section */}
-        <FAQSection 
-          faqs={[
-            {
-              question: "What types of international jobs are available through AQR?",
-              answer: "We specialize in placing skilled East African workers in high-demand positions including domestic workers, construction workers, hospitality staff, healthcare professionals, and skilled trades in UAE, Qatar, Saudi Arabia, Kuwait, Oman, and other international markets."
-            },
-            {
-              question: "How long does the international recruitment process take?",
-              answer: "Our international recruitment process typically takes 3-6 weeks from application to job placement, including document verification, visa processing, and pre-departure training. We ensure all workers are properly prepared for their international assignments."
-            },
-            {
-              question: "What support do you provide for international workers?",
-              answer: "We provide comprehensive support including document preparation, visa assistance, pre-departure training, cultural orientation, airport pickup, accommodation assistance, and ongoing support while working abroad. Our team maintains contact throughout the employment period."
-            },
-            {
-              question: "Do you work with employers from Asia and other international countries?",
-              answer: "Yes, we have established partnerships with employers across Asia, Middle East, and other international markets. We specialize in connecting East African talent with employers in UAE, Qatar, Saudi Arabia, and other countries seeking reliable, skilled workers."
-            },
-            {
-              question: "What makes AQR different from other recruitment agencies?",
-              answer: "We focus on ethical recruitment practices, transparent processes, and comprehensive support. Our workers are pre-screened, trained, and supported throughout their international employment journey. We maintain strong relationships with both workers and employers for successful placements."
-            }
-          ]}
-          title="International Job Opportunities FAQ"
-        />
+        {/* FAQ and CTA Section - 2 Column Grid */}
+        <section className="relative py-16 overflow-hidden">
+          <div className="relative z-10">
+            <div className="container mx-auto px-2">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+                {/* FAQ Section - Left Column */}
+                <div className="bg-white/30 backdrop-blur-sm shadow-2xl p-4 md:p-6 border border-blue-100 relative overflow-hidden" 
+                     style={{
+                       clipPath: 'polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 40px 100%, 0 calc(100% - 40px))',
+                       borderRadius: '20px'
+                     }}>
+                  {/* Decorative corner accent */}
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-blue-500/20 to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-blue-500/20 to-transparent"></div>
+                  
+                  <div className="[&_.bg-gray-50]:bg-transparent [&_.bg-white]:bg-transparent [&_.hover\\:bg-gray-50]:hover:bg-transparent [&_h2]:text-gray-900 [&_h2]:drop-shadow-lg [&_h3]:text-gray-900 [&_h3]:drop-shadow-md [&_p]:text-gray-800 [&_p]:drop-shadow-sm [&_button]:text-gray-900 [&_button]:drop-shadow-md">
+                    <FAQSection 
+                      faqs={[
+                    {
+                      question: "What types of international jobs are available through AQR?",
+                      answer: "We specialize in placing skilled East African workers in high-demand positions including domestic workers, construction workers, hospitality staff, healthcare professionals, and skilled trades in UAE, Qatar, Saudi Arabia, Kuwait, Oman, and other international markets."
+                    },
+                    {
+                      question: "How long does the international recruitment process take?",
+                      answer: "Our international recruitment process typically takes 3-6 weeks from application to job placement, including document verification, visa processing, and pre-departure training. We ensure all workers are properly prepared for their international assignments."
+                    },
+                    {
+                      question: "What support do you provide for international workers?",
+                      answer: "We provide comprehensive support including document preparation, visa assistance, pre-departure training, cultural orientation, airport pickup, accommodation assistance, and ongoing support while working abroad. Our team maintains contact throughout the employment period."
+                    },
+                    {
+                      question: "Do you work with employers from Asia and other international countries?",
+                      answer: "Yes, we have established partnerships with employers across Asia, Middle East, and other international markets. We specialize in connecting East African talent with employers in UAE, Qatar, Saudi Arabia, and other countries seeking reliable, skilled workers."
+                    },
+                    {
+                      question: "What makes AQR different from other recruitment agencies?",
+                      answer: "We focus on ethical recruitment practices, transparent processes, and comprehensive support. Our workers are pre-screened, trained, and supported throughout their international employment journey. We maintain strong relationships with both workers and employers for successful placements."
+                    }
+                  ]}
+                  title="International Job Opportunities FAQ"
+                />
+                  </div>
+                </div>
+                
+                {/* CTA Section - Right Column */}
+                <div className="bg-white/30 backdrop-blur-sm shadow-2xl p-4 md:p-6 border border-blue-100 relative overflow-hidden" 
+                     style={{
+                       clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%)',
+                       borderRadius: '20px'
+                     }}>
+                  {/* Decorative corner accent */}
+                  <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-blue-500/20 to-transparent"></div>
+                  <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-blue-500/20 to-transparent"></div>
+                  
+                  {/* Subtle pattern overlay */}
+                  <div className="absolute inset-0 opacity-5">
+                    <div className="absolute inset-0" style={{
+                      backgroundImage: 'radial-gradient(circle at 25% 25%, #3b82f6 2px, transparent 2px)',
+                      backgroundSize: '30px 30px'
+                    }}></div>
+                  </div>
+                  
+                  <div className="[&_.bg-gradient-to-r]:bg-transparent [&_.from-blue-600]:from-transparent [&_.via-blue-700]:via-transparent [&_.to-blue-800]:to-transparent [&_h2]:text-gray-900 [&_h2]:drop-shadow-lg [&_p]:text-gray-800 [&_p]:drop-shadow-sm [&_button]:text-gray-900 [&_button]:drop-shadow-md [&_a]:text-gray-900 [&_a]:drop-shadow-md">
+                    <ProminentCTA 
+                      title="Need Help Finding the Right Job?"
+                      subtitle="Contact us for personalized job matching and application assistance"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         
         {/* Job Listings */}
         

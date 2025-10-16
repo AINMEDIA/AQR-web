@@ -16,19 +16,20 @@ export function useAOS() {
           
           // Initialize AOS with optimized performance settings
           AOS.init({
-            once: true,
-            duration: 600, // Reduced duration
-            disable: 'mobile',
+            once: false, // Allow animations on both scroll up and down
+            mirror: true, // Enable mirror effect for scroll up animations
+            duration: 1000, // Increased duration for smoother animations
+            disable: false, // Enable on all devices
             startEvent: 'load',
             initClassName: 'aos-init',
             animatedClassName: 'aos-animate',
             useClassNames: true,
-            disableMutationObserver: true, // Disable for better performance
-            debounceDelay: 100, // Increased debounce
-            throttleDelay: 150, // Increased throttle
-            offset: 100, // Reduced offset
+            disableMutationObserver: false, // Enable for better scroll detection
+            debounceDelay: 50, // Reduced debounce for more responsive animations
+            throttleDelay: 50, // Reduced throttle for more responsive animations
+            offset: 50, // Reduced offset for earlier trigger
             delay: 0,
-            easing: 'ease-out', // Faster easing
+            easing: 'ease-out-cubic', // Smoother easing
             anchorPlacement: 'top-bottom',
           });
           

@@ -5,12 +5,43 @@ import { PageTransition } from "@/components/page-transition"
 import { Breadcrumb } from "@/components/seo/breadcrumb"
 import { ServiceSchema } from "@/components/seo/structured-data"
 import { Icon } from "@/components/ui/icon"
+import { ParallaxBackground, ParallaxSection, ParallaxText } from "@/components/ParallaxSection"
 import { Globe, Shield, FileText, GraduationCap, Plane, Phone } from "lucide-react"
+import { useState, useEffect } from "react"
+import Image from "next/image"
 
 
 export default function FindLabourPage() {
+  // Slideshow state and data
+  const [currentSlide, setCurrentSlide] = useState(0)
+  
+  const slideshowImages = [
+    {
+      src: "/images/Ty.jpeg",
+      alt: "International Labour Recruitment Services"
+    },
+    {
+      src: "/images/df.jpeg", 
+      alt: "Skilled Workers Abroad"
+    },
+    {
+      src: "/images/af.jpeg",
+      alt: "Global Employment Opportunities"
+    },
+    {
+      src: "/images/cd.jpeg",
+      alt: "Professional Recruitment Services"
+    }
+  ]
 
+  // Auto-advance slideshow
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slideshowImages.length)
+    }, 4000) // Change slide every 4 seconds
 
+    return () => clearInterval(interval)
+  }, [slideshowImages.length])
 
   return (
     <PageTransition>
@@ -37,32 +68,37 @@ export default function FindLabourPage() {
       </div>
       {/* Hero Section */}
       <section className="relative min-h-[40vh] w-full flex items-center justify-center overflow-hidden rounded-br-[120px] md:rounded-br-[240px]">
-        <img
-          src="/images/Labour.jpeg"
-          alt="Labour sourcing and recruitment services - Atlantic Quest & Reality"
-          className="absolute inset-0 w-full h-full object-cover z-0"
-          data-aos="fade-in"
-        />
+        <ParallaxBackground speed={0.4} className="absolute inset-0 w-full h-full z-0">
+          <img
+            src="/images/Labour.jpeg"
+            alt="Labour sourcing and recruitment services - Atlantic Quest & Reality"
+            className="absolute inset-0 w-full h-full object-cover"
+            data-aos="fade-in"
+          />
+        </ParallaxBackground>
         <div className="absolute inset-0 bg-black/40 z-10"></div>
-        <div className="relative z-20 text-center text-white px-4" data-aos="fade-up">
+        <ParallaxText speed={0.15} className="relative z-20 text-center text-white px-4" data-aos="fade-up">
           <h1 className="text-4xl md:text-5xl font-extrabold mb-2 drop-shadow">International Labour Recruitment</h1>
           <p className="text-lg md:text-xl font-medium drop-shadow">Connecting international employers with skilled East African workers for global opportunities.</p>
-        </div>
+        </ParallaxText>
       </section>
 
       {/* Two-Card Layout Section */}
-      <section className="py-16 bg-gradient-to-b from-blue-50 to-white" data-aos="fade-up">
-        <div className="container mx-auto px-4 max-w-7xl">
+      <section className="relative py-16 bg-gradient-to-b from-blue-50 to-white overflow-hidden" data-aos="fade-up">
+        {/* Parallax Background */}
+        <ParallaxBackground speed={0.25} className="absolute inset-0 w-full h-full opacity-15">
+          <img
+            src="/images/Find labour.jpeg"
+            alt="Find Labour background"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </ParallaxBackground>
+        <div className="container mx-auto px-4 max-w-7xl relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             
             {/* Left Card - Main Content */}
-            <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-12 border-2 border-blue-100">
-              <div className="h-full flex flex-col justify-center">
-                {/* Icon */}
-                <div className="flex items-center justify-center mb-6">
-                  <Icon icon={Globe} size="xl" />
-                </div>
-                
+            <ParallaxSection speed={0.1} direction="left" className="bg-white rounded-2xl shadow-2xl p-8 md:p-12 border-2 border-blue-100 relative overflow-hidden">
+              <div className="h-full flex flex-col relative z-10">
                 <h2 className="text-3xl md:text-4xl font-extrabold text-blue-800 mb-6 text-center">
                   Connecting Global Employers with Skilled East African Talent.
                 </h2>
@@ -70,10 +106,33 @@ export default function FindLabourPage() {
                   At AQR, we specialize in connecting international employers with skilled, reliable East African workers. Our comprehensive recruitment services ensure employers find the right talent while workers receive fair treatment, competitive compensation, and ongoing support in their international assignments.
                 </p>
               </div>
-            </div>
+
+              {/* Slideshow Images at the bottom of the left card */}
+              <div className="absolute bottom-0 left-0 right-0 h-96 md:h-[28rem] overflow-hidden rounded-b-2xl">
+                {slideshowImages.map((image, index) => (
+                  <Image
+                    key={index}
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className={`absolute inset-0 object-cover transition-all duration-1000 ease-in-out ${
+                      index === currentSlide 
+                        ? 'opacity-100 translate-y-0' 
+                        : index === (currentSlide + 1) % slideshowImages.length
+                        ? 'opacity-0 translate-y-full'
+                        : 'opacity-0 -translate-y-full'
+                    }`}
+                    onError={(e) => {
+                      // Fallback to a placeholder if image doesn't exist
+                      e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='200' viewBox='0 0 800 200'%3E%3Crect width='800' height='200' fill='%23e5e7eb'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%236b7280' font-family='Arial' font-size='14'%3E" + image.alt + "%3C/text%3E%3C/svg%3E"
+                    }}
+                  />
+                ))}
+              </div>
+            </ParallaxSection>
             
             {/* Right Card - Work Opportunities */}
-            <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-12 border-2 border-blue-100">
+            <ParallaxSection speed={0.1} direction="right" className="bg-white rounded-2xl shadow-2xl p-8 md:p-12 border-2 border-blue-100">
               <div className="h-full flex flex-col justify-between">
                 {/* Header */}
                 <div className="text-center mb-8">
@@ -145,12 +204,11 @@ export default function FindLabourPage() {
                   </a>
                 </div>
               </div>
-            </div>
+            </ParallaxSection>
             
           </div>
         </div>
       </section>
-
 
 
       <Footer />

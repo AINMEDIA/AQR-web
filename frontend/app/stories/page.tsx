@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { ParallaxSection, ParallaxText } from "@/components/ParallaxSection";
 import userStoriesData from "@/data/user-stories.json";
 
 export default function StoriesPage() {
@@ -23,8 +24,10 @@ export default function StoriesPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
-      <h1 className="text-4xl font-extrabold mb-8 text-center">User Stories</h1>
-      <div className="mb-6 flex justify-center">
+      <ParallaxText speed={0.05} className="text-center mb-8">
+        <h1 className="text-4xl font-extrabold">User Stories</h1>
+      </ParallaxText>
+      <ParallaxSection speed={0.1} direction="up" className="mb-6 flex justify-center">
         <Input
           type="text"
           placeholder="Search by title or author..."
@@ -32,14 +35,20 @@ export default function StoriesPage() {
           onChange={(e) => setSearch(e.target.value)}
           className="max-w-xs"
         />
-      </div>
+      </ParallaxSection>
       {loading && <div className="text-center text-blue-600">Loading stories...</div>}
       {!loading && filtered.length === 0 && (
         <div className="text-center text-gray-500">No stories found.</div>
       )}
       <div className="grid gap-4 md:gap-6 grid-cols-2">
-        {filtered.map((story) => (
-          <Card key={story.id} className="overflow-hidden shadow-lg">
+        {filtered.map((story, index) => (
+          <ParallaxSection 
+            key={story.id} 
+            speed={0.1} 
+            direction={index % 2 === 0 ? "left" : "right"}
+            className="overflow-hidden shadow-lg"
+          >
+            <Card className="overflow-hidden shadow-lg">
             <CardHeader>
               <CardTitle>{story.title}</CardTitle>
               <CardDescription>{story.author}</CardDescription>
@@ -56,6 +65,7 @@ export default function StoriesPage() {
               <div className="text-gray-700 text-sm whitespace-pre-line">{story.description}</div>
             </CardContent>
           </Card>
+          </ParallaxSection>
         ))}
       </div>
     </div>
