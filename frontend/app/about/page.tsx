@@ -5,6 +5,7 @@ import { PageTransition } from "@/components/page-transition"
 import { Breadcrumb } from "@/components/seo/breadcrumb"
 import { ParallaxBackground, ParallaxSection, ParallaxText } from "@/components/ParallaxSection"
 import Link from "next/link"
+import Image from "next/image"
 
 export default function AboutPage() {
   return (
@@ -114,8 +115,14 @@ export default function AboutPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
                 {/* Board Member 1 */}
                 <div className="bg-white/30 backdrop-blur-sm rounded-xl p-6 shadow-lg max-w-sm border border-blue-100">
-                  <div className="w-48 h-48 mx-auto mb-4 bg-gray-200 rounded-lg flex items-center justify-center">
-                    <span className="text-gray-500 text-sm">Profile Image</span>
+                  <div className="w-48 h-48 mx-auto mb-4 rounded-lg overflow-hidden">
+                    <Image
+                      src="/images/Chairman & CEO.jpeg"
+                      alt="Dr. Sarah Johnson - Chairman & CEO"
+                      width={192}
+                      height={192}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <h4 className="text-xl font-bold text-gray-800 text-center mb-2">Dr. Sarah Johnson</h4>
                   <p className="text-gray-600 text-center">Chairman & CEO</p>
@@ -123,8 +130,14 @@ export default function AboutPage() {
                 
                 {/* Board Member 2 */}
                 <div className="bg-white/30 backdrop-blur-sm rounded-xl p-6 shadow-lg max-w-sm border border-blue-100">
-                  <div className="w-48 h-48 mx-auto mb-4 bg-gray-200 rounded-lg flex items-center justify-center">
-                    <span className="text-gray-500 text-sm">Profile Image</span>
+                  <div className="w-48 h-48 mx-auto mb-4 rounded-lg overflow-hidden">
+                    <Image
+                      src="/images/Vice Chairman.jpeg"
+                      alt="Michael Chen - Vice Chairman"
+                      width={192}
+                      height={192}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <h4 className="text-xl font-bold text-gray-800 text-center mb-2">Michael Chen</h4>
                   <p className="text-gray-600 text-center">Vice Chairman</p>
@@ -132,8 +145,14 @@ export default function AboutPage() {
                 
                 {/* Board Member 3 */}
                 <div className="bg-white/30 backdrop-blur-sm rounded-xl p-6 shadow-lg max-w-sm border border-blue-100">
-                  <div className="w-48 h-48 mx-auto mb-4 bg-gray-200 rounded-lg flex items-center justify-center">
-                    <span className="text-gray-500 text-sm">Profile Image</span>
+                  <div className="w-48 h-48 mx-auto mb-4 rounded-lg overflow-hidden">
+                    <Image
+                      src="/images/Independent Director.jpeg"
+                      alt="Aisha Patel - Independent Director"
+                      width={192}
+                      height={192}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <h4 className="text-xl font-bold text-gray-800 text-center mb-2">Aisha Patel</h4>
                   <p className="text-gray-600 text-center">Independent Director</p>
@@ -151,8 +170,14 @@ export default function AboutPage() {
               {/* CEO */}
               <div className="flex justify-center mb-12">
                 <div className="bg-white/30 backdrop-blur-sm rounded-xl p-8 shadow-lg max-w-md border border-blue-100">
-                  <div className="w-64 h-64 mx-auto mb-6 bg-gray-200 rounded-lg flex items-center justify-center">
-                    <span className="text-gray-500 text-sm">CEO Profile Image</span>
+                  <div className="w-64 h-64 mx-auto mb-6 rounded-lg overflow-hidden">
+                    <Image
+                      src="/images/Chief Executive Officer.jpeg"
+                      alt="James Wilson - Chief Executive Officer"
+                      width={256}
+                      height={256}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <h4 className="text-2xl font-bold text-gray-800 text-center mb-2">James Wilson</h4>
                   <p className="text-gray-600 text-center text-lg">Chief Executive Officer</p>
@@ -163,8 +188,14 @@ export default function AboutPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {/* Head of Recruitment */}
                 <div className="bg-white/30 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-blue-100">
-                  <div className="w-32 h-32 mx-auto mb-4 bg-gray-200 rounded-lg flex items-center justify-center">
-                    <span className="text-gray-500 text-xs">Profile</span>
+                  <div className="w-32 h-32 mx-auto mb-4 rounded-lg overflow-hidden">
+                    <Image
+                      src="/images/Head of Recruitment.jpeg"
+                      alt="Maria Rodriguez - Head of Recruitment"
+                      width={128}
+                      height={128}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <h4 className="text-lg font-bold text-gray-800 text-center mb-2">Maria Rodriguez</h4>
                   <p className="text-gray-600 text-center text-sm">Head of Recruitment</p>
@@ -172,8 +203,14 @@ export default function AboutPage() {
                 
                 {/* Head of Travel Services */}
                 <div className="bg-white/30 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-blue-100">
-                  <div className="w-32 h-32 mx-auto mb-4 bg-gray-200 rounded-lg flex items-center justify-center">
-                    <span className="text-gray-500 text-xs">Profile</span>
+                  <div className="w-32 h-32 mx-auto mb-4 rounded-lg overflow-hidden">
+                    <Image
+                      src="/images/Head of Travel Services.jpeg"
+                      alt="David Kim - Head of Travel Services"
+                      width={128}
+                      height={128}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <h4 className="text-lg font-bold text-gray-800 text-center mb-2">David Kim</h4>
                   <p className="text-gray-600 text-center text-sm">Head of Travel Services</p>
@@ -181,8 +218,14 @@ export default function AboutPage() {
                 
                 {/* Head of Operations */}
                 <div className="bg-white/30 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-blue-100">
-                  <div className="w-32 h-32 mx-auto mb-4 bg-gray-200 rounded-lg flex items-center justify-center">
-                    <span className="text-gray-500 text-xs">Profile</span>
+                  <div className="w-32 h-32 mx-auto mb-4 rounded-lg overflow-hidden">
+                    <Image
+                      src="/images/Head of Operations.jpeg"
+                      alt="Ahmed Hassan - Head of Operations"
+                      width={128}
+                      height={128}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <h4 className="text-lg font-bold text-gray-800 text-center mb-2">Ahmed Hassan</h4>
                   <p className="text-gray-600 text-center text-sm">Head of Operations</p>
@@ -190,8 +233,14 @@ export default function AboutPage() {
                 
                 {/* Head of Finance */}
                 <div className="bg-white/30 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-blue-100">
-                  <div className="w-32 h-32 mx-auto mb-4 bg-gray-200 rounded-lg flex items-center justify-center">
-                    <span className="text-gray-500 text-xs">Profile</span>
+                  <div className="w-32 h-32 mx-auto mb-4 rounded-lg overflow-hidden">
+                    <Image
+                      src="/images/Head of Finance.jpeg"
+                      alt="Lisa Thompson - Head of Finance"
+                      width={128}
+                      height={128}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <h4 className="text-lg font-bold text-gray-800 text-center mb-2">Lisa Thompson</h4>
                   <p className="text-gray-600 text-center text-sm">Head of Finance</p>
