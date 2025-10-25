@@ -169,9 +169,46 @@ export function Footer() {
        </div>
        
        {/* Footer Logo - moved after contact info */}
-       <div className="w-full flex justify-center items-center py-6" style={{ background: '#757575' }}>
-         <img src="/images/footer-logo.png" alt="AQR Footer Logo" className="h-24 w-auto transition-all duration-700 hover:scale-105 hover:shadow-2xl" />
-       </div>
+       (
+        <div className="w-full" style={{ background: '#757575' }}>
+            {/* AQR Footer Logo (Initial Element - Retained Centered) */}
+            <div className="w-full flex justify-center items-center py-6">
+                <img src="/images/footer-logo.png" alt="AQR Footer Logo" className="h-24 w-auto transition-all duration-700 hover:scale-105 hover:shadow-2xl" />
+            </div>
+
+            {/* Partner Logos Section (The Four Logos on one line) */}
+            {/* Main container uses justify-between to push the two groups (left and right) to the screen edges. */}
+            <div className="flex w-full justify-between items-center px-4" style={{ background: '#757575' }}>
+
+                {/* Group 1: Left-aligned logos (Alqudaibi and Odyssey) */}
+                {/* space-x-8 adds horizontal space between Logo 1 and Logo 2 */}
+                <div className="flex items-center space-x-8">
+                    {/* LOGO 1 */}
+                    <div className="py-6">
+                        <img src="/images/Alqudaibi.png" alt="Our partners - Alqudaibi" className="h-24 w-auto transition-all duration-700 hover:scale-105 hover:shadow-2xl" />
+                    </div>
+
+                    {/* LOGO 2 */}
+                    <div className="py-6">
+                        <img src="/images/Odyssey.png" alt="Our partners - Odyssey" className="h-24 w-auto transition-all duration-700 hover:scale-105 hover:shadow-2xl" />
+                    </div>
+                </div>
+
+                {/* Group 2: Right-aligned logos (Grand Canyon and BlueKazi) */}
+                {/* space-x-8 adds horizontal space between Logo 3 and Logo 4 */}
+                <div className="flex items-center space-x-8">
+                    {/* LOGO 3 */}
+                    <div className="py-6">
+                        <img src="/images/Grand Canyon.jpeg" alt="Our partners - Grand Canyon" className="h-24 w-auto transition-all duration-700 hover:scale-105 hover:shadow-2xl" />
+                    </div>
+
+                    {/* LOGO 4 */}
+                    <div className="py-6">
+                        <img src="/images/BlueKazi.jpeg" alt="Our partners - BlueKazi" className="h-24 w-auto transition-all duration-700 hover:scale-105 hover:shadow-2xl" />
+                    </div>
+                </div>
+            </div>
+        </div>
        
        {/* Copyright - moved to very bottom */}
        <div className="py-4 w-full" style={{ background: '#757575' }}>
