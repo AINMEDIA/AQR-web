@@ -103,7 +103,7 @@ export default function ServicesPage() {
             <img
               src="/images/Travel.jpeg"
               alt="Travel Services background"
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute bottom-0 right-0 w-full/4 h-full/4 object-cover"
             />
           </ParallaxBackground>
           
@@ -111,7 +111,7 @@ export default function ServicesPage() {
           <section className="relative py-16 overflow-hidden" data-aos="fade-up">
             <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 relative z-10">
             {/* Travel with AQR Card - Left Column */}
-            <ParallaxSection speed={0.15} direction="left" className="relative rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 border-2 border-blue-100 group cursor-pointer min-h-[450px] md:min-h-[500px] overflow-hidden" data-aos="fade-right">
+            <div className="relative rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 border-2 border-blue-100 group cursor-pointer min-h-[450px] md:min-h-[500px] overflow-hidden" data-aos="fade-right">
                 {/* Full Background Image with Smooth Transitions */}
                 <div className="absolute inset-0">
                   {slideshowImages.map((image, index) => (
@@ -180,13 +180,13 @@ export default function ServicesPage() {
                   </div>
                 </div>
               </div>
-            </ParallaxSection>
+            </div>
             
             {/* Right Column - 3 Cards Stacked Vertically */}
             <div className="flex flex-col gap-4 md:gap-6">
               {/* Car Hire Card */}
               <Link href="/services/tours/transport" className="block">
-                <ParallaxSection speed={0.1} direction="right" className="relative bg-white rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 p-4 md:p-6 flex flex-col items-center text-center border-2 border-blue-100 group cursor-pointer" data-aos="fade-left">
+                <div className="relative bg-white rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 p-4 md:p-6 flex flex-col items-center text-center border-2 border-blue-100 group cursor-pointer" data-aos="fade-left">
                   {/* Standardized Icon */}
                   <div className="mb-2 md:mb-3">
                     <Icon icon={Plane} size="md" />
@@ -194,12 +194,12 @@ export default function ServicesPage() {
                   <h3 className="text-sm md:text-xl font-extrabold mb-1 md:mb-2 text-blue-800 transition-all duration-700 group-hover:text-blue-700 group-hover:scale-105">Car Hire</h3>
                   <p className="text-xs md:text-base text-gray-700 mb-1 md:mb-2 transition-all duration-700 opacity-90 group-hover:opacity-100">Wildlife Safaris, Holiday Packages, Car Hire & Transport Solutions</p>
                   <span className="text-blue-400 font-semibold text-xs md:text-sm transition-all duration-700 group-hover:text-blue-600">Click here to Explore the world with us!</span>
-          </ParallaxSection>
+          </div>
               </Link>
               
               {/* Hotel Booking Card */}
               <Link href="/services/tours/hotels" className="block">
-                <ParallaxSection speed={0.1} direction="right" className="relative bg-white rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 p-4 md:p-6 flex flex-col items-center text-center border-2 border-blue-100 group cursor-pointer" data-aos="fade-left" data-aos-delay="100">
+                <div className="relative bg-white rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 p-4 md:p-6 flex flex-col items-center text-center border-2 border-blue-100 group cursor-pointer" data-aos="fade-left" data-aos-delay="100">
                   {/* Standardized Icon */}
                   <div className="mb-2 md:mb-3">
                     <Icon icon={Building} size="md" />
@@ -207,12 +207,12 @@ export default function ServicesPage() {
                   <h3 className="text-sm md:text-xl font-extrabold mb-1 md:mb-2 text-blue-800 transition-all duration-700 group-hover:text-blue-700 group-hover:scale-105">Hotel Booking</h3>
                   <p className="text-xs md:text-base text-gray-700 mb-1 md:mb-2 transition-all duration-700 opacity-90 group-hover:opacity-100">Premium accommodations with best rates and instant confirmations</p>
                   <span className="text-blue-400 font-semibold text-xs md:text-sm transition-all duration-700 group-hover:text-blue-600">Click here to Book your stay today!</span>
-                </ParallaxSection>
+                </div>
               </Link>
               
               {/* Visa Services Card */}
               <Link href="/services/tours/visa" className="block">
-                <ParallaxSection speed={0.1} direction="right" className="relative bg-white rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 p-4 md:p-6 flex flex-col items-center text-center border-2 border-blue-100 group cursor-pointer" data-aos="fade-left" data-aos-delay="200">
+                <div className="relative bg-white rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 p-4 md:p-6 flex flex-col items-center text-center border-2 border-blue-100 group cursor-pointer" data-aos="fade-left" data-aos-delay="200">
                   {/* Standardized Icon */}
                   <div className="mb-2 md:mb-3">
                     <Icon icon={FileText} size="md" />
@@ -220,7 +220,7 @@ export default function ServicesPage() {
                   <h3 className="text-sm md:text-xl font-extrabold mb-1 md:mb-2 text-blue-800 transition-all duration-700 group-hover:text-blue-700 group-hover:scale-105">Visa Services</h3>
                   <p className="text-xs md:text-base text-gray-700 mb-1 md:mb-2 transition-all duration-700 opacity-90 group-hover:opacity-100">Expert visa processing and documentation assistance</p>
                   <span className="text-blue-400 font-semibold text-xs md:text-sm transition-all duration-700 group-hover:text-blue-600">Click here to Get your visa approved!</span>
-                </ParallaxSection>
+                </div>
               </Link>
             </div>
           </div>
@@ -234,12 +234,12 @@ export default function ServicesPage() {
                   {/* FAQ Section - Left Column */}
                   <div className="bg-white/30 backdrop-blur-sm shadow-2xl p-4 md:p-6 border border-blue-100 relative overflow-hidden" 
                        style={{
-                         clipPath: 'polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 40px 100%, 0 calc(100% - 40px))',
+                        //  clipPath: 'polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 40px 100%, 0 calc(100% - 40px))',
                          borderRadius: '20px'
                        }}>
                     {/* Decorative corner accent */}
-                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-blue-500/20 to-transparent"></div>
-                    <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-blue-500/20 to-transparent"></div>
+                    {/* <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-blue-500/20 to-transparent"></div>
+                    <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-blue-500/20 to-transparent"></div> */}
                     
                     <div className="[&_.bg-gray-50]:bg-transparent [&_.bg-white]:bg-transparent [&_.hover\\:bg-gray-50]:hover:bg-transparent [&_h2]:text-gray-900 [&_h2]:drop-shadow-lg [&_h3]:text-gray-900 [&_h3]:drop-shadow-md [&_p]:text-gray-800 [&_p]:drop-shadow-sm [&_button]:text-gray-900 [&_button]:drop-shadow-md">
                       <FAQSection 
@@ -269,12 +269,12 @@ export default function ServicesPage() {
                   {/* CTA Section - Right Column */}
                   <div className="bg-white/30 backdrop-blur-sm shadow-2xl p-4 md:p-6 border border-blue-100 relative overflow-hidden" 
                        style={{
-                         clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%)',
+                        //  clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%)',
                          borderRadius: '20px'
                        }}>
                     {/* Decorative corner accent */}
-                    <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-blue-500/20 to-transparent"></div>
-                    <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-blue-500/20 to-transparent"></div>
+                    {/* <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-blue-500/20 to-transparent"></div>
+                    <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-blue-500/20 to-transparent"></div> */}
                     
                     {/* Subtle pattern overlay */}
                     <div className="absolute inset-0 opacity-5">

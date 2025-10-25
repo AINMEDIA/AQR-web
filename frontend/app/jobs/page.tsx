@@ -86,13 +86,18 @@ export default function JobsPage() {
           <img
             src="/images/Jobs abroad.jpeg"
             alt="Jobs Abroad background"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute bottom-0 right-5 w-full/4 h-full/4 object-cover"
           />
         </ParallaxBackground>
         
         <section>
           {/* Hero Section */}
           <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden rounded-br-[120px] md:rounded-br-[240px]" >
+          <img
+            src={"/images/Jobs abroad.jpeg"}
+            alt="Hero background for Jobs Abroad"
+            className="absolute inset-0 w-full h-full object-cover"
+        />
             {/* Dark overlay for better text readability */}
             <div className="absolute inset-0 bg-black/40 z-5"></div>
             {/* Centered Content */}
@@ -178,7 +183,7 @@ export default function JobsPage() {
               <div className="space-y-1 md:space-y-6 flex flex-col justify-start">
                  {/* Find Labour Card */}
                  <Link href="/find-labour" className="block">
-                   <ParallaxSection speed={0.1} direction="left" className="relative bg-white rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 p-4 md:p-6 flex flex-col items-center text-center border-2 border-blue-100 group cursor-pointer"
+                   <div className="relative bg-white rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 p-4 md:p-6 flex flex-col items-center text-center border-2 border-blue-100 group cursor-pointer"
                      data-aos="zoom-in"
                      data-aos-delay="200"
                    >
@@ -205,12 +210,12 @@ export default function JobsPage() {
                         </Button>
                       </div>
                     </div>
-                  </ParallaxSection>
+                  </div>
                 </Link>
 
                  {/* Find Work Card */}
                  <Link href="/jobs/categories" className="block">
-                   <ParallaxSection speed={0.1} direction="right" className="relative bg-white rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 p-4 md:p-6 flex flex-col items-center text-center border-2 border-blue-100 group cursor-pointer"
+                   <div className="relative bg-white rounded-xl md:rounded-2xl shadow-xl transition-all duration-500 hover:shadow-2xl hover:scale-105 hover:border-blue-300 p-4 md:p-6 flex flex-col items-center text-center border-2 border-blue-100 group cursor-pointer"
                      data-aos="zoom-in"
                      data-aos-delay="300"
                    >
@@ -237,7 +242,7 @@ export default function JobsPage() {
                         </Button>
                       </div>
                     </div>
-                  </ParallaxSection>
+                  </div>
                 </Link>
               </div>
             </div>
@@ -253,12 +258,12 @@ export default function JobsPage() {
                 {/* FAQ Section - Left Column */}
                 <div className="bg-white/30 backdrop-blur-sm shadow-2xl p-4 md:p-6 border border-blue-100 relative overflow-hidden" 
                      style={{
-                       clipPath: 'polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 40px 100%, 0 calc(100% - 40px))',
+                      //  clipPath: 'polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 40px 100%, 0 calc(100% - 40px))',
                        borderRadius: '20px'
                      }}>
                   {/* Decorative corner accent */}
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-blue-500/20 to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-blue-500/20 to-transparent"></div>
+                  {/* <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-blue-500/20 to-transparent"></div>
+                  <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-blue-500/20 to-transparent"></div> */}
                   
                   <div className="[&_.bg-gray-50]:bg-transparent [&_.bg-white]:bg-transparent [&_.hover\\:bg-gray-50]:hover:bg-transparent [&_h2]:text-gray-900 [&_h2]:drop-shadow-lg [&_h3]:text-gray-900 [&_h3]:drop-shadow-md [&_p]:text-gray-800 [&_p]:drop-shadow-sm [&_button]:text-gray-900 [&_button]:drop-shadow-md">
                     <FAQSection 
@@ -292,12 +297,12 @@ export default function JobsPage() {
                 {/* CTA Section - Right Column */}
                 <div className="bg-white/30 backdrop-blur-sm shadow-2xl p-4 md:p-6 border border-blue-100 relative overflow-hidden" 
                      style={{
-                       clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%)',
+                      //  clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%)',
                        borderRadius: '20px'
                      }}>
                   {/* Decorative corner accent */}
-                  <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-blue-500/20 to-transparent"></div>
-                  <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-blue-500/20 to-transparent"></div>
+                  {/* <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-blue-500/20 to-transparent"></div>
+                  <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-blue-500/20 to-transparent"></div> */}
                   
                   {/* Subtle pattern overlay */}
                   <div className="absolute inset-0 opacity-5">

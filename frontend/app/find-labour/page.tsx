@@ -86,11 +86,21 @@ export default function FindLabourPage() {
       {/* Two-Card Layout Section */}
       <section className="relative py-16 bg-gradient-to-b from-blue-50 to-white overflow-hidden" data-aos="fade-up">
         {/* Parallax Background */}
-        <ParallaxBackground speed={0.25} className="absolute inset-0 w-full h-full opacity-15">
+        <ParallaxBackground speed={0.25} className="absolute inset-0 w-full h-full opacity-10">
           <img
             src="/images/Find labour.jpeg"
             alt="Find Labour background"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full/4 h-full/4 object-cover"
+          />
+           <img
+            src="/images/Find labour.jpeg"
+            alt="Find Labour background"
+            className="absolute right-0 top-0 w-full/4 h-full/4 object-cover"
+          />
+           <img
+            src="/images/Find labour.jpeg"
+            alt="Find Labour background"
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full/4 h-full/4 object-cover"
           />
         </ParallaxBackground>
         <div className="container mx-auto px-4 max-w-7xl relative z-10">
