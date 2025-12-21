@@ -1,0 +1,54 @@
+================================================================================
+AQR-Web Deployment Files - What to Share with Your Hosting Provider
+================================================================================
+
+Since the Docker image is already built and available on Docker Hub, you only 
+need to share these 3 files:
+
+1. docker-compose.yml
+   - Docker Compose configuration for easy deployment
+   - Uses pre-built image from Docker Hub: ainmedia/aqr-web:latest
+
+2. nginx-production.conf
+   - NGINX reverse proxy configuration for production
+   - Includes SSL/HTTPS setup instructions
+   - Security headers and optimizations included
+
+3. DEPLOYMENT-PACKAGE.md
+   - Complete deployment instructions
+   - Multiple deployment options
+   - Troubleshooting guide
+
+================================================================================
+WHAT THEY DON'T NEED:
+================================================================================
+
+❌ Dockerfile - Not needed (image is pre-built on Docker Hub)
+❌ Source code - Not needed (application is containerized)
+❌ package.json - Not needed (dependencies are in the image)
+❌ node_modules - Not needed (included in Docker image)
+
+================================================================================
+QUICK DEPLOYMENT COMMAND:
+================================================================================
+
+The hosting provider can deploy with just ONE command:
+
+    docker run -d -p 3000:3000 --name aqr-web --restart unless-stopped \
+        ainmedia/aqr-web:latest
+
+Or using Docker Compose:
+
+    docker-compose up -d
+
+================================================================================
+DOCKER HUB IMAGE:
+================================================================================
+
+Image Name: ainmedia/aqr-web:latest
+Image Size: ~472MB
+Base: Alpine Linux + Node.js 20
+Status: Ready for production
+
+================================================================================
+

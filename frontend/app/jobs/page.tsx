@@ -265,7 +265,7 @@ export default function JobsPage() {
                   {/* <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-blue-500/20 to-transparent"></div>
                   <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-blue-500/20 to-transparent"></div> */}
                   
-                  <div className="[&_.bg-gray-50]:bg-transparent [&_.bg-white]:bg-transparent [&_.hover\\:bg-gray-50]:hover:bg-transparent [&_h2]:text-gray-900 [&_h2]:drop-shadow-lg [&_h3]:text-gray-900 [&_h3]:drop-shadow-md [&_p]:text-gray-800 [&_p]:drop-shadow-sm [&_button]:text-gray-900 [&_button]:drop-shadow-md">
+                  <div className="[&_.bg-gray-50]:bg-transparent [&_.bg-white]:bg-transparent [&_h2]:text-gray-900 [&_h2]:drop-shadow-lg [&_h3]:text-gray-900 [&_h3]:drop-shadow-md [&_p]:text-gray-800 [&_p]:drop-shadow-sm [&_button]:text-gray-900 [&_button]:drop-shadow-md [&_*:hover]:bg-transparent">
                     <FAQSection 
                       faqs={[
                     {

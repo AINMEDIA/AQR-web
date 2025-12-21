@@ -90,11 +90,22 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
-  const isMobile = isClient && typeof window !== 'undefined' && window.innerWidth < 768;
+  const isMobile = isClient && typeof window !== 'undefined' && window.innerWidth < 1024;
 
-  // Set client-side flag
+  // Set client-side flag and handle resize
   useEffect(() => {
     setIsClient(true);
+    
+    const handleResize = () => {
+      if (typeof window !== 'undefined') {
+        if (window.innerWidth >= 1024) {
+          setIsMobileMenuOpen(false);
+        }
+      }
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   // Handle scroll effect
@@ -147,7 +158,7 @@ export function Navbar() {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className={`fixed top-0 left-0 w-full flex flex-row items-start justify-between z-50 transition-all duration-500 pointer-events-none px-8 ${
+      <nav className={`fixed top-0 left-0 w-full flex flex-row items-start justify-between z-50 transition-all duration-500 pointer-events-none px-4 md:px-8 ${
         isScrolled ? 'bg-white/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}>
         {/* Logo */}
@@ -248,16 +259,16 @@ export function Navbar() {
         </ul>
 
         {/* Mobile Menu Button */}
-        <div className="lg:hidden pointer-events-auto">
+        <div className="lg:hidden pointer-events-auto z-50 flex items-center justify-center">
           <Button
             variant="ghost"
             size="icon"
-            className={`transition-all duration-300 ${
-              isScrolled ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-blue-200'
+            className={`transition-all duration-300 p-2 ${
+              isScrolled ? 'text-gray-700 hover:text-blue-600 hover:bg-gray-100' : 'text-white hover:text-blue-200 hover:bg-white/20'
             }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            <Menu className="h-6 w-6" />
+            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>
 

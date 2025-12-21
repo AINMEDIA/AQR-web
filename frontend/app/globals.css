@@ -60,6 +60,13 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* Optimized scrollbar */
@@ -233,6 +240,11 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 ::selection {
@@ -263,4 +275,23 @@ nav.fixed:not(.bg-white\/90) {
   background-color: transparent !important;
   backdrop-filter: none !important;
   box-shadow: none !important;
+}
+
+/* Mobile overflow prevention */
+@media (max-width: 768px) {
+  /* Prevent horizontal scroll on mobile */
+  .overflow-x-auto {
+    overflow-x: visible !important;
+  }
+  
+  /* Ensure footer content fits on mobile */
+  footer {
+    overflow-x: hidden;
+  }
+  
+  /* Prevent text overflow */
+  .break-words {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
 }

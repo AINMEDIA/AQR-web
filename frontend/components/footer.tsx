@@ -3,6 +3,14 @@
 import Link from "next/link"
 import { Phone, Mail, Facebook, Twitter, Linkedin, Instagram, MapPin, Clock, ArrowRight, Briefcase, Users, Globe, Info, HelpCircle, FileText, ExternalLink, Youtube } from "lucide-react"
 
+interface LogoCardProps {
+  src: string;
+  alt: string;
+  title: string;
+  description: string;
+  className?: string; // className is optional
+}
+
 const footerSections = [
   {
     title: "Services",
@@ -18,7 +26,7 @@ const footerSections = [
     icon: Info,
     links: [
       { href: "/about", label: "About Us", icon: Info },
-      { href: "/about/contact", label: "Contact", icon: Phone },
+      { href: "/about/contact", label: "Contact" },
       { href: "/careers", label: "Careers", icon: Briefcase },
       { href: "/privacy", label: "Privacy Policy", icon: FileText },
     ],
@@ -28,17 +36,32 @@ const footerSections = [
     icon: HelpCircle,
     links: [
       { href: "/help", label: "Help Center", icon: HelpCircle },
-      { href: "/about/contact", label: "Support", icon: Phone },
+      { href: "/about/contact", label: "Support"},
       { href: "/terms", label: "Terms of Service", icon: FileText },
     ],
   },
 ]
 
+// export const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+//   // Check if e.currentTarget is defined before accessing its properties
+//   if (e.currentTarget) {
+//     e.currentTarget.onerror = null;
+//     e.currentTarget.src = 'https://placehold.co/120x40/4F46E5/ffffff?text=Image+Load+Error';
+//   }
+// }
+const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+  // Replace the broken image with a placeholder or log the error
+  const target = e.target as HTMLImageElement;
+  target.onerror = null; // prevents infinite loop if placeholder also fails
+  target.src = "https://placehold.co/100x40/38a169/ffffff?text=Error"; 
+  console.error("Image failed to load:", target.alt);
+};
+
 const socialLinks = [
   { href: "https://facebook.com/aqrweb", icon: Facebook, label: "Facebook", color: "hover:text-blue-400" },
-  { href: "https://twitter.com/aqrweb", icon: Twitter, label: "Twitter", color: "hover:text-blue-400" },
-  { href: "https://linkedin.com/company/aqrweb", icon: Linkedin, label: "LinkedIn", color: "hover:text-blue-400" },
-  { href: "https://instagram.com/aqrweb", icon: Instagram, label: "Instagram", color: "hover:text-blue-400" },
+  // { href: "https://twitter.com/aqrweb", icon: Twitter, label: "Twitter", color: "hover:text-blue-400" },
+  // { href: "https://linkedin.com/company/aqrweb", icon: Linkedin, label: "LinkedIn", color: "hover:text-blue-400" },
+  // { href: "https://instagram.com/aqrweb", icon: Instagram, label: "Instagram", color: "hover:text-blue-400" },
 ]
 
 const contactInfo = [
@@ -62,15 +85,38 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 )
 
+// Logo Card Component - EXPORTED to be used in other files
+export const LogoCard = ({ src, alt, title, description, className = "" }: LogoCardProps) => (
+  // Updated sizing for a more balanced display in the desktop view
+  <div className="w-full h-full p-1.5 bg-slate-400 rounded-md shadow-md transition-all duration-300 transform active:scale-[0.98] cursor-pointer hover:shadow-lg flex flex-col justify-center items-center">
+    <div className="flex justify-center h-6 items-center">
+      <img
+        src={src}
+        alt={alt}
+        // Added the provided hover scale/shadow classes back
+        className={`h-6 w-auto transition-all duration-700 hover:scale-105 ${className}`}
+        onError={handleImageError}
+      />
+    </div>
+    <div className="mt-0.5 text-center px-1">
+      <h2 className="text-xs font-extrabold text-blue-600 leading-tight break-words">{title}</h2>
+      <p className="mt-0.5 text-xs text-blue-600 leading-tight break-words line-clamp-2">
+        {description}
+      </p>
+    </div>
+  </div>
+)
+
+
 export function Footer() {
   return (
-    <footer className="text-white mt-16 w-full" style={{ background: '#757575' }}>
+    <footer className="text-white mt-4 w-full" style={{ background: '#757575' }}>
        {/* Social Links - moved to top */}
-       <div className="py-4 w-full" style={{ background: '#757575' }}>
-         <div className="max-w-7xl mx-auto px-8">
+       <div className="py-1 w-full" style={{ background: '#757575' }}>
+         <div className="max-w-7xl mx-auto px-4">
            <div className="flex flex-col items-center gap-4">
              {/* Social Links */}
-             <div className="flex space-x-4">
+             <div className="flex space-x-24">
                {socialLinks.map((social, index) => (
                  <a 
                    key={social.label}
@@ -90,7 +136,7 @@ export function Footer() {
                  className="transition-all duration-300 hover:scale-110 hover:text-green-400"
                  style={{ animationDelay: '400ms' }}
                >
-                 <Phone className="w-5 h-5" />
+                 {/* <Phone className="w-5 h-5" /> */}
                </a>
                <a 
                  href="https://youtube.com/@aqrweb" 
@@ -103,14 +149,14 @@ export function Footer() {
                  <Youtube className="w-5 h-5" />
                </a>
                <a 
-                 href="https://maps.google.com/?q=Martyrs Mall Kyaliwajara" 
+                 href="https://maps.google.com/?q=Martyrs Mall Kyaliwajara"  
                  target="_blank" 
                  rel="noopener noreferrer" 
                  aria-label="Our Location - Martyrs Mall Kyaliwajara" 
                  className="transition-all duration-300 hover:scale-110 hover:text-orange-400"
                  style={{ animationDelay: '500ms' }}
                >
-                 <MapPin className="w-5 h-5" />
+                 {/* <MapPin className="w-5 h-5" /> */}
                </a>
                <a 
                  href="https://wa.me/256745174879" 
@@ -143,11 +189,11 @@ export function Footer() {
        </div>
        
        {/* Contact Information */}
-       <div className="py-4 w-full" style={{ background: '#757575' }}>
+       <div className="py-1 w-full" style={{ background: '#757575' }}>
          <div className="max-w-7xl mx-auto px-8">
-           <div className="text-center mb-3">
-             <h3 className="text-xl font-semibold text-white mb-2">Get In Touch</h3>
-             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-2">
+           <div className="text-center mb-2">
+             <h3 className="text-lg font-semibold text-white mb-1">Get In Touch</h3>
+             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-1">
                {contactInfo.map((contact, index) => (
                  <div key={index} className="flex flex-col items-center justify-center gap-1 text-white p-1">
                    <contact.icon className="w-4 h-4 text-blue-300 flex-shrink-0" />
@@ -169,49 +215,161 @@ export function Footer() {
        </div>
        
        {/* Footer Logo - moved after contact info */}
-       (
-        <div className="w-full" style={{ background: '#757575' }}>
-            {/* AQR Footer Logo (Initial Element - Retained Centered) */}
-            <div className="w-full flex justify-center items-center py-6">
-                <img src="/images/footer-logo.png" alt="AQR Footer Logo" className="h-24 w-auto transition-all duration-700 hover:scale-105 hover:shadow-2xl" />
+       <div className="w-full bg-[#757575] py-2 font-sans">
+      
+      {/* ---------------------------------------------------- */}
+      {/* --- DESKTOP VIEW (md and up) --- */}
+      {/* ---------------------------------------------------- */}
+      <div className="hidden md:flex flex-col items-center px-4 w-full">
+        
+        {/* Main Title */}
+        <p className="text-lg font-extrabold uppercase text-sky-500 mb-4 tracking-widest border-b-2 border-sky-500 pb-1">
+          Our Global Partners
+        </p>
+
+        {/* Main Logo Row: Uses flex to space content out and control width */}
+        {/* max-w-7xl prevents it from stretching too wide on huge screens */}
+        {/* gap-16 provides generous space between the three main elements */}
+        <div className="flex w-full max-w-7xl justify-center items-start px-8 gap-16">
+
+          {/* === Group 1: Left-aligned partners (Alqudaibi and Odyssey) === */}
+          <div className="flex flex-col items-center w-full max-w-md">
+            <p className="text-sm font-extrabold uppercase text-sky-500 mb-2 tracking-wider border-b-2 border-sky-500 pb-1">Core Partners</p>
+            <div className="flex items-start justify-center space-x-8">
+              
+              {/* LOGO 1: Alqudaibi */}
+              <LogoCard
+                src="/images/Alqudaibi.png"
+                alt="Alqudaibi Group Logo"
+                title="Alqudaibi Group"
+                description="One of the leading Kuwaiti Industrial and commercial groups"
+                className="mix-blend-multiply"
+              />
+
+              {/* LOGO 2: Odyssey */}
+              <LogoCard
+                src="/images/Odyssey.png"
+                alt="Odyssey Logo"
+                title="Odyssey"
+                description="Your journey starts here."
+                className="mix-blend-multiply"
+              />
             </div>
+          </div>
 
-            {/* Partner Logos Section (The Four Logos on one line) */}
-            {/* Main container uses justify-between to push the two groups (left and right) to the screen edges. */}
-            <div className="flex w-full justify-between items-center px-4" style={{ background: '#757575' }}>
+          {/* === Center Logo: AQR Footer Logo === */}
+          {/* This logo is centered and acts as a separator/focal point */}
+          <div className="flex-shrink-0 pt-4">
+            <img 
+              src="/images/footer-logo.png" 
+              alt="AQR Footer Logo" 
+              className="h-16 w-auto transition-all duration-700 hover:scale-105" 
+              onError={handleImageError}
+            />
+          </div>
 
-                {/* Group 1: Left-aligned logos (Alqudaibi and Odyssey) */}
-                {/* space-x-8 adds horizontal space between Logo 1 and Logo 2 */}
-                <div className="flex items-center space-x-8">
-                    {/* LOGO 1 */}
-                    <div className="py-6">
-                        <img src="/images/Alqudaibi.png" alt="Our partners - Alqudaibi" className="h-24 w-auto transition-all duration-700 hover:scale-105 hover:shadow-2xl" />
-                    </div>
+          {/* === Group 2: Right-aligned partners (Grand Canyon and BlueKazi) === */}
+          <div className="flex flex-col items-center w-full max-w-md">
+            <p className="text-sm font-extrabold uppercase text-sky-500 mb-2 tracking-wider border-b-2 border-sky-500 pb-1">Affiliate Partners</p>
+            <div className="flex items-start justify-center space-x-8">
 
-                    {/* LOGO 2 */}
-                    <div className="py-6">
-                        <img src="/images/Odyssey.png" alt="Our partners - Odyssey" className="h-24 w-auto transition-all duration-700 hover:scale-105 hover:shadow-2xl" />
-                    </div>
-                </div>
+              {/* LOGO 3: Grand Canyon */}
+              <LogoCard
+                src="/images/Grand Canyon.jpeg"
+                alt="Grand Canyon Logo"
+                title="Your Workforce"
+                description="Global talent solutions."
+                className="mix-blend-multiply opacity-80"
+              />
 
-                {/* Group 2: Right-aligned logos (Grand Canyon and BlueKazi) */}
-                {/* space-x-8 adds horizontal space between Logo 3 and Logo 4 */}
-                <div className="flex items-center space-x-8">
-                    {/* LOGO 3 */}
-                    <div className="py-6">
-                        <img src="/images/Grand Canyon.jpeg" alt="Our partners - Grand Canyon" className="h-24 w-auto transition-all duration-700 hover:scale-105 hover:shadow-2xl" />
-                    </div>
-
-                    {/* LOGO 4 */}
-                    <div className="py-6">
-                        <img src="/images/BlueKazi.jpeg" alt="Our partners - BlueKazi" className="h-24 w-auto transition-all duration-700 hover:scale-105 hover:shadow-2xl" />
-                    </div>
-                </div>
+              {/* LOGO 4: BlueKazi */}
+              <LogoCard
+                src="/images/BlueKazi.jpeg"
+                alt="BlueKazi Group Logo"
+                title="Bluekazi Group"
+                description="The hands-on recruitment experts"
+                className="mix-blend-multiply"
+              />
             </div>
+          </div>
         </div>
+      </div>
+      
+      
+      {/* ---------------------------------------------------- */}
+      {/* --- MOBILE VIEW (hidden md and up) --- */}
+      {/* ---------------------------------------------------- */}
+        <div 
+        className="md:hidden flex flex-col items-center space-y-4 px-4 py-1 w-full" 
+        style={{ background: '#757575' }}
+      >
+        
+        {/* === Single Horizontal Line: All Partners with Center Logo === */}
+        <div className="flex flex-col items-center w-full">
+          <p className="text-sm font-extrabold uppercase text-sky-500 mb-3 tracking-wider border-b-2 border-sky-500 pb-1">Our Global Partners</p>
+          
+          {/* Single horizontal line with all logos and text - no scrolling */}
+          <div className="flex gap-2 w-full items-center justify-center px-6">
+            {/* LOGO 1: Alqudaibi (Left side) */}
+            <div className="flex flex-col items-center flex-shrink-0 min-w-0 relative z-10">
+              <img
+                src="/images/Alqudaibi.png"
+                alt="Alqudaibi Group Logo"
+                className="h-8 w-auto mix-blend-multiply mb-1"
+                onError={handleImageError}
+              />
+              <span className="hidden md:block text-xs text-white text-center leading-tight">Alqudaibi</span>
+            </div>
+
+            {/* LOGO 2: Odyssey (Left side) */}
+            <div className="flex flex-col items-center flex-shrink-0 min-w-0">
+              <img
+                src="/images/Odyssey.png"
+                alt="Odyssey Logo"
+                className="h-6 w-auto mix-blend-multiply mb-1"
+                onError={handleImageError}
+              />
+              <span className="hidden md:block text-xs text-white text-center leading-tight">Odyssey</span>
+            </div>
+
+            {/* === Center Logo: AQR Footer Logo === */}
+            <div className="flex-shrink-0 px-3">
+              <img 
+                src="/images/footer-logo.png" 
+                alt="AQR Footer Logo" 
+                className="h-10 w-auto transition-all duration-700 hover:scale-105" 
+                onError={handleImageError}
+              />
+            </div>
+
+            {/* LOGO 3: Grand Canyon (Right side) */}
+            <div className="flex flex-col items-center flex-shrink-0 min-w-0">
+              <img
+                src="/images/Grand Canyon.jpeg"
+                alt="Grand Canyon Logo"
+                className="h-6 w-auto mix-blend-multiply opacity-80 mb-1"
+                onError={handleImageError}
+              />
+              <span className="hidden md:block text-xs text-white text-center leading-tight">Workforce</span>
+            </div>
+
+            {/* LOGO 4: BlueKazi (Right side) */}
+            <div className="flex flex-col items-center flex-shrink-0 min-w-0">
+              <img
+                src="/images/BlueKazi.jpeg"
+                alt="BlueKazi Group Logo"
+                className="h-6 w-auto mix-blend-multiply mb-1"
+                onError={handleImageError}
+              />
+              <span className="hidden md:block text-xs text-white text-center leading-tight">Bluekazi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
        
        {/* Copyright - moved to very bottom */}
-       <div className="py-4 w-full" style={{ background: '#757575' }}>
+       <div className="py-1 w-full" style={{ background: '#757575' }}>
          <div className="max-w-7xl mx-auto px-8">
            <div className="text-white text-xs text-center">
              AQR Atlantis Quest & Reality U Ltd © {new Date().getFullYear()}. All rights reserved.
